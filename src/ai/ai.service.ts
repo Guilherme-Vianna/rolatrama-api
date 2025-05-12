@@ -2,6 +2,7 @@
 import { GoogleGenAI } from '@google/genai';
 import { Injectable, OnModuleInit, Logger } from '@nestjs/common';
 import { InMemoryQueueService } from '../queue/in-memory-queue.service';
+import { randomInt } from 'crypto';
 
 @Injectable()
 export class AiService implements OnModuleInit {
@@ -33,8 +34,10 @@ export class AiService implements OnModuleInit {
       this.logger.log('Executando requisição à API Gemini');
 
       try {
+        const models = await this.ai.models.list();
+
         const response = await this.ai.models.generateContent({
-          model: 'gemini-2.0-flash',
+          model: 'gemini-2.5-flash-preview-04-17',
           contents: `
             Instruções:
             - Responda apenas o que foi perguntado, sem introduções ou despedidas
@@ -46,6 +49,7 @@ export class AiService implements OnModuleInit {
             
             Prompt: ${prompt}
           `,
+          config: { temperature: 2.0, seed: randomInt(9999) }
         });
 
         return response.text || "";
