@@ -40,6 +40,22 @@ model towns {
   createdAt           DateTime    @default(now())
   updatedAt           DateTime    @updatedAt
   locations           locations[]
+  npcs                npcs[]
+}
+
+model npcs {
+  id          Int      @id @default(autoincrement())
+  townId      Int
+  town        towns    @relation(fields: [townId], references: [id])
+  name        String
+  race        String
+  age         String
+  description String
+  ocupation   String
+  history     String
+  interest    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model locations {

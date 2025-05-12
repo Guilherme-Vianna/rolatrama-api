@@ -29,6 +29,11 @@ export type password_reset_tokens = $Result.DefaultSelection<Prisma.$password_re
  */
 export type towns = $Result.DefaultSelection<Prisma.$townsPayload>
 /**
+ * Model npcs
+ * 
+ */
+export type npcs = $Result.DefaultSelection<Prisma.$npcsPayload>
+/**
  * Model locations
  * 
  */
@@ -188,6 +193,16 @@ export class PrismaClient<
     * ```
     */
   get towns(): Prisma.townsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.npcs`: Exposes CRUD operations for the **npcs** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Npcs
+    * const npcs = await prisma.npcs.findMany()
+    * ```
+    */
+  get npcs(): Prisma.npcsDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.locations`: Exposes CRUD operations for the **locations** model.
@@ -641,6 +656,7 @@ export namespace Prisma {
     users: 'users',
     password_reset_tokens: 'password_reset_tokens',
     towns: 'towns',
+    npcs: 'npcs',
     locations: 'locations'
   };
 
@@ -660,7 +676,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "users" | "password_reset_tokens" | "towns" | "locations"
+      modelProps: "users" | "password_reset_tokens" | "towns" | "npcs" | "locations"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -886,6 +902,80 @@ export namespace Prisma {
           }
         }
       }
+      npcs: {
+        payload: Prisma.$npcsPayload<ExtArgs>
+        fields: Prisma.npcsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.npcsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$npcsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.npcsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$npcsPayload>
+          }
+          findFirst: {
+            args: Prisma.npcsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$npcsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.npcsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$npcsPayload>
+          }
+          findMany: {
+            args: Prisma.npcsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$npcsPayload>[]
+          }
+          create: {
+            args: Prisma.npcsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$npcsPayload>
+          }
+          createMany: {
+            args: Prisma.npcsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.npcsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$npcsPayload>[]
+          }
+          delete: {
+            args: Prisma.npcsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$npcsPayload>
+          }
+          update: {
+            args: Prisma.npcsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$npcsPayload>
+          }
+          deleteMany: {
+            args: Prisma.npcsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.npcsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.npcsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$npcsPayload>[]
+          }
+          upsert: {
+            args: Prisma.npcsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$npcsPayload>
+          }
+          aggregate: {
+            args: Prisma.NpcsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateNpcs>
+          }
+          groupBy: {
+            args: Prisma.npcsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<NpcsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.npcsCountArgs<ExtArgs>
+            result: $Utils.Optional<NpcsCountAggregateOutputType> | number
+          }
+        }
+      }
       locations: {
         payload: Prisma.$locationsPayload<ExtArgs>
         fields: Prisma.locationsFieldRefs
@@ -1047,6 +1137,7 @@ export namespace Prisma {
     users?: usersOmit
     password_reset_tokens?: password_reset_tokensOmit
     towns?: townsOmit
+    npcs?: npcsOmit
     locations?: locationsOmit
   }
 
@@ -1174,10 +1265,12 @@ export namespace Prisma {
 
   export type TownsCountOutputType = {
     locations: number
+    npcs: number
   }
 
   export type TownsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     locations?: boolean | TownsCountOutputTypeCountLocationsArgs
+    npcs?: boolean | TownsCountOutputTypeCountNpcsArgs
   }
 
   // Custom InputTypes
@@ -1196,6 +1289,13 @@ export namespace Prisma {
    */
   export type TownsCountOutputTypeCountLocationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: locationsWhereInput
+  }
+
+  /**
+   * TownsCountOutputType without action
+   */
+  export type TownsCountOutputTypeCountNpcsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: npcsWhereInput
   }
 
 
@@ -3664,6 +3764,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     locations?: boolean | towns$locationsArgs<ExtArgs>
+    npcs?: boolean | towns$npcsArgs<ExtArgs>
     _count?: boolean | TownsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["towns"]>
 
@@ -3709,6 +3810,7 @@ export namespace Prisma {
   export type townsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "size" | "whether" | "history" | "locationDescription" | "economy" | "criminality" | "createdAt" | "updatedAt", ExtArgs["result"]["towns"]>
   export type townsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     locations?: boolean | towns$locationsArgs<ExtArgs>
+    npcs?: boolean | towns$npcsArgs<ExtArgs>
     _count?: boolean | TownsCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type townsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -3718,6 +3820,7 @@ export namespace Prisma {
     name: "towns"
     objects: {
       locations: Prisma.$locationsPayload<ExtArgs>[]
+      npcs: Prisma.$npcsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4125,6 +4228,7 @@ export namespace Prisma {
   export interface Prisma__townsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     locations<T extends towns$locationsArgs<ExtArgs> = {}>(args?: Subset<T, towns$locationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$locationsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    npcs<T extends towns$npcsArgs<ExtArgs> = {}>(args?: Subset<T, towns$npcsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$npcsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4576,6 +4680,30 @@ export namespace Prisma {
   }
 
   /**
+   * towns.npcs
+   */
+  export type towns$npcsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the npcs
+     */
+    select?: npcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the npcs
+     */
+    omit?: npcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: npcsInclude<ExtArgs> | null
+    where?: npcsWhereInput
+    orderBy?: npcsOrderByWithRelationInput | npcsOrderByWithRelationInput[]
+    cursor?: npcsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: NpcsScalarFieldEnum | NpcsScalarFieldEnum[]
+  }
+
+  /**
    * towns without action
    */
   export type townsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4591,6 +4719,1180 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: townsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model npcs
+   */
+
+  export type AggregateNpcs = {
+    _count: NpcsCountAggregateOutputType | null
+    _avg: NpcsAvgAggregateOutputType | null
+    _sum: NpcsSumAggregateOutputType | null
+    _min: NpcsMinAggregateOutputType | null
+    _max: NpcsMaxAggregateOutputType | null
+  }
+
+  export type NpcsAvgAggregateOutputType = {
+    id: number | null
+    townId: number | null
+  }
+
+  export type NpcsSumAggregateOutputType = {
+    id: number | null
+    townId: number | null
+  }
+
+  export type NpcsMinAggregateOutputType = {
+    id: number | null
+    townId: number | null
+    name: string | null
+    race: string | null
+    age: string | null
+    description: string | null
+    ocupation: string | null
+    history: string | null
+    interest: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type NpcsMaxAggregateOutputType = {
+    id: number | null
+    townId: number | null
+    name: string | null
+    race: string | null
+    age: string | null
+    description: string | null
+    ocupation: string | null
+    history: string | null
+    interest: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type NpcsCountAggregateOutputType = {
+    id: number
+    townId: number
+    name: number
+    race: number
+    age: number
+    description: number
+    ocupation: number
+    history: number
+    interest: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type NpcsAvgAggregateInputType = {
+    id?: true
+    townId?: true
+  }
+
+  export type NpcsSumAggregateInputType = {
+    id?: true
+    townId?: true
+  }
+
+  export type NpcsMinAggregateInputType = {
+    id?: true
+    townId?: true
+    name?: true
+    race?: true
+    age?: true
+    description?: true
+    ocupation?: true
+    history?: true
+    interest?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type NpcsMaxAggregateInputType = {
+    id?: true
+    townId?: true
+    name?: true
+    race?: true
+    age?: true
+    description?: true
+    ocupation?: true
+    history?: true
+    interest?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type NpcsCountAggregateInputType = {
+    id?: true
+    townId?: true
+    name?: true
+    race?: true
+    age?: true
+    description?: true
+    ocupation?: true
+    history?: true
+    interest?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type NpcsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which npcs to aggregate.
+     */
+    where?: npcsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of npcs to fetch.
+     */
+    orderBy?: npcsOrderByWithRelationInput | npcsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: npcsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` npcs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` npcs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned npcs
+    **/
+    _count?: true | NpcsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: NpcsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: NpcsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NpcsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NpcsMaxAggregateInputType
+  }
+
+  export type GetNpcsAggregateType<T extends NpcsAggregateArgs> = {
+        [P in keyof T & keyof AggregateNpcs]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNpcs[P]>
+      : GetScalarType<T[P], AggregateNpcs[P]>
+  }
+
+
+
+
+  export type npcsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: npcsWhereInput
+    orderBy?: npcsOrderByWithAggregationInput | npcsOrderByWithAggregationInput[]
+    by: NpcsScalarFieldEnum[] | NpcsScalarFieldEnum
+    having?: npcsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NpcsCountAggregateInputType | true
+    _avg?: NpcsAvgAggregateInputType
+    _sum?: NpcsSumAggregateInputType
+    _min?: NpcsMinAggregateInputType
+    _max?: NpcsMaxAggregateInputType
+  }
+
+  export type NpcsGroupByOutputType = {
+    id: number
+    townId: number
+    name: string
+    race: string
+    age: string
+    description: string
+    ocupation: string
+    history: string
+    interest: string
+    createdAt: Date
+    updatedAt: Date
+    _count: NpcsCountAggregateOutputType | null
+    _avg: NpcsAvgAggregateOutputType | null
+    _sum: NpcsSumAggregateOutputType | null
+    _min: NpcsMinAggregateOutputType | null
+    _max: NpcsMaxAggregateOutputType | null
+  }
+
+  type GetNpcsGroupByPayload<T extends npcsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NpcsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NpcsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NpcsGroupByOutputType[P]>
+            : GetScalarType<T[P], NpcsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type npcsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    townId?: boolean
+    name?: boolean
+    race?: boolean
+    age?: boolean
+    description?: boolean
+    ocupation?: boolean
+    history?: boolean
+    interest?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    town?: boolean | townsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["npcs"]>
+
+  export type npcsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    townId?: boolean
+    name?: boolean
+    race?: boolean
+    age?: boolean
+    description?: boolean
+    ocupation?: boolean
+    history?: boolean
+    interest?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    town?: boolean | townsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["npcs"]>
+
+  export type npcsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    townId?: boolean
+    name?: boolean
+    race?: boolean
+    age?: boolean
+    description?: boolean
+    ocupation?: boolean
+    history?: boolean
+    interest?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    town?: boolean | townsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["npcs"]>
+
+  export type npcsSelectScalar = {
+    id?: boolean
+    townId?: boolean
+    name?: boolean
+    race?: boolean
+    age?: boolean
+    description?: boolean
+    ocupation?: boolean
+    history?: boolean
+    interest?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type npcsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "townId" | "name" | "race" | "age" | "description" | "ocupation" | "history" | "interest" | "createdAt" | "updatedAt", ExtArgs["result"]["npcs"]>
+  export type npcsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    town?: boolean | townsDefaultArgs<ExtArgs>
+  }
+  export type npcsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    town?: boolean | townsDefaultArgs<ExtArgs>
+  }
+  export type npcsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    town?: boolean | townsDefaultArgs<ExtArgs>
+  }
+
+  export type $npcsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "npcs"
+    objects: {
+      town: Prisma.$townsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      townId: number
+      name: string
+      race: string
+      age: string
+      description: string
+      ocupation: string
+      history: string
+      interest: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["npcs"]>
+    composites: {}
+  }
+
+  type npcsGetPayload<S extends boolean | null | undefined | npcsDefaultArgs> = $Result.GetResult<Prisma.$npcsPayload, S>
+
+  type npcsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<npcsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: NpcsCountAggregateInputType | true
+    }
+
+  export interface npcsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['npcs'], meta: { name: 'npcs' } }
+    /**
+     * Find zero or one Npcs that matches the filter.
+     * @param {npcsFindUniqueArgs} args - Arguments to find a Npcs
+     * @example
+     * // Get one Npcs
+     * const npcs = await prisma.npcs.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends npcsFindUniqueArgs>(args: SelectSubset<T, npcsFindUniqueArgs<ExtArgs>>): Prisma__npcsClient<$Result.GetResult<Prisma.$npcsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Npcs that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {npcsFindUniqueOrThrowArgs} args - Arguments to find a Npcs
+     * @example
+     * // Get one Npcs
+     * const npcs = await prisma.npcs.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends npcsFindUniqueOrThrowArgs>(args: SelectSubset<T, npcsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__npcsClient<$Result.GetResult<Prisma.$npcsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Npcs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {npcsFindFirstArgs} args - Arguments to find a Npcs
+     * @example
+     * // Get one Npcs
+     * const npcs = await prisma.npcs.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends npcsFindFirstArgs>(args?: SelectSubset<T, npcsFindFirstArgs<ExtArgs>>): Prisma__npcsClient<$Result.GetResult<Prisma.$npcsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Npcs that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {npcsFindFirstOrThrowArgs} args - Arguments to find a Npcs
+     * @example
+     * // Get one Npcs
+     * const npcs = await prisma.npcs.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends npcsFindFirstOrThrowArgs>(args?: SelectSubset<T, npcsFindFirstOrThrowArgs<ExtArgs>>): Prisma__npcsClient<$Result.GetResult<Prisma.$npcsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Npcs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {npcsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Npcs
+     * const npcs = await prisma.npcs.findMany()
+     * 
+     * // Get first 10 Npcs
+     * const npcs = await prisma.npcs.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const npcsWithIdOnly = await prisma.npcs.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends npcsFindManyArgs>(args?: SelectSubset<T, npcsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$npcsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Npcs.
+     * @param {npcsCreateArgs} args - Arguments to create a Npcs.
+     * @example
+     * // Create one Npcs
+     * const Npcs = await prisma.npcs.create({
+     *   data: {
+     *     // ... data to create a Npcs
+     *   }
+     * })
+     * 
+     */
+    create<T extends npcsCreateArgs>(args: SelectSubset<T, npcsCreateArgs<ExtArgs>>): Prisma__npcsClient<$Result.GetResult<Prisma.$npcsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Npcs.
+     * @param {npcsCreateManyArgs} args - Arguments to create many Npcs.
+     * @example
+     * // Create many Npcs
+     * const npcs = await prisma.npcs.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends npcsCreateManyArgs>(args?: SelectSubset<T, npcsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Npcs and returns the data saved in the database.
+     * @param {npcsCreateManyAndReturnArgs} args - Arguments to create many Npcs.
+     * @example
+     * // Create many Npcs
+     * const npcs = await prisma.npcs.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Npcs and only return the `id`
+     * const npcsWithIdOnly = await prisma.npcs.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends npcsCreateManyAndReturnArgs>(args?: SelectSubset<T, npcsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$npcsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Npcs.
+     * @param {npcsDeleteArgs} args - Arguments to delete one Npcs.
+     * @example
+     * // Delete one Npcs
+     * const Npcs = await prisma.npcs.delete({
+     *   where: {
+     *     // ... filter to delete one Npcs
+     *   }
+     * })
+     * 
+     */
+    delete<T extends npcsDeleteArgs>(args: SelectSubset<T, npcsDeleteArgs<ExtArgs>>): Prisma__npcsClient<$Result.GetResult<Prisma.$npcsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Npcs.
+     * @param {npcsUpdateArgs} args - Arguments to update one Npcs.
+     * @example
+     * // Update one Npcs
+     * const npcs = await prisma.npcs.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends npcsUpdateArgs>(args: SelectSubset<T, npcsUpdateArgs<ExtArgs>>): Prisma__npcsClient<$Result.GetResult<Prisma.$npcsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Npcs.
+     * @param {npcsDeleteManyArgs} args - Arguments to filter Npcs to delete.
+     * @example
+     * // Delete a few Npcs
+     * const { count } = await prisma.npcs.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends npcsDeleteManyArgs>(args?: SelectSubset<T, npcsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Npcs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {npcsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Npcs
+     * const npcs = await prisma.npcs.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends npcsUpdateManyArgs>(args: SelectSubset<T, npcsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Npcs and returns the data updated in the database.
+     * @param {npcsUpdateManyAndReturnArgs} args - Arguments to update many Npcs.
+     * @example
+     * // Update many Npcs
+     * const npcs = await prisma.npcs.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Npcs and only return the `id`
+     * const npcsWithIdOnly = await prisma.npcs.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends npcsUpdateManyAndReturnArgs>(args: SelectSubset<T, npcsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$npcsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Npcs.
+     * @param {npcsUpsertArgs} args - Arguments to update or create a Npcs.
+     * @example
+     * // Update or create a Npcs
+     * const npcs = await prisma.npcs.upsert({
+     *   create: {
+     *     // ... data to create a Npcs
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Npcs we want to update
+     *   }
+     * })
+     */
+    upsert<T extends npcsUpsertArgs>(args: SelectSubset<T, npcsUpsertArgs<ExtArgs>>): Prisma__npcsClient<$Result.GetResult<Prisma.$npcsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Npcs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {npcsCountArgs} args - Arguments to filter Npcs to count.
+     * @example
+     * // Count the number of Npcs
+     * const count = await prisma.npcs.count({
+     *   where: {
+     *     // ... the filter for the Npcs we want to count
+     *   }
+     * })
+    **/
+    count<T extends npcsCountArgs>(
+      args?: Subset<T, npcsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NpcsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Npcs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NpcsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NpcsAggregateArgs>(args: Subset<T, NpcsAggregateArgs>): Prisma.PrismaPromise<GetNpcsAggregateType<T>>
+
+    /**
+     * Group by Npcs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {npcsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends npcsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: npcsGroupByArgs['orderBy'] }
+        : { orderBy?: npcsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, npcsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNpcsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the npcs model
+   */
+  readonly fields: npcsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for npcs.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__npcsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    town<T extends townsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, townsDefaultArgs<ExtArgs>>): Prisma__townsClient<$Result.GetResult<Prisma.$townsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the npcs model
+   */
+  interface npcsFieldRefs {
+    readonly id: FieldRef<"npcs", 'Int'>
+    readonly townId: FieldRef<"npcs", 'Int'>
+    readonly name: FieldRef<"npcs", 'String'>
+    readonly race: FieldRef<"npcs", 'String'>
+    readonly age: FieldRef<"npcs", 'String'>
+    readonly description: FieldRef<"npcs", 'String'>
+    readonly ocupation: FieldRef<"npcs", 'String'>
+    readonly history: FieldRef<"npcs", 'String'>
+    readonly interest: FieldRef<"npcs", 'String'>
+    readonly createdAt: FieldRef<"npcs", 'DateTime'>
+    readonly updatedAt: FieldRef<"npcs", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * npcs findUnique
+   */
+  export type npcsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the npcs
+     */
+    select?: npcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the npcs
+     */
+    omit?: npcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: npcsInclude<ExtArgs> | null
+    /**
+     * Filter, which npcs to fetch.
+     */
+    where: npcsWhereUniqueInput
+  }
+
+  /**
+   * npcs findUniqueOrThrow
+   */
+  export type npcsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the npcs
+     */
+    select?: npcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the npcs
+     */
+    omit?: npcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: npcsInclude<ExtArgs> | null
+    /**
+     * Filter, which npcs to fetch.
+     */
+    where: npcsWhereUniqueInput
+  }
+
+  /**
+   * npcs findFirst
+   */
+  export type npcsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the npcs
+     */
+    select?: npcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the npcs
+     */
+    omit?: npcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: npcsInclude<ExtArgs> | null
+    /**
+     * Filter, which npcs to fetch.
+     */
+    where?: npcsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of npcs to fetch.
+     */
+    orderBy?: npcsOrderByWithRelationInput | npcsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for npcs.
+     */
+    cursor?: npcsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` npcs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` npcs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of npcs.
+     */
+    distinct?: NpcsScalarFieldEnum | NpcsScalarFieldEnum[]
+  }
+
+  /**
+   * npcs findFirstOrThrow
+   */
+  export type npcsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the npcs
+     */
+    select?: npcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the npcs
+     */
+    omit?: npcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: npcsInclude<ExtArgs> | null
+    /**
+     * Filter, which npcs to fetch.
+     */
+    where?: npcsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of npcs to fetch.
+     */
+    orderBy?: npcsOrderByWithRelationInput | npcsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for npcs.
+     */
+    cursor?: npcsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` npcs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` npcs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of npcs.
+     */
+    distinct?: NpcsScalarFieldEnum | NpcsScalarFieldEnum[]
+  }
+
+  /**
+   * npcs findMany
+   */
+  export type npcsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the npcs
+     */
+    select?: npcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the npcs
+     */
+    omit?: npcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: npcsInclude<ExtArgs> | null
+    /**
+     * Filter, which npcs to fetch.
+     */
+    where?: npcsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of npcs to fetch.
+     */
+    orderBy?: npcsOrderByWithRelationInput | npcsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing npcs.
+     */
+    cursor?: npcsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` npcs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` npcs.
+     */
+    skip?: number
+    distinct?: NpcsScalarFieldEnum | NpcsScalarFieldEnum[]
+  }
+
+  /**
+   * npcs create
+   */
+  export type npcsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the npcs
+     */
+    select?: npcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the npcs
+     */
+    omit?: npcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: npcsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a npcs.
+     */
+    data: XOR<npcsCreateInput, npcsUncheckedCreateInput>
+  }
+
+  /**
+   * npcs createMany
+   */
+  export type npcsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many npcs.
+     */
+    data: npcsCreateManyInput | npcsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * npcs createManyAndReturn
+   */
+  export type npcsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the npcs
+     */
+    select?: npcsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the npcs
+     */
+    omit?: npcsOmit<ExtArgs> | null
+    /**
+     * The data used to create many npcs.
+     */
+    data: npcsCreateManyInput | npcsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: npcsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * npcs update
+   */
+  export type npcsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the npcs
+     */
+    select?: npcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the npcs
+     */
+    omit?: npcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: npcsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a npcs.
+     */
+    data: XOR<npcsUpdateInput, npcsUncheckedUpdateInput>
+    /**
+     * Choose, which npcs to update.
+     */
+    where: npcsWhereUniqueInput
+  }
+
+  /**
+   * npcs updateMany
+   */
+  export type npcsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update npcs.
+     */
+    data: XOR<npcsUpdateManyMutationInput, npcsUncheckedUpdateManyInput>
+    /**
+     * Filter which npcs to update
+     */
+    where?: npcsWhereInput
+    /**
+     * Limit how many npcs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * npcs updateManyAndReturn
+   */
+  export type npcsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the npcs
+     */
+    select?: npcsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the npcs
+     */
+    omit?: npcsOmit<ExtArgs> | null
+    /**
+     * The data used to update npcs.
+     */
+    data: XOR<npcsUpdateManyMutationInput, npcsUncheckedUpdateManyInput>
+    /**
+     * Filter which npcs to update
+     */
+    where?: npcsWhereInput
+    /**
+     * Limit how many npcs to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: npcsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * npcs upsert
+   */
+  export type npcsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the npcs
+     */
+    select?: npcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the npcs
+     */
+    omit?: npcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: npcsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the npcs to update in case it exists.
+     */
+    where: npcsWhereUniqueInput
+    /**
+     * In case the npcs found by the `where` argument doesn't exist, create a new npcs with this data.
+     */
+    create: XOR<npcsCreateInput, npcsUncheckedCreateInput>
+    /**
+     * In case the npcs was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<npcsUpdateInput, npcsUncheckedUpdateInput>
+  }
+
+  /**
+   * npcs delete
+   */
+  export type npcsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the npcs
+     */
+    select?: npcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the npcs
+     */
+    omit?: npcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: npcsInclude<ExtArgs> | null
+    /**
+     * Filter which npcs to delete.
+     */
+    where: npcsWhereUniqueInput
+  }
+
+  /**
+   * npcs deleteMany
+   */
+  export type npcsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which npcs to delete
+     */
+    where?: npcsWhereInput
+    /**
+     * Limit how many npcs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * npcs without action
+   */
+  export type npcsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the npcs
+     */
+    select?: npcsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the npcs
+     */
+    omit?: npcsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: npcsInclude<ExtArgs> | null
   }
 
 
@@ -5757,6 +7059,23 @@ export namespace Prisma {
   export type TownsScalarFieldEnum = (typeof TownsScalarFieldEnum)[keyof typeof TownsScalarFieldEnum]
 
 
+  export const NpcsScalarFieldEnum: {
+    id: 'id',
+    townId: 'townId',
+    name: 'name',
+    race: 'race',
+    age: 'age',
+    description: 'description',
+    ocupation: 'ocupation',
+    history: 'history',
+    interest: 'interest',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type NpcsScalarFieldEnum = (typeof NpcsScalarFieldEnum)[keyof typeof NpcsScalarFieldEnum]
+
+
   export const LocationsScalarFieldEnum: {
     id: 'id',
     townId: 'townId',
@@ -5988,6 +7307,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"towns"> | Date | string
     updatedAt?: DateTimeFilter<"towns"> | Date | string
     locations?: LocationsListRelationFilter
+    npcs?: NpcsListRelationFilter
   }
 
   export type townsOrderByWithRelationInput = {
@@ -6002,6 +7322,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     locations?: locationsOrderByRelationAggregateInput
+    npcs?: npcsOrderByRelationAggregateInput
   }
 
   export type townsWhereUniqueInput = Prisma.AtLeast<{
@@ -6019,6 +7340,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"towns"> | Date | string
     updatedAt?: DateTimeFilter<"towns"> | Date | string
     locations?: LocationsListRelationFilter
+    npcs?: NpcsListRelationFilter
   }, "id">
 
   export type townsOrderByWithAggregationInput = {
@@ -6053,6 +7375,93 @@ export namespace Prisma {
     criminality?: StringWithAggregatesFilter<"towns"> | string
     createdAt?: DateTimeWithAggregatesFilter<"towns"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"towns"> | Date | string
+  }
+
+  export type npcsWhereInput = {
+    AND?: npcsWhereInput | npcsWhereInput[]
+    OR?: npcsWhereInput[]
+    NOT?: npcsWhereInput | npcsWhereInput[]
+    id?: IntFilter<"npcs"> | number
+    townId?: IntFilter<"npcs"> | number
+    name?: StringFilter<"npcs"> | string
+    race?: StringFilter<"npcs"> | string
+    age?: StringFilter<"npcs"> | string
+    description?: StringFilter<"npcs"> | string
+    ocupation?: StringFilter<"npcs"> | string
+    history?: StringFilter<"npcs"> | string
+    interest?: StringFilter<"npcs"> | string
+    createdAt?: DateTimeFilter<"npcs"> | Date | string
+    updatedAt?: DateTimeFilter<"npcs"> | Date | string
+    town?: XOR<TownsScalarRelationFilter, townsWhereInput>
+  }
+
+  export type npcsOrderByWithRelationInput = {
+    id?: SortOrder
+    townId?: SortOrder
+    name?: SortOrder
+    race?: SortOrder
+    age?: SortOrder
+    description?: SortOrder
+    ocupation?: SortOrder
+    history?: SortOrder
+    interest?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    town?: townsOrderByWithRelationInput
+  }
+
+  export type npcsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: npcsWhereInput | npcsWhereInput[]
+    OR?: npcsWhereInput[]
+    NOT?: npcsWhereInput | npcsWhereInput[]
+    townId?: IntFilter<"npcs"> | number
+    name?: StringFilter<"npcs"> | string
+    race?: StringFilter<"npcs"> | string
+    age?: StringFilter<"npcs"> | string
+    description?: StringFilter<"npcs"> | string
+    ocupation?: StringFilter<"npcs"> | string
+    history?: StringFilter<"npcs"> | string
+    interest?: StringFilter<"npcs"> | string
+    createdAt?: DateTimeFilter<"npcs"> | Date | string
+    updatedAt?: DateTimeFilter<"npcs"> | Date | string
+    town?: XOR<TownsScalarRelationFilter, townsWhereInput>
+  }, "id">
+
+  export type npcsOrderByWithAggregationInput = {
+    id?: SortOrder
+    townId?: SortOrder
+    name?: SortOrder
+    race?: SortOrder
+    age?: SortOrder
+    description?: SortOrder
+    ocupation?: SortOrder
+    history?: SortOrder
+    interest?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: npcsCountOrderByAggregateInput
+    _avg?: npcsAvgOrderByAggregateInput
+    _max?: npcsMaxOrderByAggregateInput
+    _min?: npcsMinOrderByAggregateInput
+    _sum?: npcsSumOrderByAggregateInput
+  }
+
+  export type npcsScalarWhereWithAggregatesInput = {
+    AND?: npcsScalarWhereWithAggregatesInput | npcsScalarWhereWithAggregatesInput[]
+    OR?: npcsScalarWhereWithAggregatesInput[]
+    NOT?: npcsScalarWhereWithAggregatesInput | npcsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"npcs"> | number
+    townId?: IntWithAggregatesFilter<"npcs"> | number
+    name?: StringWithAggregatesFilter<"npcs"> | string
+    race?: StringWithAggregatesFilter<"npcs"> | string
+    age?: StringWithAggregatesFilter<"npcs"> | string
+    description?: StringWithAggregatesFilter<"npcs"> | string
+    ocupation?: StringWithAggregatesFilter<"npcs"> | string
+    history?: StringWithAggregatesFilter<"npcs"> | string
+    interest?: StringWithAggregatesFilter<"npcs"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"npcs"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"npcs"> | Date | string
   }
 
   export type locationsWhereInput = {
@@ -6251,6 +7660,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     locations?: locationsCreateNestedManyWithoutTownInput
+    npcs?: npcsCreateNestedManyWithoutTownInput
   }
 
   export type townsUncheckedCreateInput = {
@@ -6265,6 +7675,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     locations?: locationsUncheckedCreateNestedManyWithoutTownInput
+    npcs?: npcsUncheckedCreateNestedManyWithoutTownInput
   }
 
   export type townsUpdateInput = {
@@ -6278,6 +7689,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     locations?: locationsUpdateManyWithoutTownNestedInput
+    npcs?: npcsUpdateManyWithoutTownNestedInput
   }
 
   export type townsUncheckedUpdateInput = {
@@ -6292,6 +7704,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     locations?: locationsUncheckedUpdateManyWithoutTownNestedInput
+    npcs?: npcsUncheckedUpdateManyWithoutTownNestedInput
   }
 
   export type townsCreateManyInput = {
@@ -6328,6 +7741,100 @@ export namespace Prisma {
     locationDescription?: StringFieldUpdateOperationsInput | string
     economy?: StringFieldUpdateOperationsInput | string
     criminality?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type npcsCreateInput = {
+    name: string
+    race: string
+    age: string
+    description: string
+    ocupation: string
+    history: string
+    interest: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    town: townsCreateNestedOneWithoutNpcsInput
+  }
+
+  export type npcsUncheckedCreateInput = {
+    id?: number
+    townId: number
+    name: string
+    race: string
+    age: string
+    description: string
+    ocupation: string
+    history: string
+    interest: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type npcsUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    race?: StringFieldUpdateOperationsInput | string
+    age?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    ocupation?: StringFieldUpdateOperationsInput | string
+    history?: StringFieldUpdateOperationsInput | string
+    interest?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    town?: townsUpdateOneRequiredWithoutNpcsNestedInput
+  }
+
+  export type npcsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    townId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    race?: StringFieldUpdateOperationsInput | string
+    age?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    ocupation?: StringFieldUpdateOperationsInput | string
+    history?: StringFieldUpdateOperationsInput | string
+    interest?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type npcsCreateManyInput = {
+    id?: number
+    townId: number
+    name: string
+    race: string
+    age: string
+    description: string
+    ocupation: string
+    history: string
+    interest: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type npcsUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    race?: StringFieldUpdateOperationsInput | string
+    age?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    ocupation?: StringFieldUpdateOperationsInput | string
+    history?: StringFieldUpdateOperationsInput | string
+    interest?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type npcsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    townId?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    race?: StringFieldUpdateOperationsInput | string
+    age?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    ocupation?: StringFieldUpdateOperationsInput | string
+    history?: StringFieldUpdateOperationsInput | string
+    interest?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -6575,7 +8082,17 @@ export namespace Prisma {
     none?: locationsWhereInput
   }
 
+  export type NpcsListRelationFilter = {
+    every?: npcsWhereInput
+    some?: npcsWhereInput
+    none?: npcsWhereInput
+  }
+
   export type locationsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type npcsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -6629,6 +8146,58 @@ export namespace Prisma {
   export type TownsScalarRelationFilter = {
     is?: townsWhereInput
     isNot?: townsWhereInput
+  }
+
+  export type npcsCountOrderByAggregateInput = {
+    id?: SortOrder
+    townId?: SortOrder
+    name?: SortOrder
+    race?: SortOrder
+    age?: SortOrder
+    description?: SortOrder
+    ocupation?: SortOrder
+    history?: SortOrder
+    interest?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type npcsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    townId?: SortOrder
+  }
+
+  export type npcsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    townId?: SortOrder
+    name?: SortOrder
+    race?: SortOrder
+    age?: SortOrder
+    description?: SortOrder
+    ocupation?: SortOrder
+    history?: SortOrder
+    interest?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type npcsMinOrderByAggregateInput = {
+    id?: SortOrder
+    townId?: SortOrder
+    name?: SortOrder
+    race?: SortOrder
+    age?: SortOrder
+    description?: SortOrder
+    ocupation?: SortOrder
+    history?: SortOrder
+    interest?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type npcsSumOrderByAggregateInput = {
+    id?: SortOrder
+    townId?: SortOrder
   }
 
   export type locationsCountOrderByAggregateInput = {
@@ -6756,11 +8325,25 @@ export namespace Prisma {
     connect?: locationsWhereUniqueInput | locationsWhereUniqueInput[]
   }
 
+  export type npcsCreateNestedManyWithoutTownInput = {
+    create?: XOR<npcsCreateWithoutTownInput, npcsUncheckedCreateWithoutTownInput> | npcsCreateWithoutTownInput[] | npcsUncheckedCreateWithoutTownInput[]
+    connectOrCreate?: npcsCreateOrConnectWithoutTownInput | npcsCreateOrConnectWithoutTownInput[]
+    createMany?: npcsCreateManyTownInputEnvelope
+    connect?: npcsWhereUniqueInput | npcsWhereUniqueInput[]
+  }
+
   export type locationsUncheckedCreateNestedManyWithoutTownInput = {
     create?: XOR<locationsCreateWithoutTownInput, locationsUncheckedCreateWithoutTownInput> | locationsCreateWithoutTownInput[] | locationsUncheckedCreateWithoutTownInput[]
     connectOrCreate?: locationsCreateOrConnectWithoutTownInput | locationsCreateOrConnectWithoutTownInput[]
     createMany?: locationsCreateManyTownInputEnvelope
     connect?: locationsWhereUniqueInput | locationsWhereUniqueInput[]
+  }
+
+  export type npcsUncheckedCreateNestedManyWithoutTownInput = {
+    create?: XOR<npcsCreateWithoutTownInput, npcsUncheckedCreateWithoutTownInput> | npcsCreateWithoutTownInput[] | npcsUncheckedCreateWithoutTownInput[]
+    connectOrCreate?: npcsCreateOrConnectWithoutTownInput | npcsCreateOrConnectWithoutTownInput[]
+    createMany?: npcsCreateManyTownInputEnvelope
+    connect?: npcsWhereUniqueInput | npcsWhereUniqueInput[]
   }
 
   export type locationsUpdateManyWithoutTownNestedInput = {
@@ -6777,6 +8360,20 @@ export namespace Prisma {
     deleteMany?: locationsScalarWhereInput | locationsScalarWhereInput[]
   }
 
+  export type npcsUpdateManyWithoutTownNestedInput = {
+    create?: XOR<npcsCreateWithoutTownInput, npcsUncheckedCreateWithoutTownInput> | npcsCreateWithoutTownInput[] | npcsUncheckedCreateWithoutTownInput[]
+    connectOrCreate?: npcsCreateOrConnectWithoutTownInput | npcsCreateOrConnectWithoutTownInput[]
+    upsert?: npcsUpsertWithWhereUniqueWithoutTownInput | npcsUpsertWithWhereUniqueWithoutTownInput[]
+    createMany?: npcsCreateManyTownInputEnvelope
+    set?: npcsWhereUniqueInput | npcsWhereUniqueInput[]
+    disconnect?: npcsWhereUniqueInput | npcsWhereUniqueInput[]
+    delete?: npcsWhereUniqueInput | npcsWhereUniqueInput[]
+    connect?: npcsWhereUniqueInput | npcsWhereUniqueInput[]
+    update?: npcsUpdateWithWhereUniqueWithoutTownInput | npcsUpdateWithWhereUniqueWithoutTownInput[]
+    updateMany?: npcsUpdateManyWithWhereWithoutTownInput | npcsUpdateManyWithWhereWithoutTownInput[]
+    deleteMany?: npcsScalarWhereInput | npcsScalarWhereInput[]
+  }
+
   export type locationsUncheckedUpdateManyWithoutTownNestedInput = {
     create?: XOR<locationsCreateWithoutTownInput, locationsUncheckedCreateWithoutTownInput> | locationsCreateWithoutTownInput[] | locationsUncheckedCreateWithoutTownInput[]
     connectOrCreate?: locationsCreateOrConnectWithoutTownInput | locationsCreateOrConnectWithoutTownInput[]
@@ -6789,6 +8386,34 @@ export namespace Prisma {
     update?: locationsUpdateWithWhereUniqueWithoutTownInput | locationsUpdateWithWhereUniqueWithoutTownInput[]
     updateMany?: locationsUpdateManyWithWhereWithoutTownInput | locationsUpdateManyWithWhereWithoutTownInput[]
     deleteMany?: locationsScalarWhereInput | locationsScalarWhereInput[]
+  }
+
+  export type npcsUncheckedUpdateManyWithoutTownNestedInput = {
+    create?: XOR<npcsCreateWithoutTownInput, npcsUncheckedCreateWithoutTownInput> | npcsCreateWithoutTownInput[] | npcsUncheckedCreateWithoutTownInput[]
+    connectOrCreate?: npcsCreateOrConnectWithoutTownInput | npcsCreateOrConnectWithoutTownInput[]
+    upsert?: npcsUpsertWithWhereUniqueWithoutTownInput | npcsUpsertWithWhereUniqueWithoutTownInput[]
+    createMany?: npcsCreateManyTownInputEnvelope
+    set?: npcsWhereUniqueInput | npcsWhereUniqueInput[]
+    disconnect?: npcsWhereUniqueInput | npcsWhereUniqueInput[]
+    delete?: npcsWhereUniqueInput | npcsWhereUniqueInput[]
+    connect?: npcsWhereUniqueInput | npcsWhereUniqueInput[]
+    update?: npcsUpdateWithWhereUniqueWithoutTownInput | npcsUpdateWithWhereUniqueWithoutTownInput[]
+    updateMany?: npcsUpdateManyWithWhereWithoutTownInput | npcsUpdateManyWithWhereWithoutTownInput[]
+    deleteMany?: npcsScalarWhereInput | npcsScalarWhereInput[]
+  }
+
+  export type townsCreateNestedOneWithoutNpcsInput = {
+    create?: XOR<townsCreateWithoutNpcsInput, townsUncheckedCreateWithoutNpcsInput>
+    connectOrCreate?: townsCreateOrConnectWithoutNpcsInput
+    connect?: townsWhereUniqueInput
+  }
+
+  export type townsUpdateOneRequiredWithoutNpcsNestedInput = {
+    create?: XOR<townsCreateWithoutNpcsInput, townsUncheckedCreateWithoutNpcsInput>
+    connectOrCreate?: townsCreateOrConnectWithoutNpcsInput
+    upsert?: townsUpsertWithoutNpcsInput
+    connect?: townsWhereUniqueInput
+    update?: XOR<XOR<townsUpdateToOneWithWhereWithoutNpcsInput, townsUpdateWithoutNpcsInput>, townsUncheckedUpdateWithoutNpcsInput>
   }
 
   export type townsCreateNestedOneWithoutLocationsInput = {
@@ -7028,6 +8653,41 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type npcsCreateWithoutTownInput = {
+    name: string
+    race: string
+    age: string
+    description: string
+    ocupation: string
+    history: string
+    interest: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type npcsUncheckedCreateWithoutTownInput = {
+    id?: number
+    name: string
+    race: string
+    age: string
+    description: string
+    ocupation: string
+    history: string
+    interest: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type npcsCreateOrConnectWithoutTownInput = {
+    where: npcsWhereUniqueInput
+    create: XOR<npcsCreateWithoutTownInput, npcsUncheckedCreateWithoutTownInput>
+  }
+
+  export type npcsCreateManyTownInputEnvelope = {
+    data: npcsCreateManyTownInput | npcsCreateManyTownInput[]
+    skipDuplicates?: boolean
+  }
+
   export type locationsUpsertWithWhereUniqueWithoutTownInput = {
     where: locationsWhereUniqueInput
     update: XOR<locationsUpdateWithoutTownInput, locationsUncheckedUpdateWithoutTownInput>
@@ -7056,6 +8716,109 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"locations"> | Date | string
   }
 
+  export type npcsUpsertWithWhereUniqueWithoutTownInput = {
+    where: npcsWhereUniqueInput
+    update: XOR<npcsUpdateWithoutTownInput, npcsUncheckedUpdateWithoutTownInput>
+    create: XOR<npcsCreateWithoutTownInput, npcsUncheckedCreateWithoutTownInput>
+  }
+
+  export type npcsUpdateWithWhereUniqueWithoutTownInput = {
+    where: npcsWhereUniqueInput
+    data: XOR<npcsUpdateWithoutTownInput, npcsUncheckedUpdateWithoutTownInput>
+  }
+
+  export type npcsUpdateManyWithWhereWithoutTownInput = {
+    where: npcsScalarWhereInput
+    data: XOR<npcsUpdateManyMutationInput, npcsUncheckedUpdateManyWithoutTownInput>
+  }
+
+  export type npcsScalarWhereInput = {
+    AND?: npcsScalarWhereInput | npcsScalarWhereInput[]
+    OR?: npcsScalarWhereInput[]
+    NOT?: npcsScalarWhereInput | npcsScalarWhereInput[]
+    id?: IntFilter<"npcs"> | number
+    townId?: IntFilter<"npcs"> | number
+    name?: StringFilter<"npcs"> | string
+    race?: StringFilter<"npcs"> | string
+    age?: StringFilter<"npcs"> | string
+    description?: StringFilter<"npcs"> | string
+    ocupation?: StringFilter<"npcs"> | string
+    history?: StringFilter<"npcs"> | string
+    interest?: StringFilter<"npcs"> | string
+    createdAt?: DateTimeFilter<"npcs"> | Date | string
+    updatedAt?: DateTimeFilter<"npcs"> | Date | string
+  }
+
+  export type townsCreateWithoutNpcsInput = {
+    name?: string
+    size: string
+    whether: string
+    history: string
+    locationDescription: string
+    economy: string
+    criminality: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    locations?: locationsCreateNestedManyWithoutTownInput
+  }
+
+  export type townsUncheckedCreateWithoutNpcsInput = {
+    id?: number
+    name?: string
+    size: string
+    whether: string
+    history: string
+    locationDescription: string
+    economy: string
+    criminality: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    locations?: locationsUncheckedCreateNestedManyWithoutTownInput
+  }
+
+  export type townsCreateOrConnectWithoutNpcsInput = {
+    where: townsWhereUniqueInput
+    create: XOR<townsCreateWithoutNpcsInput, townsUncheckedCreateWithoutNpcsInput>
+  }
+
+  export type townsUpsertWithoutNpcsInput = {
+    update: XOR<townsUpdateWithoutNpcsInput, townsUncheckedUpdateWithoutNpcsInput>
+    create: XOR<townsCreateWithoutNpcsInput, townsUncheckedCreateWithoutNpcsInput>
+    where?: townsWhereInput
+  }
+
+  export type townsUpdateToOneWithWhereWithoutNpcsInput = {
+    where?: townsWhereInput
+    data: XOR<townsUpdateWithoutNpcsInput, townsUncheckedUpdateWithoutNpcsInput>
+  }
+
+  export type townsUpdateWithoutNpcsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    size?: StringFieldUpdateOperationsInput | string
+    whether?: StringFieldUpdateOperationsInput | string
+    history?: StringFieldUpdateOperationsInput | string
+    locationDescription?: StringFieldUpdateOperationsInput | string
+    economy?: StringFieldUpdateOperationsInput | string
+    criminality?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    locations?: locationsUpdateManyWithoutTownNestedInput
+  }
+
+  export type townsUncheckedUpdateWithoutNpcsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    size?: StringFieldUpdateOperationsInput | string
+    whether?: StringFieldUpdateOperationsInput | string
+    history?: StringFieldUpdateOperationsInput | string
+    locationDescription?: StringFieldUpdateOperationsInput | string
+    economy?: StringFieldUpdateOperationsInput | string
+    criminality?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    locations?: locationsUncheckedUpdateManyWithoutTownNestedInput
+  }
+
   export type townsCreateWithoutLocationsInput = {
     name?: string
     size: string
@@ -7066,6 +8829,7 @@ export namespace Prisma {
     criminality: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    npcs?: npcsCreateNestedManyWithoutTownInput
   }
 
   export type townsUncheckedCreateWithoutLocationsInput = {
@@ -7079,6 +8843,7 @@ export namespace Prisma {
     criminality: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    npcs?: npcsUncheckedCreateNestedManyWithoutTownInput
   }
 
   export type townsCreateOrConnectWithoutLocationsInput = {
@@ -7107,6 +8872,7 @@ export namespace Prisma {
     criminality?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    npcs?: npcsUpdateManyWithoutTownNestedInput
   }
 
   export type townsUncheckedUpdateWithoutLocationsInput = {
@@ -7120,6 +8886,7 @@ export namespace Prisma {
     criminality?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    npcs?: npcsUncheckedUpdateManyWithoutTownNestedInput
   }
 
   export type password_reset_tokensCreateManyUserInput = {
@@ -7157,6 +8924,19 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
+  export type npcsCreateManyTownInput = {
+    id?: number
+    name: string
+    race: string
+    age: string
+    description: string
+    ocupation: string
+    history: string
+    interest: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
   export type locationsUpdateWithoutTownInput = {
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
@@ -7176,6 +8956,44 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type npcsUpdateWithoutTownInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    race?: StringFieldUpdateOperationsInput | string
+    age?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    ocupation?: StringFieldUpdateOperationsInput | string
+    history?: StringFieldUpdateOperationsInput | string
+    interest?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type npcsUncheckedUpdateWithoutTownInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    race?: StringFieldUpdateOperationsInput | string
+    age?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    ocupation?: StringFieldUpdateOperationsInput | string
+    history?: StringFieldUpdateOperationsInput | string
+    interest?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type npcsUncheckedUpdateManyWithoutTownInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    race?: StringFieldUpdateOperationsInput | string
+    age?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    ocupation?: StringFieldUpdateOperationsInput | string
+    history?: StringFieldUpdateOperationsInput | string
+    interest?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

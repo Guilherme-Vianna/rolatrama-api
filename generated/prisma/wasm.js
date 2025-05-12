@@ -148,6 +148,20 @@ exports.Prisma.TownsScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.NpcsScalarFieldEnum = {
+  id: 'id',
+  townId: 'townId',
+  name: 'name',
+  race: 'race',
+  age: 'age',
+  description: 'description',
+  ocupation: 'ocupation',
+  history: 'history',
+  interest: 'interest',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.LocationsScalarFieldEnum = {
   id: 'id',
   townId: 'townId',
@@ -172,6 +186,7 @@ exports.Prisma.ModelName = {
   users: 'users',
   password_reset_tokens: 'password_reset_tokens',
   towns: 'towns',
+  npcs: 'npcs',
   locations: 'locations'
 };
 

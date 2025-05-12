@@ -17,6 +17,15 @@ export class LocationsService {
     }
   }
 
+  async generateTown(): Promise<Town> {
+    try {
+      const town = await this.generateTownDetails((await this.generateTownName(1))[0])
+      return town;
+    } catch (error) {
+      throw new Error(`Failed to generate content: ${error.message}`);
+    }
+  }
+
   async generateTownDetails(townName: string): Promise<Town> {
     try {
       const response = await this.aiService.generateContent(`gere as seguintes informacoes sobre a cidade ${townName}: tamanho, clima, breve historia, descricao do local, economia, criminalidade. Me de a resposta separada pro virgula em ordem de pedido e seja breve na descricao`)

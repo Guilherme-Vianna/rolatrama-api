@@ -22,6 +22,12 @@ export class AiController {
     return { data: await this.locations.generateTownName(quantity) }
   }
 
+  @Get("generate/town")
+  async generateTown(
+  ) {
+    return { data: await this.locations.generateTown() }
+  }
+
   @Get("generate/town/details")
   async generateTownDetails(
     @Query('townName') name: string,
@@ -43,5 +49,11 @@ export class AiController {
     @Query('quantity', new ParseIntPipe({ errorHttpStatusCode: HttpStatus.BAD_REQUEST })) quantity: number,
   ) {
     return { data: await this.npcs.generateNpc(await this.prismaService.towns.findUniqueOrThrow({ where: { id: townId } }), quantity) }
+  }
+
+  @Get("towns")
+  async getAllTowns(
+  ) {
+    return this.prismaService.towns.findMany();
   }
 }
