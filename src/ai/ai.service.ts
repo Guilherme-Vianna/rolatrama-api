@@ -37,7 +37,7 @@ export class AiService implements OnModuleInit {
         const models = await this.ai.models.list();
 
         const response = await this.ai.models.generateContent({
-          model: 'gemini-2.5-flash-preview-04-17',
+          model: 'gemini-2.0-flash',
           contents: `
             Instruções:
             - Responda apenas o que foi perguntado, sem introduções ou despedidas

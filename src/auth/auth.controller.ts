@@ -34,12 +34,14 @@ export class AuthController {
     });
 
     return {
-      access_token: token,
-      user: {
-        id: user.id,
-        email: user.email,
-        name: user.name,
-      },
+      data: {
+        access_token: token,
+        user: {
+          id: user.id,
+          email: user.email,
+          name: user.name,
+        },
+      }
     };
   }
 }
