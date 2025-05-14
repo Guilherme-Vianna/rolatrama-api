@@ -1,9 +1,11 @@
-import { Body, Controller, Get, HttpStatus, Param, ParseIntPipe, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, HttpStatus, Param, ParseIntPipe, Post, Query, UseGuards } from '@nestjs/common';
 import { AiService } from './ai.service';
 import { LocationsService } from 'src/locations/locations.service';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { NpcsService } from 'src/npcs/npcs.service';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
+@UseGuards(JwtAuthGuard)
 @Controller('ai')
 export class AiController {
   constructor(private readonly aiService: AiService, private readonly locations: LocationsService, private readonly prismaService: PrismaService, private readonly npcs: NpcsService) { }
