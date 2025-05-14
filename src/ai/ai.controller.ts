@@ -61,4 +61,10 @@ export class AiController {
   ) {
     return { data: await this.prismaService.towns.findMany() }
   }
+
+  @Get("npcs")
+  async getAllNpcs(
+  ) {
+    return { data: await this.prismaService.npcs.findMany() }
+  }
 }
