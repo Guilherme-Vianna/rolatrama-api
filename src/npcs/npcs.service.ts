@@ -8,39 +8,50 @@ export class NpcsService {
   constructor(private readonly aiService: AiService, private readonly prismaService: PrismaService) {
   }
 
-  async generateNpc(town: Town, quantity: number): Promise<Prisma.BatchPayload> {
+  async generateNpc(town?: Town): Promise<any> {
     try {
-      const request = await this.aiService.generateContent(`gere ${quantity} 
-        npcs nesse formado: nome sobrenome,raca,idade,profissao,descricao,historia,interesse\n
-        tem que ser racas baseadas em tolkien a o npc tem que ter relacao com o local \n
-        separe cada um com um ';' \n
-        historia do local: ${town.history}
-        economia do local: ${town.economy}
-        criminalidade do local: ${town.criminality}
-        seja criativo`)
+      const request = await this.aiService.generateContent(`gere 1 
+      npc nesse formado: nome sobrenome,raca,idade,profissao,descricao,historia,interesse\n
+      tem que ser racas baseadas em tolkien a o npc tem que ter relacao com o local \n
+      ${town ? (`historia do local: ${town.history}
+      economia do local: ${town.economy}
+      criminalidade do local: ${town.criminality}`) : ""}
+      seja criativo`);
 
-      let npcs: Prisma.npcsCreateManyInput[] = [];
+      // Split the first NPC data (ignoring any additional ones)
+      const npcData = request.split(';')[0];
+      const parts = npcData.split(',');
 
-      request.split(';').forEach(element => {
-        npcs.push({
-          name: element.split(',')[0].trim(),
-          race: element.split(',')[1].trim(),
-          age: element.split(',')[2].trim(),
-          ocupation: element.split(',')[3],
-          description: element.split(',')[4],
-          history: element.split(',')[5],
-          interest: element.split(',')[6],
-          townId: town.id
-        });
-      });
+      if (parts.length < 7) {
+        throw new Error('Invalid NPC data format received from AI service');
+      }
 
-      const response = await this.prismaService.npcs.createMany({
-        data: npcs
+      const name = parts[0].trim();
+      const race = parts[1].trim();
+      const age = parts[2].trim();
+      const ocupation = parts[3].trim();
+      const description = parts[4].trim();
+      const history = parts[5].trim();
+      const interest = parts[6].trim();
+      const townId = town ? town.id : null;
+
+      // Create a single NPC
+      const response = await this.prismaService.npcs.create({
+        data: {
+          name,
+          race,
+          age,
+          ocupation,
+          description,
+          history,
+          interest,
+          townId
+        }
       });
 
       return response;
     } catch (error) {
-      throw new Error(`Failed to generate content: ${error.message}`);
+      throw new Error(`Failed to generate NPC: ${error.message}`);
     }
   }
 }

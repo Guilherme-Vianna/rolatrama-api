@@ -47,15 +47,18 @@ export class AiController {
 
   @Get("generate/npcs")
   async generateNpcs(
-    @Query('townId', new ParseIntPipe({ errorHttpStatusCode: HttpStatus.BAD_REQUEST })) townId: number,
-    @Query('quantity', new ParseIntPipe({ errorHttpStatusCode: HttpStatus.BAD_REQUEST })) quantity: number,
+    @Query('townId', new ParseIntPipe({ errorHttpStatusCode: HttpStatus.BAD_REQUEST, optional: true })) townId?: number,
   ) {
-    return { data: await this.npcs.generateNpc(await this.prismaService.towns.findUniqueOrThrow({ where: { id: townId } }), quantity) }
+    let town: Town | undefined;
+    if (townId) {
+      town = await this.prismaService.towns.findUniqueOrThrow({ where: { id: townId } })
+    }
+    return { data: await this.npcs.generateNpc(town) }
   }
 
   @Get("towns")
   async getAllTowns(
   ) {
-    return this.prismaService.towns.findMany();
+    return { data: await this.prismaService.towns.findMany() }
   }
 }

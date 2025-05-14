@@ -4929,7 +4929,7 @@ export namespace Prisma {
 
   export type NpcsGroupByOutputType = {
     id: number
-    townId: number
+    townId: number | null
     name: string
     race: string
     age: string
@@ -4972,7 +4972,7 @@ export namespace Prisma {
     interest?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    town?: boolean | townsDefaultArgs<ExtArgs>
+    town?: boolean | npcs$townArgs<ExtArgs>
   }, ExtArgs["result"]["npcs"]>
 
   export type npcsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -4987,7 +4987,7 @@ export namespace Prisma {
     interest?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    town?: boolean | townsDefaultArgs<ExtArgs>
+    town?: boolean | npcs$townArgs<ExtArgs>
   }, ExtArgs["result"]["npcs"]>
 
   export type npcsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -5002,7 +5002,7 @@ export namespace Prisma {
     interest?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    town?: boolean | townsDefaultArgs<ExtArgs>
+    town?: boolean | npcs$townArgs<ExtArgs>
   }, ExtArgs["result"]["npcs"]>
 
   export type npcsSelectScalar = {
@@ -5021,23 +5021,23 @@ export namespace Prisma {
 
   export type npcsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "townId" | "name" | "race" | "age" | "description" | "ocupation" | "history" | "interest" | "createdAt" | "updatedAt", ExtArgs["result"]["npcs"]>
   export type npcsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    town?: boolean | townsDefaultArgs<ExtArgs>
+    town?: boolean | npcs$townArgs<ExtArgs>
   }
   export type npcsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    town?: boolean | townsDefaultArgs<ExtArgs>
+    town?: boolean | npcs$townArgs<ExtArgs>
   }
   export type npcsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    town?: boolean | townsDefaultArgs<ExtArgs>
+    town?: boolean | npcs$townArgs<ExtArgs>
   }
 
   export type $npcsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "npcs"
     objects: {
-      town: Prisma.$townsPayload<ExtArgs>
+      town: Prisma.$townsPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      townId: number
+      townId: number | null
       name: string
       race: string
       age: string
@@ -5441,7 +5441,7 @@ export namespace Prisma {
    */
   export interface Prisma__npcsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    town<T extends townsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, townsDefaultArgs<ExtArgs>>): Prisma__townsClient<$Result.GetResult<Prisma.$townsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    town<T extends npcs$townArgs<ExtArgs> = {}>(args?: Subset<T, npcs$townArgs<ExtArgs>>): Prisma__townsClient<$Result.GetResult<Prisma.$townsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5875,6 +5875,25 @@ export namespace Prisma {
      * Limit how many npcs to delete.
      */
     limit?: number
+  }
+
+  /**
+   * npcs.town
+   */
+  export type npcs$townArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the towns
+     */
+    select?: townsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the towns
+     */
+    omit?: townsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: townsInclude<ExtArgs> | null
+    where?: townsWhereInput
   }
 
   /**
@@ -7104,6 +7123,14 @@ export namespace Prisma {
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
   /**
    * Field references
    */
@@ -7382,7 +7409,7 @@ export namespace Prisma {
     OR?: npcsWhereInput[]
     NOT?: npcsWhereInput | npcsWhereInput[]
     id?: IntFilter<"npcs"> | number
-    townId?: IntFilter<"npcs"> | number
+    townId?: IntNullableFilter<"npcs"> | number | null
     name?: StringFilter<"npcs"> | string
     race?: StringFilter<"npcs"> | string
     age?: StringFilter<"npcs"> | string
@@ -7392,12 +7419,12 @@ export namespace Prisma {
     interest?: StringFilter<"npcs"> | string
     createdAt?: DateTimeFilter<"npcs"> | Date | string
     updatedAt?: DateTimeFilter<"npcs"> | Date | string
-    town?: XOR<TownsScalarRelationFilter, townsWhereInput>
+    town?: XOR<TownsNullableScalarRelationFilter, townsWhereInput> | null
   }
 
   export type npcsOrderByWithRelationInput = {
     id?: SortOrder
-    townId?: SortOrder
+    townId?: SortOrderInput | SortOrder
     name?: SortOrder
     race?: SortOrder
     age?: SortOrder
@@ -7415,7 +7442,7 @@ export namespace Prisma {
     AND?: npcsWhereInput | npcsWhereInput[]
     OR?: npcsWhereInput[]
     NOT?: npcsWhereInput | npcsWhereInput[]
-    townId?: IntFilter<"npcs"> | number
+    townId?: IntNullableFilter<"npcs"> | number | null
     name?: StringFilter<"npcs"> | string
     race?: StringFilter<"npcs"> | string
     age?: StringFilter<"npcs"> | string
@@ -7425,12 +7452,12 @@ export namespace Prisma {
     interest?: StringFilter<"npcs"> | string
     createdAt?: DateTimeFilter<"npcs"> | Date | string
     updatedAt?: DateTimeFilter<"npcs"> | Date | string
-    town?: XOR<TownsScalarRelationFilter, townsWhereInput>
+    town?: XOR<TownsNullableScalarRelationFilter, townsWhereInput> | null
   }, "id">
 
   export type npcsOrderByWithAggregationInput = {
     id?: SortOrder
-    townId?: SortOrder
+    townId?: SortOrderInput | SortOrder
     name?: SortOrder
     race?: SortOrder
     age?: SortOrder
@@ -7452,7 +7479,7 @@ export namespace Prisma {
     OR?: npcsScalarWhereWithAggregatesInput[]
     NOT?: npcsScalarWhereWithAggregatesInput | npcsScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"npcs"> | number
-    townId?: IntWithAggregatesFilter<"npcs"> | number
+    townId?: IntNullableWithAggregatesFilter<"npcs"> | number | null
     name?: StringWithAggregatesFilter<"npcs"> | string
     race?: StringWithAggregatesFilter<"npcs"> | string
     age?: StringWithAggregatesFilter<"npcs"> | string
@@ -7755,12 +7782,12 @@ export namespace Prisma {
     interest: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    town: townsCreateNestedOneWithoutNpcsInput
+    town?: townsCreateNestedOneWithoutNpcsInput
   }
 
   export type npcsUncheckedCreateInput = {
     id?: number
-    townId: number
+    townId?: number | null
     name: string
     race: string
     age: string
@@ -7782,12 +7809,12 @@ export namespace Prisma {
     interest?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    town?: townsUpdateOneRequiredWithoutNpcsNestedInput
+    town?: townsUpdateOneWithoutNpcsNestedInput
   }
 
   export type npcsUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    townId?: IntFieldUpdateOperationsInput | number
+    townId?: NullableIntFieldUpdateOperationsInput | number | null
     name?: StringFieldUpdateOperationsInput | string
     race?: StringFieldUpdateOperationsInput | string
     age?: StringFieldUpdateOperationsInput | string
@@ -7801,7 +7828,7 @@ export namespace Prisma {
 
   export type npcsCreateManyInput = {
     id?: number
-    townId: number
+    townId?: number | null
     name: string
     race: string
     age: string
@@ -7827,7 +7854,7 @@ export namespace Prisma {
 
   export type npcsUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    townId?: IntFieldUpdateOperationsInput | number
+    townId?: NullableIntFieldUpdateOperationsInput | number | null
     name?: StringFieldUpdateOperationsInput | string
     race?: StringFieldUpdateOperationsInput | string
     age?: StringFieldUpdateOperationsInput | string
@@ -8143,9 +8170,25 @@ export namespace Prisma {
     id?: SortOrder
   }
 
-  export type TownsScalarRelationFilter = {
-    is?: townsWhereInput
-    isNot?: townsWhereInput
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type TownsNullableScalarRelationFilter = {
+    is?: townsWhereInput | null
+    isNot?: townsWhereInput | null
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
   }
 
   export type npcsCountOrderByAggregateInput = {
@@ -8198,6 +8241,27 @@ export namespace Prisma {
   export type npcsSumOrderByAggregateInput = {
     id?: SortOrder
     townId?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type TownsScalarRelationFilter = {
+    is?: townsWhereInput
+    isNot?: townsWhereInput
   }
 
   export type locationsCountOrderByAggregateInput = {
@@ -8408,12 +8472,22 @@ export namespace Prisma {
     connect?: townsWhereUniqueInput
   }
 
-  export type townsUpdateOneRequiredWithoutNpcsNestedInput = {
+  export type townsUpdateOneWithoutNpcsNestedInput = {
     create?: XOR<townsCreateWithoutNpcsInput, townsUncheckedCreateWithoutNpcsInput>
     connectOrCreate?: townsCreateOrConnectWithoutNpcsInput
     upsert?: townsUpsertWithoutNpcsInput
+    disconnect?: townsWhereInput | boolean
+    delete?: townsWhereInput | boolean
     connect?: townsWhereUniqueInput
     update?: XOR<XOR<townsUpdateToOneWithWhereWithoutNpcsInput, townsUpdateWithoutNpcsInput>, townsUncheckedUpdateWithoutNpcsInput>
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type townsCreateNestedOneWithoutLocationsInput = {
@@ -8522,6 +8596,44 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
   export type password_reset_tokensCreateWithoutUserInput = {
@@ -8737,7 +8849,7 @@ export namespace Prisma {
     OR?: npcsScalarWhereInput[]
     NOT?: npcsScalarWhereInput | npcsScalarWhereInput[]
     id?: IntFilter<"npcs"> | number
-    townId?: IntFilter<"npcs"> | number
+    townId?: IntNullableFilter<"npcs"> | number | null
     name?: StringFilter<"npcs"> | string
     race?: StringFilter<"npcs"> | string
     age?: StringFilter<"npcs"> | string

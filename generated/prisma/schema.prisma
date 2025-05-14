@@ -45,8 +45,8 @@ model towns {
 
 model npcs {
   id          Int      @id @default(autoincrement())
-  townId      Int
-  town        towns    @relation(fields: [townId], references: [id])
+  townId      Int?
+  town        towns?   @relation(fields: [townId], references: [id])
   name        String
   race        String
   age         String
