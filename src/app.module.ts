@@ -6,6 +6,7 @@ import { AiModule } from './ai/ai.module';
 import { LocationsService } from './locations/locations.service';
 import { NpcsService } from './npcs/npcs.service';
 import { QueueModule } from './queue/queue.module';
+import { SheetModule } from './sheet/sheet.module';
 
 @Module({
   imports: [
@@ -13,7 +14,8 @@ import { QueueModule } from './queue/queue.module';
     UserModule,
     QueueModule,
     AuthModule,
-    AiModule
+    AiModule,
+    SheetModule
   ],
   providers: [LocationsService, NpcsService],
   exports: [LocationsService],

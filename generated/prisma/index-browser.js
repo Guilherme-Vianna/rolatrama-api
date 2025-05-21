@@ -171,9 +171,20 @@ exports.Prisma.LocationsScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.SheetsScalarFieldEnum = {
+  id: 'id',
+  data: 'data',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
+};
+
+exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
 };
 
 exports.Prisma.QueryMode = {
@@ -186,13 +197,20 @@ exports.Prisma.NullsOrder = {
   last: 'last'
 };
 
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
+};
+
 
 exports.Prisma.ModelName = {
   users: 'users',
   password_reset_tokens: 'password_reset_tokens',
   towns: 'towns',
   npcs: 'npcs',
-  locations: 'locations'
+  locations: 'locations',
+  sheets: 'sheets'
 };
 
 /**
