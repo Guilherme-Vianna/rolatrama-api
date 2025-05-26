@@ -5,13 +5,20 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class SheetService {
   constructor(private readonly prisma: PrismaService) { }
 
-  async create(data: any): Promise<any> {
-    console.log(data)
-    return this.prisma.sheets.create({
-      data: {
-        data: data
-      }
-    })
+  async getAll(): Promise<any> {
+    const data = await this.prisma.sheets.findMany()
+    return {data: data}
+  }
+
+  async getById(id: number): Promise<any> {
+    return this.prisma.sheets.findUniqueOrThrow({ where: { id } })
+  }
+
+  async create(): Promise<any> {
+    const data = await this.prisma.sheets.create({data: {
+        data: ""
+      }})
+    return { data: data }
   }
 
   async update(data: any, id: number): Promise<any> {

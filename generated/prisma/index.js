@@ -205,8 +205,7 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "debian-openssl-3.0.x",
-        "native": true
+        "value": "linux-musl-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
@@ -233,8 +232,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel users {\n  id                 Int                     @id @default(autoincrement())\n  email              String                  @unique\n  password           String\n  name               String\n  recoveryTokens     String[]\n  createdAt          DateTime                @default(now())\n  updatedAt          DateTime                @updatedAt\n  PasswordResetToken password_reset_tokens[]\n}\n\nmodel password_reset_tokens {\n  id        Int      @id @default(autoincrement())\n  token     String   @unique\n  userId    Int\n  user      users    @relation(fields: [userId], references: [id])\n  expiresAt DateTime\n  createdAt DateTime @default(now())\n}\n\nmodel towns {\n  id                  Int         @id @default(autoincrement())\n  name                String      @default(\"NO_NAME\")\n  size                String\n  whether             String\n  history             String\n  locationDescription String\n  economy             String\n  criminality         String\n  createdAt           DateTime    @default(now())\n  updatedAt           DateTime    @updatedAt\n  locations           locations[]\n  npcs                npcs[]\n}\n\nmodel npcs {\n  id          Int      @id @default(autoincrement())\n  townId      Int?\n  town        towns?   @relation(fields: [townId], references: [id])\n  name        String\n  race        String\n  age         String\n  description String\n  ocupation   String\n  history     String\n  interest    String\n  createdAt   DateTime @default(now())\n  updatedAt   DateTime @updatedAt\n}\n\nmodel locations {\n  id          Int      @id @default(autoincrement())\n  townId      Int\n  town        towns    @relation(fields: [townId], references: [id])\n  name        String\n  description String\n  createdAt   DateTime @default(now())\n  updatedAt   DateTime @updatedAt\n}\n\nmodel sheets {\n  id        Int      @id @default(autoincrement())\n  data      Json\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n",
-  "inlineSchemaHash": "3d49dd086f1d38c8298da4e7f78b3616da6230e53c13b5edb838b52062b60b5d",
+  "inlineSchema": "generator client {\n  provider      = \"prisma-client-js\"\n  output        = \"../generated/prisma\"\n  binaryTargets = [\"linux-musl-openssl-3.0.x\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel users {\n  id                 Int                     @id @default(autoincrement())\n  email              String                  @unique\n  password           String\n  name               String\n  recoveryTokens     String[]\n  createdAt          DateTime                @default(now())\n  updatedAt          DateTime                @updatedAt\n  PasswordResetToken password_reset_tokens[]\n}\n\nmodel password_reset_tokens {\n  id        Int      @id @default(autoincrement())\n  token     String   @unique\n  userId    Int\n  user      users    @relation(fields: [userId], references: [id])\n  expiresAt DateTime\n  createdAt DateTime @default(now())\n}\n\nmodel towns {\n  id                  Int         @id @default(autoincrement())\n  name                String      @default(\"NO_NAME\")\n  size                String\n  whether             String\n  history             String\n  locationDescription String\n  economy             String\n  criminality         String\n  createdAt           DateTime    @default(now())\n  updatedAt           DateTime    @updatedAt\n  locations           locations[]\n  npcs                npcs[]\n}\n\nmodel npcs {\n  id          Int      @id @default(autoincrement())\n  townId      Int?\n  town        towns?   @relation(fields: [townId], references: [id])\n  name        String\n  race        String\n  age         String\n  description String\n  ocupation   String\n  history     String\n  interest    String\n  createdAt   DateTime @default(now())\n  updatedAt   DateTime @updatedAt\n}\n\nmodel locations {\n  id          Int      @id @default(autoincrement())\n  townId      Int\n  town        towns    @relation(fields: [townId], references: [id])\n  name        String\n  description String\n  createdAt   DateTime @default(now())\n  updatedAt   DateTime @updatedAt\n}\n\nmodel sheets {\n  id        Int      @id @default(autoincrement())\n  data      Json\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n",
+  "inlineSchemaHash": "85fe1a8003174f7cf15f54dc042283df4eabf751357f364e57fe7992e37c9e4d",
   "copyEngine": true
 }
 
@@ -273,8 +272,8 @@ exports.PrismaClient = PrismaClient
 Object.assign(exports, Prisma)
 
 // file annotations for bundling tools to include these files
-path.join(__dirname, "libquery_engine-debian-openssl-3.0.x.so.node");
-path.join(process.cwd(), "generated/prisma/libquery_engine-debian-openssl-3.0.x.so.node")
+path.join(__dirname, "libquery_engine-linux-musl-openssl-3.0.x.so.node");
+path.join(process.cwd(), "generated/prisma/libquery_engine-linux-musl-openssl-3.0.x.so.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "generated/prisma/schema.prisma")
