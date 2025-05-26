@@ -4,6 +4,7 @@ WORKDIR /app
 
 COPY package*.json ./
 COPY prisma ./prisma/
+RUN npm install -g @nestjs/cli
 RUN yarn install --production
 
 COPY . .
