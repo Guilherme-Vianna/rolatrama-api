@@ -4,11 +4,13 @@ import { AiController } from './ai.controller';
 import { LocationsService } from 'src/locations/locations.service';
 import { NpcsService } from 'src/npcs/npcs.service';
 import { QueueModule } from 'src/queue/queue.module';
+import { AuthModule } from '../auth/auth.module';
 
 @Module({
-  imports: [QueueModule],
+  imports: [QueueModule, AuthModule],
   controllers: [AiController],
   providers: [AiService, LocationsService, NpcsService],
-  exports: [AiService]
+  exports: [AiService],
 })
-export class AiModule { }
+export class AiModule {
+}

@@ -7,6 +7,7 @@ import { LocationsService } from './locations/locations.service';
 import { NpcsService } from './npcs/npcs.service';
 import { QueueModule } from './queue/queue.module';
 import { SheetModule } from './sheet/sheet.module';
+import { GamesModule } from './games/games.module';
 
 @Module({
   imports: [
@@ -15,7 +16,8 @@ import { SheetModule } from './sheet/sheet.module';
     QueueModule,
     AuthModule,
     AiModule,
-    SheetModule
+    SheetModule,
+    GamesModule
   ],
   providers: [LocationsService, NpcsService],
   exports: [LocationsService],

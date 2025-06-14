@@ -171,8 +171,35 @@ exports.Prisma.LocationsScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.GamesScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  owner_id: 'owner_id',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.Users_games_claimsScalarFieldEnum = {
+  id: 'id',
+  game_id: 'game_id',
+  user_id: 'user_id',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.AdvantagesScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  cost: 'cost',
+  description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SheetsScalarFieldEnum = {
   id: 'id',
+  user_id: 'user_id',
   data: 'data',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -210,6 +237,9 @@ exports.Prisma.ModelName = {
   towns: 'towns',
   npcs: 'npcs',
   locations: 'locations',
+  games: 'games',
+  users_games_claims: 'users_games_claims',
+  advantages: 'advantages',
   sheets: 'sheets'
 };
 

@@ -1,7 +1,6 @@
 generator client {
-  provider      = "prisma-client-js"
-  output        = "../generated/prisma"
-  binaryTargets = ["linux-musl-openssl-3.0.x"]
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -15,9 +14,12 @@ model users {
   password           String
   name               String
   recoveryTokens     String[]
+  mygames            games[]
+  games              users_games_claims[]
   createdAt          DateTime                @default(now())
   updatedAt          DateTime                @updatedAt
   PasswordResetToken password_reset_tokens[]
+  sheets             sheets[]
 }
 
 model password_reset_tokens {
@@ -69,8 +71,40 @@ model locations {
   updatedAt   DateTime @updatedAt
 }
 
+model games {
+  id          Int                  @id @default(autoincrement())
+  name        String
+  description String
+  owner       users                @relation(fields: [owner_id], references: [id], onDelete: Cascade)
+  owner_id    Int
+  players     users_games_claims[]
+  createdAt   DateTime             @default(now())
+  updatedAt   DateTime             @updatedAt
+}
+
+model users_games_claims {
+  id        Int      @id @default(autoincrement())
+  game_id   Int
+  user_id   Int
+  game      games    @relation(fields: [game_id], references: [id], onDelete: Cascade)
+  user      users    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model advantages {
+  id          Int      @id @default(autoincrement())
+  name        String
+  cost        String
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
 model sheets {
   id        Int      @id @default(autoincrement())
+  user_id   Int
+  user      users    @relation(fields: [user_id], references: [id], onDelete: Cascade)
   data      Json
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

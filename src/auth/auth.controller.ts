@@ -7,7 +7,8 @@ export class AuthController {
   constructor(
     private readonly userService: UserService,
     private readonly jwtService: JwtService,
-  ) { }
+  ) {
+  }
 
   @Post('login')
   async login(@Body('email') email: string, @Body('password') password: string) {
@@ -28,10 +29,7 @@ export class AuthController {
       email: user.email,
     };
 
-    const token = this.jwtService.sign(payload, {
-      secret: process.env.JWT_SECRET,
-      expiresIn: '1h',
-    });
+    const token = this.jwtService.sign(payload);
 
     return {
       data: {
@@ -41,7 +39,7 @@ export class AuthController {
           email: user.email,
           name: user.name,
         },
-      }
+      },
     };
   }
 }

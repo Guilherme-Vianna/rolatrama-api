@@ -39,6 +39,21 @@ export type npcs = $Result.DefaultSelection<Prisma.$npcsPayload>
  */
 export type locations = $Result.DefaultSelection<Prisma.$locationsPayload>
 /**
+ * Model games
+ * 
+ */
+export type games = $Result.DefaultSelection<Prisma.$gamesPayload>
+/**
+ * Model users_games_claims
+ * 
+ */
+export type users_games_claims = $Result.DefaultSelection<Prisma.$users_games_claimsPayload>
+/**
+ * Model advantages
+ * 
+ */
+export type advantages = $Result.DefaultSelection<Prisma.$advantagesPayload>
+/**
  * Model sheets
  * 
  */
@@ -218,6 +233,36 @@ export class PrismaClient<
     * ```
     */
   get locations(): Prisma.locationsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.games`: Exposes CRUD operations for the **games** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Games
+    * const games = await prisma.games.findMany()
+    * ```
+    */
+  get games(): Prisma.gamesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.users_games_claims`: Exposes CRUD operations for the **users_games_claims** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Users_games_claims
+    * const users_games_claims = await prisma.users_games_claims.findMany()
+    * ```
+    */
+  get users_games_claims(): Prisma.users_games_claimsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.advantages`: Exposes CRUD operations for the **advantages** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Advantages
+    * const advantages = await prisma.advantages.findMany()
+    * ```
+    */
+  get advantages(): Prisma.advantagesDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.sheets`: Exposes CRUD operations for the **sheets** model.
@@ -673,6 +718,9 @@ export namespace Prisma {
     towns: 'towns',
     npcs: 'npcs',
     locations: 'locations',
+    games: 'games',
+    users_games_claims: 'users_games_claims',
+    advantages: 'advantages',
     sheets: 'sheets'
   };
 
@@ -692,7 +740,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "users" | "password_reset_tokens" | "towns" | "npcs" | "locations" | "sheets"
+      modelProps: "users" | "password_reset_tokens" | "towns" | "npcs" | "locations" | "games" | "users_games_claims" | "advantages" | "sheets"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1066,6 +1114,228 @@ export namespace Prisma {
           }
         }
       }
+      games: {
+        payload: Prisma.$gamesPayload<ExtArgs>
+        fields: Prisma.gamesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.gamesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$gamesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.gamesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$gamesPayload>
+          }
+          findFirst: {
+            args: Prisma.gamesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$gamesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.gamesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$gamesPayload>
+          }
+          findMany: {
+            args: Prisma.gamesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$gamesPayload>[]
+          }
+          create: {
+            args: Prisma.gamesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$gamesPayload>
+          }
+          createMany: {
+            args: Prisma.gamesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.gamesCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$gamesPayload>[]
+          }
+          delete: {
+            args: Prisma.gamesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$gamesPayload>
+          }
+          update: {
+            args: Prisma.gamesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$gamesPayload>
+          }
+          deleteMany: {
+            args: Prisma.gamesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.gamesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.gamesUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$gamesPayload>[]
+          }
+          upsert: {
+            args: Prisma.gamesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$gamesPayload>
+          }
+          aggregate: {
+            args: Prisma.GamesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateGames>
+          }
+          groupBy: {
+            args: Prisma.gamesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<GamesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.gamesCountArgs<ExtArgs>
+            result: $Utils.Optional<GamesCountAggregateOutputType> | number
+          }
+        }
+      }
+      users_games_claims: {
+        payload: Prisma.$users_games_claimsPayload<ExtArgs>
+        fields: Prisma.users_games_claimsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.users_games_claimsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$users_games_claimsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.users_games_claimsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$users_games_claimsPayload>
+          }
+          findFirst: {
+            args: Prisma.users_games_claimsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$users_games_claimsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.users_games_claimsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$users_games_claimsPayload>
+          }
+          findMany: {
+            args: Prisma.users_games_claimsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$users_games_claimsPayload>[]
+          }
+          create: {
+            args: Prisma.users_games_claimsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$users_games_claimsPayload>
+          }
+          createMany: {
+            args: Prisma.users_games_claimsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.users_games_claimsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$users_games_claimsPayload>[]
+          }
+          delete: {
+            args: Prisma.users_games_claimsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$users_games_claimsPayload>
+          }
+          update: {
+            args: Prisma.users_games_claimsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$users_games_claimsPayload>
+          }
+          deleteMany: {
+            args: Prisma.users_games_claimsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.users_games_claimsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.users_games_claimsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$users_games_claimsPayload>[]
+          }
+          upsert: {
+            args: Prisma.users_games_claimsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$users_games_claimsPayload>
+          }
+          aggregate: {
+            args: Prisma.Users_games_claimsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateUsers_games_claims>
+          }
+          groupBy: {
+            args: Prisma.users_games_claimsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Users_games_claimsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.users_games_claimsCountArgs<ExtArgs>
+            result: $Utils.Optional<Users_games_claimsCountAggregateOutputType> | number
+          }
+        }
+      }
+      advantages: {
+        payload: Prisma.$advantagesPayload<ExtArgs>
+        fields: Prisma.advantagesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.advantagesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$advantagesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.advantagesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$advantagesPayload>
+          }
+          findFirst: {
+            args: Prisma.advantagesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$advantagesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.advantagesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$advantagesPayload>
+          }
+          findMany: {
+            args: Prisma.advantagesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$advantagesPayload>[]
+          }
+          create: {
+            args: Prisma.advantagesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$advantagesPayload>
+          }
+          createMany: {
+            args: Prisma.advantagesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.advantagesCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$advantagesPayload>[]
+          }
+          delete: {
+            args: Prisma.advantagesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$advantagesPayload>
+          }
+          update: {
+            args: Prisma.advantagesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$advantagesPayload>
+          }
+          deleteMany: {
+            args: Prisma.advantagesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.advantagesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.advantagesUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$advantagesPayload>[]
+          }
+          upsert: {
+            args: Prisma.advantagesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$advantagesPayload>
+          }
+          aggregate: {
+            args: Prisma.AdvantagesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAdvantages>
+          }
+          groupBy: {
+            args: Prisma.advantagesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AdvantagesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.advantagesCountArgs<ExtArgs>
+            result: $Utils.Optional<AdvantagesCountAggregateOutputType> | number
+          }
+        }
+      }
       sheets: {
         payload: Prisma.$sheetsPayload<ExtArgs>
         fields: Prisma.sheetsFieldRefs
@@ -1229,6 +1499,9 @@ export namespace Prisma {
     towns?: townsOmit
     npcs?: npcsOmit
     locations?: locationsOmit
+    games?: gamesOmit
+    users_games_claims?: users_games_claimsOmit
+    advantages?: advantagesOmit
     sheets?: sheetsOmit
   }
 
@@ -1324,11 +1597,17 @@ export namespace Prisma {
    */
 
   export type UsersCountOutputType = {
+    mygames: number
+    games: number
     PasswordResetToken: number
+    sheets: number
   }
 
   export type UsersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    mygames?: boolean | UsersCountOutputTypeCountMygamesArgs
+    games?: boolean | UsersCountOutputTypeCountGamesArgs
     PasswordResetToken?: boolean | UsersCountOutputTypeCountPasswordResetTokenArgs
+    sheets?: boolean | UsersCountOutputTypeCountSheetsArgs
   }
 
   // Custom InputTypes
@@ -1345,8 +1624,29 @@ export namespace Prisma {
   /**
    * UsersCountOutputType without action
    */
+  export type UsersCountOutputTypeCountMygamesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: gamesWhereInput
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeCountGamesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: users_games_claimsWhereInput
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
   export type UsersCountOutputTypeCountPasswordResetTokenArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: password_reset_tokensWhereInput
+  }
+
+  /**
+   * UsersCountOutputType without action
+   */
+  export type UsersCountOutputTypeCountSheetsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: sheetsWhereInput
   }
 
 
@@ -1387,6 +1687,37 @@ export namespace Prisma {
    */
   export type TownsCountOutputTypeCountNpcsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: npcsWhereInput
+  }
+
+
+  /**
+   * Count Type GamesCountOutputType
+   */
+
+  export type GamesCountOutputType = {
+    players: number
+  }
+
+  export type GamesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    players?: boolean | GamesCountOutputTypeCountPlayersArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * GamesCountOutputType without action
+   */
+  export type GamesCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the GamesCountOutputType
+     */
+    select?: GamesCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * GamesCountOutputType without action
+   */
+  export type GamesCountOutputTypeCountPlayersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: users_games_claimsWhereInput
   }
 
 
@@ -1604,7 +1935,10 @@ export namespace Prisma {
     recoveryTokens?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    mygames?: boolean | users$mygamesArgs<ExtArgs>
+    games?: boolean | users$gamesArgs<ExtArgs>
     PasswordResetToken?: boolean | users$PasswordResetTokenArgs<ExtArgs>
+    sheets?: boolean | users$sheetsArgs<ExtArgs>
     _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["users"]>
 
@@ -1640,7 +1974,10 @@ export namespace Prisma {
 
   export type usersOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "name" | "recoveryTokens" | "createdAt" | "updatedAt", ExtArgs["result"]["users"]>
   export type usersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    mygames?: boolean | users$mygamesArgs<ExtArgs>
+    games?: boolean | users$gamesArgs<ExtArgs>
     PasswordResetToken?: boolean | users$PasswordResetTokenArgs<ExtArgs>
+    sheets?: boolean | users$sheetsArgs<ExtArgs>
     _count?: boolean | UsersCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type usersIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1649,7 +1986,10 @@ export namespace Prisma {
   export type $usersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "users"
     objects: {
+      mygames: Prisma.$gamesPayload<ExtArgs>[]
+      games: Prisma.$users_games_claimsPayload<ExtArgs>[]
       PasswordResetToken: Prisma.$password_reset_tokensPayload<ExtArgs>[]
+      sheets: Prisma.$sheetsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -2053,7 +2393,10 @@ export namespace Prisma {
    */
   export interface Prisma__usersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    mygames<T extends users$mygamesArgs<ExtArgs> = {}>(args?: Subset<T, users$mygamesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$gamesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    games<T extends users$gamesArgs<ExtArgs> = {}>(args?: Subset<T, users$gamesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$users_games_claimsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     PasswordResetToken<T extends users$PasswordResetTokenArgs<ExtArgs> = {}>(args?: Subset<T, users$PasswordResetTokenArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$password_reset_tokensPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    sheets<T extends users$sheetsArgs<ExtArgs> = {}>(args?: Subset<T, users$sheetsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$sheetsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2478,6 +2821,54 @@ export namespace Prisma {
   }
 
   /**
+   * users.mygames
+   */
+  export type users$mygamesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the games
+     */
+    select?: gamesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the games
+     */
+    omit?: gamesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: gamesInclude<ExtArgs> | null
+    where?: gamesWhereInput
+    orderBy?: gamesOrderByWithRelationInput | gamesOrderByWithRelationInput[]
+    cursor?: gamesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: GamesScalarFieldEnum | GamesScalarFieldEnum[]
+  }
+
+  /**
+   * users.games
+   */
+  export type users$gamesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the users_games_claims
+     */
+    select?: users_games_claimsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the users_games_claims
+     */
+    omit?: users_games_claimsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: users_games_claimsInclude<ExtArgs> | null
+    where?: users_games_claimsWhereInput
+    orderBy?: users_games_claimsOrderByWithRelationInput | users_games_claimsOrderByWithRelationInput[]
+    cursor?: users_games_claimsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Users_games_claimsScalarFieldEnum | Users_games_claimsScalarFieldEnum[]
+  }
+
+  /**
    * users.PasswordResetToken
    */
   export type users$PasswordResetTokenArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2499,6 +2890,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Password_reset_tokensScalarFieldEnum | Password_reset_tokensScalarFieldEnum[]
+  }
+
+  /**
+   * users.sheets
+   */
+  export type users$sheetsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the sheets
+     */
+    select?: sheetsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the sheets
+     */
+    omit?: sheetsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sheetsInclude<ExtArgs> | null
+    where?: sheetsWhereInput
+    orderBy?: sheetsOrderByWithRelationInput | sheetsOrderByWithRelationInput[]
+    cursor?: sheetsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SheetsScalarFieldEnum | SheetsScalarFieldEnum[]
   }
 
   /**
@@ -7116,6 +7531,3295 @@ export namespace Prisma {
 
 
   /**
+   * Model games
+   */
+
+  export type AggregateGames = {
+    _count: GamesCountAggregateOutputType | null
+    _avg: GamesAvgAggregateOutputType | null
+    _sum: GamesSumAggregateOutputType | null
+    _min: GamesMinAggregateOutputType | null
+    _max: GamesMaxAggregateOutputType | null
+  }
+
+  export type GamesAvgAggregateOutputType = {
+    id: number | null
+    owner_id: number | null
+  }
+
+  export type GamesSumAggregateOutputType = {
+    id: number | null
+    owner_id: number | null
+  }
+
+  export type GamesMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    description: string | null
+    owner_id: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type GamesMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    description: string | null
+    owner_id: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type GamesCountAggregateOutputType = {
+    id: number
+    name: number
+    description: number
+    owner_id: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type GamesAvgAggregateInputType = {
+    id?: true
+    owner_id?: true
+  }
+
+  export type GamesSumAggregateInputType = {
+    id?: true
+    owner_id?: true
+  }
+
+  export type GamesMinAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    owner_id?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type GamesMaxAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    owner_id?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type GamesCountAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    owner_id?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type GamesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which games to aggregate.
+     */
+    where?: gamesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of games to fetch.
+     */
+    orderBy?: gamesOrderByWithRelationInput | gamesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: gamesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` games from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` games.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned games
+    **/
+    _count?: true | GamesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: GamesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: GamesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: GamesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: GamesMaxAggregateInputType
+  }
+
+  export type GetGamesAggregateType<T extends GamesAggregateArgs> = {
+        [P in keyof T & keyof AggregateGames]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateGames[P]>
+      : GetScalarType<T[P], AggregateGames[P]>
+  }
+
+
+
+
+  export type gamesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: gamesWhereInput
+    orderBy?: gamesOrderByWithAggregationInput | gamesOrderByWithAggregationInput[]
+    by: GamesScalarFieldEnum[] | GamesScalarFieldEnum
+    having?: gamesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: GamesCountAggregateInputType | true
+    _avg?: GamesAvgAggregateInputType
+    _sum?: GamesSumAggregateInputType
+    _min?: GamesMinAggregateInputType
+    _max?: GamesMaxAggregateInputType
+  }
+
+  export type GamesGroupByOutputType = {
+    id: number
+    name: string
+    description: string
+    owner_id: number
+    createdAt: Date
+    updatedAt: Date
+    _count: GamesCountAggregateOutputType | null
+    _avg: GamesAvgAggregateOutputType | null
+    _sum: GamesSumAggregateOutputType | null
+    _min: GamesMinAggregateOutputType | null
+    _max: GamesMaxAggregateOutputType | null
+  }
+
+  type GetGamesGroupByPayload<T extends gamesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<GamesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof GamesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], GamesGroupByOutputType[P]>
+            : GetScalarType<T[P], GamesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type gamesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    owner_id?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    owner?: boolean | usersDefaultArgs<ExtArgs>
+    players?: boolean | games$playersArgs<ExtArgs>
+    _count?: boolean | GamesCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["games"]>
+
+  export type gamesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    owner_id?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    owner?: boolean | usersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["games"]>
+
+  export type gamesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    owner_id?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    owner?: boolean | usersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["games"]>
+
+  export type gamesSelectScalar = {
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    owner_id?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type gamesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "owner_id" | "createdAt" | "updatedAt", ExtArgs["result"]["games"]>
+  export type gamesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    owner?: boolean | usersDefaultArgs<ExtArgs>
+    players?: boolean | games$playersArgs<ExtArgs>
+    _count?: boolean | GamesCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type gamesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    owner?: boolean | usersDefaultArgs<ExtArgs>
+  }
+  export type gamesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    owner?: boolean | usersDefaultArgs<ExtArgs>
+  }
+
+  export type $gamesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "games"
+    objects: {
+      owner: Prisma.$usersPayload<ExtArgs>
+      players: Prisma.$users_games_claimsPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      description: string
+      owner_id: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["games"]>
+    composites: {}
+  }
+
+  type gamesGetPayload<S extends boolean | null | undefined | gamesDefaultArgs> = $Result.GetResult<Prisma.$gamesPayload, S>
+
+  type gamesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<gamesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: GamesCountAggregateInputType | true
+    }
+
+  export interface gamesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['games'], meta: { name: 'games' } }
+    /**
+     * Find zero or one Games that matches the filter.
+     * @param {gamesFindUniqueArgs} args - Arguments to find a Games
+     * @example
+     * // Get one Games
+     * const games = await prisma.games.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends gamesFindUniqueArgs>(args: SelectSubset<T, gamesFindUniqueArgs<ExtArgs>>): Prisma__gamesClient<$Result.GetResult<Prisma.$gamesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Games that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {gamesFindUniqueOrThrowArgs} args - Arguments to find a Games
+     * @example
+     * // Get one Games
+     * const games = await prisma.games.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends gamesFindUniqueOrThrowArgs>(args: SelectSubset<T, gamesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__gamesClient<$Result.GetResult<Prisma.$gamesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Games that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {gamesFindFirstArgs} args - Arguments to find a Games
+     * @example
+     * // Get one Games
+     * const games = await prisma.games.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends gamesFindFirstArgs>(args?: SelectSubset<T, gamesFindFirstArgs<ExtArgs>>): Prisma__gamesClient<$Result.GetResult<Prisma.$gamesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Games that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {gamesFindFirstOrThrowArgs} args - Arguments to find a Games
+     * @example
+     * // Get one Games
+     * const games = await prisma.games.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends gamesFindFirstOrThrowArgs>(args?: SelectSubset<T, gamesFindFirstOrThrowArgs<ExtArgs>>): Prisma__gamesClient<$Result.GetResult<Prisma.$gamesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Games that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {gamesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Games
+     * const games = await prisma.games.findMany()
+     * 
+     * // Get first 10 Games
+     * const games = await prisma.games.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const gamesWithIdOnly = await prisma.games.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends gamesFindManyArgs>(args?: SelectSubset<T, gamesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$gamesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Games.
+     * @param {gamesCreateArgs} args - Arguments to create a Games.
+     * @example
+     * // Create one Games
+     * const Games = await prisma.games.create({
+     *   data: {
+     *     // ... data to create a Games
+     *   }
+     * })
+     * 
+     */
+    create<T extends gamesCreateArgs>(args: SelectSubset<T, gamesCreateArgs<ExtArgs>>): Prisma__gamesClient<$Result.GetResult<Prisma.$gamesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Games.
+     * @param {gamesCreateManyArgs} args - Arguments to create many Games.
+     * @example
+     * // Create many Games
+     * const games = await prisma.games.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends gamesCreateManyArgs>(args?: SelectSubset<T, gamesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Games and returns the data saved in the database.
+     * @param {gamesCreateManyAndReturnArgs} args - Arguments to create many Games.
+     * @example
+     * // Create many Games
+     * const games = await prisma.games.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Games and only return the `id`
+     * const gamesWithIdOnly = await prisma.games.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends gamesCreateManyAndReturnArgs>(args?: SelectSubset<T, gamesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$gamesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Games.
+     * @param {gamesDeleteArgs} args - Arguments to delete one Games.
+     * @example
+     * // Delete one Games
+     * const Games = await prisma.games.delete({
+     *   where: {
+     *     // ... filter to delete one Games
+     *   }
+     * })
+     * 
+     */
+    delete<T extends gamesDeleteArgs>(args: SelectSubset<T, gamesDeleteArgs<ExtArgs>>): Prisma__gamesClient<$Result.GetResult<Prisma.$gamesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Games.
+     * @param {gamesUpdateArgs} args - Arguments to update one Games.
+     * @example
+     * // Update one Games
+     * const games = await prisma.games.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends gamesUpdateArgs>(args: SelectSubset<T, gamesUpdateArgs<ExtArgs>>): Prisma__gamesClient<$Result.GetResult<Prisma.$gamesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Games.
+     * @param {gamesDeleteManyArgs} args - Arguments to filter Games to delete.
+     * @example
+     * // Delete a few Games
+     * const { count } = await prisma.games.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends gamesDeleteManyArgs>(args?: SelectSubset<T, gamesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Games.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {gamesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Games
+     * const games = await prisma.games.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends gamesUpdateManyArgs>(args: SelectSubset<T, gamesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Games and returns the data updated in the database.
+     * @param {gamesUpdateManyAndReturnArgs} args - Arguments to update many Games.
+     * @example
+     * // Update many Games
+     * const games = await prisma.games.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Games and only return the `id`
+     * const gamesWithIdOnly = await prisma.games.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends gamesUpdateManyAndReturnArgs>(args: SelectSubset<T, gamesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$gamesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Games.
+     * @param {gamesUpsertArgs} args - Arguments to update or create a Games.
+     * @example
+     * // Update or create a Games
+     * const games = await prisma.games.upsert({
+     *   create: {
+     *     // ... data to create a Games
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Games we want to update
+     *   }
+     * })
+     */
+    upsert<T extends gamesUpsertArgs>(args: SelectSubset<T, gamesUpsertArgs<ExtArgs>>): Prisma__gamesClient<$Result.GetResult<Prisma.$gamesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Games.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {gamesCountArgs} args - Arguments to filter Games to count.
+     * @example
+     * // Count the number of Games
+     * const count = await prisma.games.count({
+     *   where: {
+     *     // ... the filter for the Games we want to count
+     *   }
+     * })
+    **/
+    count<T extends gamesCountArgs>(
+      args?: Subset<T, gamesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], GamesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Games.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {GamesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends GamesAggregateArgs>(args: Subset<T, GamesAggregateArgs>): Prisma.PrismaPromise<GetGamesAggregateType<T>>
+
+    /**
+     * Group by Games.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {gamesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends gamesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: gamesGroupByArgs['orderBy'] }
+        : { orderBy?: gamesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, gamesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetGamesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the games model
+   */
+  readonly fields: gamesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for games.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__gamesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    owner<T extends usersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usersDefaultArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    players<T extends games$playersArgs<ExtArgs> = {}>(args?: Subset<T, games$playersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$users_games_claimsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the games model
+   */
+  interface gamesFieldRefs {
+    readonly id: FieldRef<"games", 'Int'>
+    readonly name: FieldRef<"games", 'String'>
+    readonly description: FieldRef<"games", 'String'>
+    readonly owner_id: FieldRef<"games", 'Int'>
+    readonly createdAt: FieldRef<"games", 'DateTime'>
+    readonly updatedAt: FieldRef<"games", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * games findUnique
+   */
+  export type gamesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the games
+     */
+    select?: gamesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the games
+     */
+    omit?: gamesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: gamesInclude<ExtArgs> | null
+    /**
+     * Filter, which games to fetch.
+     */
+    where: gamesWhereUniqueInput
+  }
+
+  /**
+   * games findUniqueOrThrow
+   */
+  export type gamesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the games
+     */
+    select?: gamesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the games
+     */
+    omit?: gamesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: gamesInclude<ExtArgs> | null
+    /**
+     * Filter, which games to fetch.
+     */
+    where: gamesWhereUniqueInput
+  }
+
+  /**
+   * games findFirst
+   */
+  export type gamesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the games
+     */
+    select?: gamesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the games
+     */
+    omit?: gamesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: gamesInclude<ExtArgs> | null
+    /**
+     * Filter, which games to fetch.
+     */
+    where?: gamesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of games to fetch.
+     */
+    orderBy?: gamesOrderByWithRelationInput | gamesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for games.
+     */
+    cursor?: gamesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` games from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` games.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of games.
+     */
+    distinct?: GamesScalarFieldEnum | GamesScalarFieldEnum[]
+  }
+
+  /**
+   * games findFirstOrThrow
+   */
+  export type gamesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the games
+     */
+    select?: gamesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the games
+     */
+    omit?: gamesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: gamesInclude<ExtArgs> | null
+    /**
+     * Filter, which games to fetch.
+     */
+    where?: gamesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of games to fetch.
+     */
+    orderBy?: gamesOrderByWithRelationInput | gamesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for games.
+     */
+    cursor?: gamesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` games from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` games.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of games.
+     */
+    distinct?: GamesScalarFieldEnum | GamesScalarFieldEnum[]
+  }
+
+  /**
+   * games findMany
+   */
+  export type gamesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the games
+     */
+    select?: gamesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the games
+     */
+    omit?: gamesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: gamesInclude<ExtArgs> | null
+    /**
+     * Filter, which games to fetch.
+     */
+    where?: gamesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of games to fetch.
+     */
+    orderBy?: gamesOrderByWithRelationInput | gamesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing games.
+     */
+    cursor?: gamesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` games from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` games.
+     */
+    skip?: number
+    distinct?: GamesScalarFieldEnum | GamesScalarFieldEnum[]
+  }
+
+  /**
+   * games create
+   */
+  export type gamesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the games
+     */
+    select?: gamesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the games
+     */
+    omit?: gamesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: gamesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a games.
+     */
+    data: XOR<gamesCreateInput, gamesUncheckedCreateInput>
+  }
+
+  /**
+   * games createMany
+   */
+  export type gamesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many games.
+     */
+    data: gamesCreateManyInput | gamesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * games createManyAndReturn
+   */
+  export type gamesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the games
+     */
+    select?: gamesSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the games
+     */
+    omit?: gamesOmit<ExtArgs> | null
+    /**
+     * The data used to create many games.
+     */
+    data: gamesCreateManyInput | gamesCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: gamesIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * games update
+   */
+  export type gamesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the games
+     */
+    select?: gamesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the games
+     */
+    omit?: gamesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: gamesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a games.
+     */
+    data: XOR<gamesUpdateInput, gamesUncheckedUpdateInput>
+    /**
+     * Choose, which games to update.
+     */
+    where: gamesWhereUniqueInput
+  }
+
+  /**
+   * games updateMany
+   */
+  export type gamesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update games.
+     */
+    data: XOR<gamesUpdateManyMutationInput, gamesUncheckedUpdateManyInput>
+    /**
+     * Filter which games to update
+     */
+    where?: gamesWhereInput
+    /**
+     * Limit how many games to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * games updateManyAndReturn
+   */
+  export type gamesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the games
+     */
+    select?: gamesSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the games
+     */
+    omit?: gamesOmit<ExtArgs> | null
+    /**
+     * The data used to update games.
+     */
+    data: XOR<gamesUpdateManyMutationInput, gamesUncheckedUpdateManyInput>
+    /**
+     * Filter which games to update
+     */
+    where?: gamesWhereInput
+    /**
+     * Limit how many games to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: gamesIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * games upsert
+   */
+  export type gamesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the games
+     */
+    select?: gamesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the games
+     */
+    omit?: gamesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: gamesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the games to update in case it exists.
+     */
+    where: gamesWhereUniqueInput
+    /**
+     * In case the games found by the `where` argument doesn't exist, create a new games with this data.
+     */
+    create: XOR<gamesCreateInput, gamesUncheckedCreateInput>
+    /**
+     * In case the games was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<gamesUpdateInput, gamesUncheckedUpdateInput>
+  }
+
+  /**
+   * games delete
+   */
+  export type gamesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the games
+     */
+    select?: gamesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the games
+     */
+    omit?: gamesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: gamesInclude<ExtArgs> | null
+    /**
+     * Filter which games to delete.
+     */
+    where: gamesWhereUniqueInput
+  }
+
+  /**
+   * games deleteMany
+   */
+  export type gamesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which games to delete
+     */
+    where?: gamesWhereInput
+    /**
+     * Limit how many games to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * games.players
+   */
+  export type games$playersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the users_games_claims
+     */
+    select?: users_games_claimsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the users_games_claims
+     */
+    omit?: users_games_claimsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: users_games_claimsInclude<ExtArgs> | null
+    where?: users_games_claimsWhereInput
+    orderBy?: users_games_claimsOrderByWithRelationInput | users_games_claimsOrderByWithRelationInput[]
+    cursor?: users_games_claimsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Users_games_claimsScalarFieldEnum | Users_games_claimsScalarFieldEnum[]
+  }
+
+  /**
+   * games without action
+   */
+  export type gamesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the games
+     */
+    select?: gamesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the games
+     */
+    omit?: gamesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: gamesInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model users_games_claims
+   */
+
+  export type AggregateUsers_games_claims = {
+    _count: Users_games_claimsCountAggregateOutputType | null
+    _avg: Users_games_claimsAvgAggregateOutputType | null
+    _sum: Users_games_claimsSumAggregateOutputType | null
+    _min: Users_games_claimsMinAggregateOutputType | null
+    _max: Users_games_claimsMaxAggregateOutputType | null
+  }
+
+  export type Users_games_claimsAvgAggregateOutputType = {
+    id: number | null
+    game_id: number | null
+    user_id: number | null
+  }
+
+  export type Users_games_claimsSumAggregateOutputType = {
+    id: number | null
+    game_id: number | null
+    user_id: number | null
+  }
+
+  export type Users_games_claimsMinAggregateOutputType = {
+    id: number | null
+    game_id: number | null
+    user_id: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type Users_games_claimsMaxAggregateOutputType = {
+    id: number | null
+    game_id: number | null
+    user_id: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type Users_games_claimsCountAggregateOutputType = {
+    id: number
+    game_id: number
+    user_id: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type Users_games_claimsAvgAggregateInputType = {
+    id?: true
+    game_id?: true
+    user_id?: true
+  }
+
+  export type Users_games_claimsSumAggregateInputType = {
+    id?: true
+    game_id?: true
+    user_id?: true
+  }
+
+  export type Users_games_claimsMinAggregateInputType = {
+    id?: true
+    game_id?: true
+    user_id?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type Users_games_claimsMaxAggregateInputType = {
+    id?: true
+    game_id?: true
+    user_id?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type Users_games_claimsCountAggregateInputType = {
+    id?: true
+    game_id?: true
+    user_id?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type Users_games_claimsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which users_games_claims to aggregate.
+     */
+    where?: users_games_claimsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of users_games_claims to fetch.
+     */
+    orderBy?: users_games_claimsOrderByWithRelationInput | users_games_claimsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: users_games_claimsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` users_games_claims from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` users_games_claims.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned users_games_claims
+    **/
+    _count?: true | Users_games_claimsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Users_games_claimsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Users_games_claimsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Users_games_claimsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Users_games_claimsMaxAggregateInputType
+  }
+
+  export type GetUsers_games_claimsAggregateType<T extends Users_games_claimsAggregateArgs> = {
+        [P in keyof T & keyof AggregateUsers_games_claims]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateUsers_games_claims[P]>
+      : GetScalarType<T[P], AggregateUsers_games_claims[P]>
+  }
+
+
+
+
+  export type users_games_claimsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: users_games_claimsWhereInput
+    orderBy?: users_games_claimsOrderByWithAggregationInput | users_games_claimsOrderByWithAggregationInput[]
+    by: Users_games_claimsScalarFieldEnum[] | Users_games_claimsScalarFieldEnum
+    having?: users_games_claimsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Users_games_claimsCountAggregateInputType | true
+    _avg?: Users_games_claimsAvgAggregateInputType
+    _sum?: Users_games_claimsSumAggregateInputType
+    _min?: Users_games_claimsMinAggregateInputType
+    _max?: Users_games_claimsMaxAggregateInputType
+  }
+
+  export type Users_games_claimsGroupByOutputType = {
+    id: number
+    game_id: number
+    user_id: number
+    createdAt: Date
+    updatedAt: Date
+    _count: Users_games_claimsCountAggregateOutputType | null
+    _avg: Users_games_claimsAvgAggregateOutputType | null
+    _sum: Users_games_claimsSumAggregateOutputType | null
+    _min: Users_games_claimsMinAggregateOutputType | null
+    _max: Users_games_claimsMaxAggregateOutputType | null
+  }
+
+  type GetUsers_games_claimsGroupByPayload<T extends users_games_claimsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Users_games_claimsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Users_games_claimsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Users_games_claimsGroupByOutputType[P]>
+            : GetScalarType<T[P], Users_games_claimsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type users_games_claimsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    game_id?: boolean
+    user_id?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    game?: boolean | gamesDefaultArgs<ExtArgs>
+    user?: boolean | usersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["users_games_claims"]>
+
+  export type users_games_claimsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    game_id?: boolean
+    user_id?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    game?: boolean | gamesDefaultArgs<ExtArgs>
+    user?: boolean | usersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["users_games_claims"]>
+
+  export type users_games_claimsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    game_id?: boolean
+    user_id?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    game?: boolean | gamesDefaultArgs<ExtArgs>
+    user?: boolean | usersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["users_games_claims"]>
+
+  export type users_games_claimsSelectScalar = {
+    id?: boolean
+    game_id?: boolean
+    user_id?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type users_games_claimsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "game_id" | "user_id" | "createdAt" | "updatedAt", ExtArgs["result"]["users_games_claims"]>
+  export type users_games_claimsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    game?: boolean | gamesDefaultArgs<ExtArgs>
+    user?: boolean | usersDefaultArgs<ExtArgs>
+  }
+  export type users_games_claimsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    game?: boolean | gamesDefaultArgs<ExtArgs>
+    user?: boolean | usersDefaultArgs<ExtArgs>
+  }
+  export type users_games_claimsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    game?: boolean | gamesDefaultArgs<ExtArgs>
+    user?: boolean | usersDefaultArgs<ExtArgs>
+  }
+
+  export type $users_games_claimsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "users_games_claims"
+    objects: {
+      game: Prisma.$gamesPayload<ExtArgs>
+      user: Prisma.$usersPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      game_id: number
+      user_id: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["users_games_claims"]>
+    composites: {}
+  }
+
+  type users_games_claimsGetPayload<S extends boolean | null | undefined | users_games_claimsDefaultArgs> = $Result.GetResult<Prisma.$users_games_claimsPayload, S>
+
+  type users_games_claimsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<users_games_claimsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Users_games_claimsCountAggregateInputType | true
+    }
+
+  export interface users_games_claimsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['users_games_claims'], meta: { name: 'users_games_claims' } }
+    /**
+     * Find zero or one Users_games_claims that matches the filter.
+     * @param {users_games_claimsFindUniqueArgs} args - Arguments to find a Users_games_claims
+     * @example
+     * // Get one Users_games_claims
+     * const users_games_claims = await prisma.users_games_claims.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends users_games_claimsFindUniqueArgs>(args: SelectSubset<T, users_games_claimsFindUniqueArgs<ExtArgs>>): Prisma__users_games_claimsClient<$Result.GetResult<Prisma.$users_games_claimsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Users_games_claims that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {users_games_claimsFindUniqueOrThrowArgs} args - Arguments to find a Users_games_claims
+     * @example
+     * // Get one Users_games_claims
+     * const users_games_claims = await prisma.users_games_claims.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends users_games_claimsFindUniqueOrThrowArgs>(args: SelectSubset<T, users_games_claimsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__users_games_claimsClient<$Result.GetResult<Prisma.$users_games_claimsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Users_games_claims that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {users_games_claimsFindFirstArgs} args - Arguments to find a Users_games_claims
+     * @example
+     * // Get one Users_games_claims
+     * const users_games_claims = await prisma.users_games_claims.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends users_games_claimsFindFirstArgs>(args?: SelectSubset<T, users_games_claimsFindFirstArgs<ExtArgs>>): Prisma__users_games_claimsClient<$Result.GetResult<Prisma.$users_games_claimsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Users_games_claims that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {users_games_claimsFindFirstOrThrowArgs} args - Arguments to find a Users_games_claims
+     * @example
+     * // Get one Users_games_claims
+     * const users_games_claims = await prisma.users_games_claims.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends users_games_claimsFindFirstOrThrowArgs>(args?: SelectSubset<T, users_games_claimsFindFirstOrThrowArgs<ExtArgs>>): Prisma__users_games_claimsClient<$Result.GetResult<Prisma.$users_games_claimsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Users_games_claims that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {users_games_claimsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Users_games_claims
+     * const users_games_claims = await prisma.users_games_claims.findMany()
+     * 
+     * // Get first 10 Users_games_claims
+     * const users_games_claims = await prisma.users_games_claims.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const users_games_claimsWithIdOnly = await prisma.users_games_claims.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends users_games_claimsFindManyArgs>(args?: SelectSubset<T, users_games_claimsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$users_games_claimsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Users_games_claims.
+     * @param {users_games_claimsCreateArgs} args - Arguments to create a Users_games_claims.
+     * @example
+     * // Create one Users_games_claims
+     * const Users_games_claims = await prisma.users_games_claims.create({
+     *   data: {
+     *     // ... data to create a Users_games_claims
+     *   }
+     * })
+     * 
+     */
+    create<T extends users_games_claimsCreateArgs>(args: SelectSubset<T, users_games_claimsCreateArgs<ExtArgs>>): Prisma__users_games_claimsClient<$Result.GetResult<Prisma.$users_games_claimsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Users_games_claims.
+     * @param {users_games_claimsCreateManyArgs} args - Arguments to create many Users_games_claims.
+     * @example
+     * // Create many Users_games_claims
+     * const users_games_claims = await prisma.users_games_claims.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends users_games_claimsCreateManyArgs>(args?: SelectSubset<T, users_games_claimsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Users_games_claims and returns the data saved in the database.
+     * @param {users_games_claimsCreateManyAndReturnArgs} args - Arguments to create many Users_games_claims.
+     * @example
+     * // Create many Users_games_claims
+     * const users_games_claims = await prisma.users_games_claims.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Users_games_claims and only return the `id`
+     * const users_games_claimsWithIdOnly = await prisma.users_games_claims.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends users_games_claimsCreateManyAndReturnArgs>(args?: SelectSubset<T, users_games_claimsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$users_games_claimsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Users_games_claims.
+     * @param {users_games_claimsDeleteArgs} args - Arguments to delete one Users_games_claims.
+     * @example
+     * // Delete one Users_games_claims
+     * const Users_games_claims = await prisma.users_games_claims.delete({
+     *   where: {
+     *     // ... filter to delete one Users_games_claims
+     *   }
+     * })
+     * 
+     */
+    delete<T extends users_games_claimsDeleteArgs>(args: SelectSubset<T, users_games_claimsDeleteArgs<ExtArgs>>): Prisma__users_games_claimsClient<$Result.GetResult<Prisma.$users_games_claimsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Users_games_claims.
+     * @param {users_games_claimsUpdateArgs} args - Arguments to update one Users_games_claims.
+     * @example
+     * // Update one Users_games_claims
+     * const users_games_claims = await prisma.users_games_claims.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends users_games_claimsUpdateArgs>(args: SelectSubset<T, users_games_claimsUpdateArgs<ExtArgs>>): Prisma__users_games_claimsClient<$Result.GetResult<Prisma.$users_games_claimsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Users_games_claims.
+     * @param {users_games_claimsDeleteManyArgs} args - Arguments to filter Users_games_claims to delete.
+     * @example
+     * // Delete a few Users_games_claims
+     * const { count } = await prisma.users_games_claims.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends users_games_claimsDeleteManyArgs>(args?: SelectSubset<T, users_games_claimsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Users_games_claims.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {users_games_claimsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Users_games_claims
+     * const users_games_claims = await prisma.users_games_claims.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends users_games_claimsUpdateManyArgs>(args: SelectSubset<T, users_games_claimsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Users_games_claims and returns the data updated in the database.
+     * @param {users_games_claimsUpdateManyAndReturnArgs} args - Arguments to update many Users_games_claims.
+     * @example
+     * // Update many Users_games_claims
+     * const users_games_claims = await prisma.users_games_claims.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Users_games_claims and only return the `id`
+     * const users_games_claimsWithIdOnly = await prisma.users_games_claims.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends users_games_claimsUpdateManyAndReturnArgs>(args: SelectSubset<T, users_games_claimsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$users_games_claimsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Users_games_claims.
+     * @param {users_games_claimsUpsertArgs} args - Arguments to update or create a Users_games_claims.
+     * @example
+     * // Update or create a Users_games_claims
+     * const users_games_claims = await prisma.users_games_claims.upsert({
+     *   create: {
+     *     // ... data to create a Users_games_claims
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Users_games_claims we want to update
+     *   }
+     * })
+     */
+    upsert<T extends users_games_claimsUpsertArgs>(args: SelectSubset<T, users_games_claimsUpsertArgs<ExtArgs>>): Prisma__users_games_claimsClient<$Result.GetResult<Prisma.$users_games_claimsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Users_games_claims.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {users_games_claimsCountArgs} args - Arguments to filter Users_games_claims to count.
+     * @example
+     * // Count the number of Users_games_claims
+     * const count = await prisma.users_games_claims.count({
+     *   where: {
+     *     // ... the filter for the Users_games_claims we want to count
+     *   }
+     * })
+    **/
+    count<T extends users_games_claimsCountArgs>(
+      args?: Subset<T, users_games_claimsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Users_games_claimsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Users_games_claims.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Users_games_claimsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Users_games_claimsAggregateArgs>(args: Subset<T, Users_games_claimsAggregateArgs>): Prisma.PrismaPromise<GetUsers_games_claimsAggregateType<T>>
+
+    /**
+     * Group by Users_games_claims.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {users_games_claimsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends users_games_claimsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: users_games_claimsGroupByArgs['orderBy'] }
+        : { orderBy?: users_games_claimsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, users_games_claimsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUsers_games_claimsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the users_games_claims model
+   */
+  readonly fields: users_games_claimsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for users_games_claims.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__users_games_claimsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    game<T extends gamesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, gamesDefaultArgs<ExtArgs>>): Prisma__gamesClient<$Result.GetResult<Prisma.$gamesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user<T extends usersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usersDefaultArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the users_games_claims model
+   */
+  interface users_games_claimsFieldRefs {
+    readonly id: FieldRef<"users_games_claims", 'Int'>
+    readonly game_id: FieldRef<"users_games_claims", 'Int'>
+    readonly user_id: FieldRef<"users_games_claims", 'Int'>
+    readonly createdAt: FieldRef<"users_games_claims", 'DateTime'>
+    readonly updatedAt: FieldRef<"users_games_claims", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * users_games_claims findUnique
+   */
+  export type users_games_claimsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the users_games_claims
+     */
+    select?: users_games_claimsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the users_games_claims
+     */
+    omit?: users_games_claimsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: users_games_claimsInclude<ExtArgs> | null
+    /**
+     * Filter, which users_games_claims to fetch.
+     */
+    where: users_games_claimsWhereUniqueInput
+  }
+
+  /**
+   * users_games_claims findUniqueOrThrow
+   */
+  export type users_games_claimsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the users_games_claims
+     */
+    select?: users_games_claimsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the users_games_claims
+     */
+    omit?: users_games_claimsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: users_games_claimsInclude<ExtArgs> | null
+    /**
+     * Filter, which users_games_claims to fetch.
+     */
+    where: users_games_claimsWhereUniqueInput
+  }
+
+  /**
+   * users_games_claims findFirst
+   */
+  export type users_games_claimsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the users_games_claims
+     */
+    select?: users_games_claimsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the users_games_claims
+     */
+    omit?: users_games_claimsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: users_games_claimsInclude<ExtArgs> | null
+    /**
+     * Filter, which users_games_claims to fetch.
+     */
+    where?: users_games_claimsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of users_games_claims to fetch.
+     */
+    orderBy?: users_games_claimsOrderByWithRelationInput | users_games_claimsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for users_games_claims.
+     */
+    cursor?: users_games_claimsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` users_games_claims from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` users_games_claims.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of users_games_claims.
+     */
+    distinct?: Users_games_claimsScalarFieldEnum | Users_games_claimsScalarFieldEnum[]
+  }
+
+  /**
+   * users_games_claims findFirstOrThrow
+   */
+  export type users_games_claimsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the users_games_claims
+     */
+    select?: users_games_claimsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the users_games_claims
+     */
+    omit?: users_games_claimsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: users_games_claimsInclude<ExtArgs> | null
+    /**
+     * Filter, which users_games_claims to fetch.
+     */
+    where?: users_games_claimsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of users_games_claims to fetch.
+     */
+    orderBy?: users_games_claimsOrderByWithRelationInput | users_games_claimsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for users_games_claims.
+     */
+    cursor?: users_games_claimsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` users_games_claims from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` users_games_claims.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of users_games_claims.
+     */
+    distinct?: Users_games_claimsScalarFieldEnum | Users_games_claimsScalarFieldEnum[]
+  }
+
+  /**
+   * users_games_claims findMany
+   */
+  export type users_games_claimsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the users_games_claims
+     */
+    select?: users_games_claimsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the users_games_claims
+     */
+    omit?: users_games_claimsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: users_games_claimsInclude<ExtArgs> | null
+    /**
+     * Filter, which users_games_claims to fetch.
+     */
+    where?: users_games_claimsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of users_games_claims to fetch.
+     */
+    orderBy?: users_games_claimsOrderByWithRelationInput | users_games_claimsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing users_games_claims.
+     */
+    cursor?: users_games_claimsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` users_games_claims from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` users_games_claims.
+     */
+    skip?: number
+    distinct?: Users_games_claimsScalarFieldEnum | Users_games_claimsScalarFieldEnum[]
+  }
+
+  /**
+   * users_games_claims create
+   */
+  export type users_games_claimsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the users_games_claims
+     */
+    select?: users_games_claimsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the users_games_claims
+     */
+    omit?: users_games_claimsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: users_games_claimsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a users_games_claims.
+     */
+    data: XOR<users_games_claimsCreateInput, users_games_claimsUncheckedCreateInput>
+  }
+
+  /**
+   * users_games_claims createMany
+   */
+  export type users_games_claimsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many users_games_claims.
+     */
+    data: users_games_claimsCreateManyInput | users_games_claimsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * users_games_claims createManyAndReturn
+   */
+  export type users_games_claimsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the users_games_claims
+     */
+    select?: users_games_claimsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the users_games_claims
+     */
+    omit?: users_games_claimsOmit<ExtArgs> | null
+    /**
+     * The data used to create many users_games_claims.
+     */
+    data: users_games_claimsCreateManyInput | users_games_claimsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: users_games_claimsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * users_games_claims update
+   */
+  export type users_games_claimsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the users_games_claims
+     */
+    select?: users_games_claimsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the users_games_claims
+     */
+    omit?: users_games_claimsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: users_games_claimsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a users_games_claims.
+     */
+    data: XOR<users_games_claimsUpdateInput, users_games_claimsUncheckedUpdateInput>
+    /**
+     * Choose, which users_games_claims to update.
+     */
+    where: users_games_claimsWhereUniqueInput
+  }
+
+  /**
+   * users_games_claims updateMany
+   */
+  export type users_games_claimsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update users_games_claims.
+     */
+    data: XOR<users_games_claimsUpdateManyMutationInput, users_games_claimsUncheckedUpdateManyInput>
+    /**
+     * Filter which users_games_claims to update
+     */
+    where?: users_games_claimsWhereInput
+    /**
+     * Limit how many users_games_claims to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * users_games_claims updateManyAndReturn
+   */
+  export type users_games_claimsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the users_games_claims
+     */
+    select?: users_games_claimsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the users_games_claims
+     */
+    omit?: users_games_claimsOmit<ExtArgs> | null
+    /**
+     * The data used to update users_games_claims.
+     */
+    data: XOR<users_games_claimsUpdateManyMutationInput, users_games_claimsUncheckedUpdateManyInput>
+    /**
+     * Filter which users_games_claims to update
+     */
+    where?: users_games_claimsWhereInput
+    /**
+     * Limit how many users_games_claims to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: users_games_claimsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * users_games_claims upsert
+   */
+  export type users_games_claimsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the users_games_claims
+     */
+    select?: users_games_claimsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the users_games_claims
+     */
+    omit?: users_games_claimsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: users_games_claimsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the users_games_claims to update in case it exists.
+     */
+    where: users_games_claimsWhereUniqueInput
+    /**
+     * In case the users_games_claims found by the `where` argument doesn't exist, create a new users_games_claims with this data.
+     */
+    create: XOR<users_games_claimsCreateInput, users_games_claimsUncheckedCreateInput>
+    /**
+     * In case the users_games_claims was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<users_games_claimsUpdateInput, users_games_claimsUncheckedUpdateInput>
+  }
+
+  /**
+   * users_games_claims delete
+   */
+  export type users_games_claimsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the users_games_claims
+     */
+    select?: users_games_claimsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the users_games_claims
+     */
+    omit?: users_games_claimsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: users_games_claimsInclude<ExtArgs> | null
+    /**
+     * Filter which users_games_claims to delete.
+     */
+    where: users_games_claimsWhereUniqueInput
+  }
+
+  /**
+   * users_games_claims deleteMany
+   */
+  export type users_games_claimsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which users_games_claims to delete
+     */
+    where?: users_games_claimsWhereInput
+    /**
+     * Limit how many users_games_claims to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * users_games_claims without action
+   */
+  export type users_games_claimsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the users_games_claims
+     */
+    select?: users_games_claimsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the users_games_claims
+     */
+    omit?: users_games_claimsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: users_games_claimsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model advantages
+   */
+
+  export type AggregateAdvantages = {
+    _count: AdvantagesCountAggregateOutputType | null
+    _avg: AdvantagesAvgAggregateOutputType | null
+    _sum: AdvantagesSumAggregateOutputType | null
+    _min: AdvantagesMinAggregateOutputType | null
+    _max: AdvantagesMaxAggregateOutputType | null
+  }
+
+  export type AdvantagesAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type AdvantagesSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type AdvantagesMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    cost: string | null
+    description: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AdvantagesMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    cost: string | null
+    description: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type AdvantagesCountAggregateOutputType = {
+    id: number
+    name: number
+    cost: number
+    description: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type AdvantagesAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type AdvantagesSumAggregateInputType = {
+    id?: true
+  }
+
+  export type AdvantagesMinAggregateInputType = {
+    id?: true
+    name?: true
+    cost?: true
+    description?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AdvantagesMaxAggregateInputType = {
+    id?: true
+    name?: true
+    cost?: true
+    description?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AdvantagesCountAggregateInputType = {
+    id?: true
+    name?: true
+    cost?: true
+    description?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type AdvantagesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which advantages to aggregate.
+     */
+    where?: advantagesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of advantages to fetch.
+     */
+    orderBy?: advantagesOrderByWithRelationInput | advantagesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: advantagesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` advantages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` advantages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned advantages
+    **/
+    _count?: true | AdvantagesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AdvantagesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AdvantagesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AdvantagesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AdvantagesMaxAggregateInputType
+  }
+
+  export type GetAdvantagesAggregateType<T extends AdvantagesAggregateArgs> = {
+        [P in keyof T & keyof AggregateAdvantages]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAdvantages[P]>
+      : GetScalarType<T[P], AggregateAdvantages[P]>
+  }
+
+
+
+
+  export type advantagesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: advantagesWhereInput
+    orderBy?: advantagesOrderByWithAggregationInput | advantagesOrderByWithAggregationInput[]
+    by: AdvantagesScalarFieldEnum[] | AdvantagesScalarFieldEnum
+    having?: advantagesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AdvantagesCountAggregateInputType | true
+    _avg?: AdvantagesAvgAggregateInputType
+    _sum?: AdvantagesSumAggregateInputType
+    _min?: AdvantagesMinAggregateInputType
+    _max?: AdvantagesMaxAggregateInputType
+  }
+
+  export type AdvantagesGroupByOutputType = {
+    id: number
+    name: string
+    cost: string
+    description: string
+    createdAt: Date
+    updatedAt: Date
+    _count: AdvantagesCountAggregateOutputType | null
+    _avg: AdvantagesAvgAggregateOutputType | null
+    _sum: AdvantagesSumAggregateOutputType | null
+    _min: AdvantagesMinAggregateOutputType | null
+    _max: AdvantagesMaxAggregateOutputType | null
+  }
+
+  type GetAdvantagesGroupByPayload<T extends advantagesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AdvantagesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AdvantagesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AdvantagesGroupByOutputType[P]>
+            : GetScalarType<T[P], AdvantagesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type advantagesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    cost?: boolean
+    description?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["advantages"]>
+
+  export type advantagesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    cost?: boolean
+    description?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["advantages"]>
+
+  export type advantagesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    cost?: boolean
+    description?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["advantages"]>
+
+  export type advantagesSelectScalar = {
+    id?: boolean
+    name?: boolean
+    cost?: boolean
+    description?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type advantagesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "cost" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["advantages"]>
+
+  export type $advantagesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "advantages"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      cost: string
+      description: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["advantages"]>
+    composites: {}
+  }
+
+  type advantagesGetPayload<S extends boolean | null | undefined | advantagesDefaultArgs> = $Result.GetResult<Prisma.$advantagesPayload, S>
+
+  type advantagesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<advantagesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AdvantagesCountAggregateInputType | true
+    }
+
+  export interface advantagesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['advantages'], meta: { name: 'advantages' } }
+    /**
+     * Find zero or one Advantages that matches the filter.
+     * @param {advantagesFindUniqueArgs} args - Arguments to find a Advantages
+     * @example
+     * // Get one Advantages
+     * const advantages = await prisma.advantages.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends advantagesFindUniqueArgs>(args: SelectSubset<T, advantagesFindUniqueArgs<ExtArgs>>): Prisma__advantagesClient<$Result.GetResult<Prisma.$advantagesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Advantages that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {advantagesFindUniqueOrThrowArgs} args - Arguments to find a Advantages
+     * @example
+     * // Get one Advantages
+     * const advantages = await prisma.advantages.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends advantagesFindUniqueOrThrowArgs>(args: SelectSubset<T, advantagesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__advantagesClient<$Result.GetResult<Prisma.$advantagesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Advantages that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {advantagesFindFirstArgs} args - Arguments to find a Advantages
+     * @example
+     * // Get one Advantages
+     * const advantages = await prisma.advantages.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends advantagesFindFirstArgs>(args?: SelectSubset<T, advantagesFindFirstArgs<ExtArgs>>): Prisma__advantagesClient<$Result.GetResult<Prisma.$advantagesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Advantages that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {advantagesFindFirstOrThrowArgs} args - Arguments to find a Advantages
+     * @example
+     * // Get one Advantages
+     * const advantages = await prisma.advantages.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends advantagesFindFirstOrThrowArgs>(args?: SelectSubset<T, advantagesFindFirstOrThrowArgs<ExtArgs>>): Prisma__advantagesClient<$Result.GetResult<Prisma.$advantagesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Advantages that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {advantagesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Advantages
+     * const advantages = await prisma.advantages.findMany()
+     * 
+     * // Get first 10 Advantages
+     * const advantages = await prisma.advantages.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const advantagesWithIdOnly = await prisma.advantages.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends advantagesFindManyArgs>(args?: SelectSubset<T, advantagesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$advantagesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Advantages.
+     * @param {advantagesCreateArgs} args - Arguments to create a Advantages.
+     * @example
+     * // Create one Advantages
+     * const Advantages = await prisma.advantages.create({
+     *   data: {
+     *     // ... data to create a Advantages
+     *   }
+     * })
+     * 
+     */
+    create<T extends advantagesCreateArgs>(args: SelectSubset<T, advantagesCreateArgs<ExtArgs>>): Prisma__advantagesClient<$Result.GetResult<Prisma.$advantagesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Advantages.
+     * @param {advantagesCreateManyArgs} args - Arguments to create many Advantages.
+     * @example
+     * // Create many Advantages
+     * const advantages = await prisma.advantages.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends advantagesCreateManyArgs>(args?: SelectSubset<T, advantagesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Advantages and returns the data saved in the database.
+     * @param {advantagesCreateManyAndReturnArgs} args - Arguments to create many Advantages.
+     * @example
+     * // Create many Advantages
+     * const advantages = await prisma.advantages.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Advantages and only return the `id`
+     * const advantagesWithIdOnly = await prisma.advantages.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends advantagesCreateManyAndReturnArgs>(args?: SelectSubset<T, advantagesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$advantagesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Advantages.
+     * @param {advantagesDeleteArgs} args - Arguments to delete one Advantages.
+     * @example
+     * // Delete one Advantages
+     * const Advantages = await prisma.advantages.delete({
+     *   where: {
+     *     // ... filter to delete one Advantages
+     *   }
+     * })
+     * 
+     */
+    delete<T extends advantagesDeleteArgs>(args: SelectSubset<T, advantagesDeleteArgs<ExtArgs>>): Prisma__advantagesClient<$Result.GetResult<Prisma.$advantagesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Advantages.
+     * @param {advantagesUpdateArgs} args - Arguments to update one Advantages.
+     * @example
+     * // Update one Advantages
+     * const advantages = await prisma.advantages.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends advantagesUpdateArgs>(args: SelectSubset<T, advantagesUpdateArgs<ExtArgs>>): Prisma__advantagesClient<$Result.GetResult<Prisma.$advantagesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Advantages.
+     * @param {advantagesDeleteManyArgs} args - Arguments to filter Advantages to delete.
+     * @example
+     * // Delete a few Advantages
+     * const { count } = await prisma.advantages.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends advantagesDeleteManyArgs>(args?: SelectSubset<T, advantagesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Advantages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {advantagesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Advantages
+     * const advantages = await prisma.advantages.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends advantagesUpdateManyArgs>(args: SelectSubset<T, advantagesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Advantages and returns the data updated in the database.
+     * @param {advantagesUpdateManyAndReturnArgs} args - Arguments to update many Advantages.
+     * @example
+     * // Update many Advantages
+     * const advantages = await prisma.advantages.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Advantages and only return the `id`
+     * const advantagesWithIdOnly = await prisma.advantages.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends advantagesUpdateManyAndReturnArgs>(args: SelectSubset<T, advantagesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$advantagesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Advantages.
+     * @param {advantagesUpsertArgs} args - Arguments to update or create a Advantages.
+     * @example
+     * // Update or create a Advantages
+     * const advantages = await prisma.advantages.upsert({
+     *   create: {
+     *     // ... data to create a Advantages
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Advantages we want to update
+     *   }
+     * })
+     */
+    upsert<T extends advantagesUpsertArgs>(args: SelectSubset<T, advantagesUpsertArgs<ExtArgs>>): Prisma__advantagesClient<$Result.GetResult<Prisma.$advantagesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Advantages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {advantagesCountArgs} args - Arguments to filter Advantages to count.
+     * @example
+     * // Count the number of Advantages
+     * const count = await prisma.advantages.count({
+     *   where: {
+     *     // ... the filter for the Advantages we want to count
+     *   }
+     * })
+    **/
+    count<T extends advantagesCountArgs>(
+      args?: Subset<T, advantagesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AdvantagesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Advantages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AdvantagesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AdvantagesAggregateArgs>(args: Subset<T, AdvantagesAggregateArgs>): Prisma.PrismaPromise<GetAdvantagesAggregateType<T>>
+
+    /**
+     * Group by Advantages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {advantagesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends advantagesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: advantagesGroupByArgs['orderBy'] }
+        : { orderBy?: advantagesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, advantagesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAdvantagesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the advantages model
+   */
+  readonly fields: advantagesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for advantages.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__advantagesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the advantages model
+   */
+  interface advantagesFieldRefs {
+    readonly id: FieldRef<"advantages", 'Int'>
+    readonly name: FieldRef<"advantages", 'String'>
+    readonly cost: FieldRef<"advantages", 'String'>
+    readonly description: FieldRef<"advantages", 'String'>
+    readonly createdAt: FieldRef<"advantages", 'DateTime'>
+    readonly updatedAt: FieldRef<"advantages", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * advantages findUnique
+   */
+  export type advantagesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the advantages
+     */
+    select?: advantagesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the advantages
+     */
+    omit?: advantagesOmit<ExtArgs> | null
+    /**
+     * Filter, which advantages to fetch.
+     */
+    where: advantagesWhereUniqueInput
+  }
+
+  /**
+   * advantages findUniqueOrThrow
+   */
+  export type advantagesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the advantages
+     */
+    select?: advantagesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the advantages
+     */
+    omit?: advantagesOmit<ExtArgs> | null
+    /**
+     * Filter, which advantages to fetch.
+     */
+    where: advantagesWhereUniqueInput
+  }
+
+  /**
+   * advantages findFirst
+   */
+  export type advantagesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the advantages
+     */
+    select?: advantagesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the advantages
+     */
+    omit?: advantagesOmit<ExtArgs> | null
+    /**
+     * Filter, which advantages to fetch.
+     */
+    where?: advantagesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of advantages to fetch.
+     */
+    orderBy?: advantagesOrderByWithRelationInput | advantagesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for advantages.
+     */
+    cursor?: advantagesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` advantages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` advantages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of advantages.
+     */
+    distinct?: AdvantagesScalarFieldEnum | AdvantagesScalarFieldEnum[]
+  }
+
+  /**
+   * advantages findFirstOrThrow
+   */
+  export type advantagesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the advantages
+     */
+    select?: advantagesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the advantages
+     */
+    omit?: advantagesOmit<ExtArgs> | null
+    /**
+     * Filter, which advantages to fetch.
+     */
+    where?: advantagesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of advantages to fetch.
+     */
+    orderBy?: advantagesOrderByWithRelationInput | advantagesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for advantages.
+     */
+    cursor?: advantagesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` advantages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` advantages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of advantages.
+     */
+    distinct?: AdvantagesScalarFieldEnum | AdvantagesScalarFieldEnum[]
+  }
+
+  /**
+   * advantages findMany
+   */
+  export type advantagesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the advantages
+     */
+    select?: advantagesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the advantages
+     */
+    omit?: advantagesOmit<ExtArgs> | null
+    /**
+     * Filter, which advantages to fetch.
+     */
+    where?: advantagesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of advantages to fetch.
+     */
+    orderBy?: advantagesOrderByWithRelationInput | advantagesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing advantages.
+     */
+    cursor?: advantagesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` advantages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` advantages.
+     */
+    skip?: number
+    distinct?: AdvantagesScalarFieldEnum | AdvantagesScalarFieldEnum[]
+  }
+
+  /**
+   * advantages create
+   */
+  export type advantagesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the advantages
+     */
+    select?: advantagesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the advantages
+     */
+    omit?: advantagesOmit<ExtArgs> | null
+    /**
+     * The data needed to create a advantages.
+     */
+    data: XOR<advantagesCreateInput, advantagesUncheckedCreateInput>
+  }
+
+  /**
+   * advantages createMany
+   */
+  export type advantagesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many advantages.
+     */
+    data: advantagesCreateManyInput | advantagesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * advantages createManyAndReturn
+   */
+  export type advantagesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the advantages
+     */
+    select?: advantagesSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the advantages
+     */
+    omit?: advantagesOmit<ExtArgs> | null
+    /**
+     * The data used to create many advantages.
+     */
+    data: advantagesCreateManyInput | advantagesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * advantages update
+   */
+  export type advantagesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the advantages
+     */
+    select?: advantagesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the advantages
+     */
+    omit?: advantagesOmit<ExtArgs> | null
+    /**
+     * The data needed to update a advantages.
+     */
+    data: XOR<advantagesUpdateInput, advantagesUncheckedUpdateInput>
+    /**
+     * Choose, which advantages to update.
+     */
+    where: advantagesWhereUniqueInput
+  }
+
+  /**
+   * advantages updateMany
+   */
+  export type advantagesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update advantages.
+     */
+    data: XOR<advantagesUpdateManyMutationInput, advantagesUncheckedUpdateManyInput>
+    /**
+     * Filter which advantages to update
+     */
+    where?: advantagesWhereInput
+    /**
+     * Limit how many advantages to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * advantages updateManyAndReturn
+   */
+  export type advantagesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the advantages
+     */
+    select?: advantagesSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the advantages
+     */
+    omit?: advantagesOmit<ExtArgs> | null
+    /**
+     * The data used to update advantages.
+     */
+    data: XOR<advantagesUpdateManyMutationInput, advantagesUncheckedUpdateManyInput>
+    /**
+     * Filter which advantages to update
+     */
+    where?: advantagesWhereInput
+    /**
+     * Limit how many advantages to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * advantages upsert
+   */
+  export type advantagesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the advantages
+     */
+    select?: advantagesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the advantages
+     */
+    omit?: advantagesOmit<ExtArgs> | null
+    /**
+     * The filter to search for the advantages to update in case it exists.
+     */
+    where: advantagesWhereUniqueInput
+    /**
+     * In case the advantages found by the `where` argument doesn't exist, create a new advantages with this data.
+     */
+    create: XOR<advantagesCreateInput, advantagesUncheckedCreateInput>
+    /**
+     * In case the advantages was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<advantagesUpdateInput, advantagesUncheckedUpdateInput>
+  }
+
+  /**
+   * advantages delete
+   */
+  export type advantagesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the advantages
+     */
+    select?: advantagesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the advantages
+     */
+    omit?: advantagesOmit<ExtArgs> | null
+    /**
+     * Filter which advantages to delete.
+     */
+    where: advantagesWhereUniqueInput
+  }
+
+  /**
+   * advantages deleteMany
+   */
+  export type advantagesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which advantages to delete
+     */
+    where?: advantagesWhereInput
+    /**
+     * Limit how many advantages to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * advantages without action
+   */
+  export type advantagesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the advantages
+     */
+    select?: advantagesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the advantages
+     */
+    omit?: advantagesOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Model sheets
    */
 
@@ -7129,26 +10833,31 @@ export namespace Prisma {
 
   export type SheetsAvgAggregateOutputType = {
     id: number | null
+    user_id: number | null
   }
 
   export type SheetsSumAggregateOutputType = {
     id: number | null
+    user_id: number | null
   }
 
   export type SheetsMinAggregateOutputType = {
     id: number | null
+    user_id: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
   export type SheetsMaxAggregateOutputType = {
     id: number | null
+    user_id: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
   export type SheetsCountAggregateOutputType = {
     id: number
+    user_id: number
     data: number
     createdAt: number
     updatedAt: number
@@ -7158,26 +10867,31 @@ export namespace Prisma {
 
   export type SheetsAvgAggregateInputType = {
     id?: true
+    user_id?: true
   }
 
   export type SheetsSumAggregateInputType = {
     id?: true
+    user_id?: true
   }
 
   export type SheetsMinAggregateInputType = {
     id?: true
+    user_id?: true
     createdAt?: true
     updatedAt?: true
   }
 
   export type SheetsMaxAggregateInputType = {
     id?: true
+    user_id?: true
     createdAt?: true
     updatedAt?: true
   }
 
   export type SheetsCountAggregateInputType = {
     id?: true
+    user_id?: true
     data?: true
     createdAt?: true
     updatedAt?: true
@@ -7272,6 +10986,7 @@ export namespace Prisma {
 
   export type SheetsGroupByOutputType = {
     id: number
+    user_id: number
     data: JsonValue
     createdAt: Date
     updatedAt: Date
@@ -7298,39 +11013,58 @@ export namespace Prisma {
 
   export type sheetsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    user_id?: boolean
     data?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    user?: boolean | usersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sheets"]>
 
   export type sheetsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    user_id?: boolean
     data?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    user?: boolean | usersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sheets"]>
 
   export type sheetsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    user_id?: boolean
     data?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    user?: boolean | usersDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sheets"]>
 
   export type sheetsSelectScalar = {
     id?: boolean
+    user_id?: boolean
     data?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type sheetsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "data" | "createdAt" | "updatedAt", ExtArgs["result"]["sheets"]>
+  export type sheetsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "data" | "createdAt" | "updatedAt", ExtArgs["result"]["sheets"]>
+  export type sheetsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | usersDefaultArgs<ExtArgs>
+  }
+  export type sheetsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | usersDefaultArgs<ExtArgs>
+  }
+  export type sheetsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    user?: boolean | usersDefaultArgs<ExtArgs>
+  }
 
   export type $sheetsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "sheets"
-    objects: {}
+    objects: {
+      user: Prisma.$usersPayload<ExtArgs>
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      user_id: number
       data: Prisma.JsonValue
       createdAt: Date
       updatedAt: Date
@@ -7728,6 +11462,7 @@ export namespace Prisma {
    */
   export interface Prisma__sheetsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    user<T extends usersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, usersDefaultArgs<ExtArgs>>): Prisma__usersClient<$Result.GetResult<Prisma.$usersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7758,6 +11493,7 @@ export namespace Prisma {
    */
   interface sheetsFieldRefs {
     readonly id: FieldRef<"sheets", 'Int'>
+    readonly user_id: FieldRef<"sheets", 'Int'>
     readonly data: FieldRef<"sheets", 'Json'>
     readonly createdAt: FieldRef<"sheets", 'DateTime'>
     readonly updatedAt: FieldRef<"sheets", 'DateTime'>
@@ -7778,6 +11514,10 @@ export namespace Prisma {
      */
     omit?: sheetsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sheetsInclude<ExtArgs> | null
+    /**
      * Filter, which sheets to fetch.
      */
     where: sheetsWhereUniqueInput
@@ -7796,6 +11536,10 @@ export namespace Prisma {
      */
     omit?: sheetsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sheetsInclude<ExtArgs> | null
+    /**
      * Filter, which sheets to fetch.
      */
     where: sheetsWhereUniqueInput
@@ -7813,6 +11557,10 @@ export namespace Prisma {
      * Omit specific fields from the sheets
      */
     omit?: sheetsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sheetsInclude<ExtArgs> | null
     /**
      * Filter, which sheets to fetch.
      */
@@ -7862,6 +11610,10 @@ export namespace Prisma {
      */
     omit?: sheetsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sheetsInclude<ExtArgs> | null
+    /**
      * Filter, which sheets to fetch.
      */
     where?: sheetsWhereInput
@@ -7910,6 +11662,10 @@ export namespace Prisma {
      */
     omit?: sheetsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sheetsInclude<ExtArgs> | null
+    /**
      * Filter, which sheets to fetch.
      */
     where?: sheetsWhereInput
@@ -7953,6 +11709,10 @@ export namespace Prisma {
      */
     omit?: sheetsOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sheetsInclude<ExtArgs> | null
+    /**
      * The data needed to create a sheets.
      */
     data: XOR<sheetsCreateInput, sheetsUncheckedCreateInput>
@@ -7986,6 +11746,10 @@ export namespace Prisma {
      */
     data: sheetsCreateManyInput | sheetsCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sheetsIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -8000,6 +11764,10 @@ export namespace Prisma {
      * Omit specific fields from the sheets
      */
     omit?: sheetsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sheetsInclude<ExtArgs> | null
     /**
      * The data needed to update a sheets.
      */
@@ -8052,6 +11820,10 @@ export namespace Prisma {
      * Limit how many sheets to update.
      */
     limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sheetsIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
@@ -8066,6 +11838,10 @@ export namespace Prisma {
      * Omit specific fields from the sheets
      */
     omit?: sheetsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sheetsInclude<ExtArgs> | null
     /**
      * The filter to search for the sheets to update in case it exists.
      */
@@ -8092,6 +11868,10 @@ export namespace Prisma {
      * Omit specific fields from the sheets
      */
     omit?: sheetsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sheetsInclude<ExtArgs> | null
     /**
      * Filter which sheets to delete.
      */
@@ -8124,6 +11904,10 @@ export namespace Prisma {
      * Omit specific fields from the sheets
      */
     omit?: sheetsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: sheetsInclude<ExtArgs> | null
   }
 
 
@@ -8210,8 +11994,44 @@ export namespace Prisma {
   export type LocationsScalarFieldEnum = (typeof LocationsScalarFieldEnum)[keyof typeof LocationsScalarFieldEnum]
 
 
+  export const GamesScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    description: 'description',
+    owner_id: 'owner_id',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type GamesScalarFieldEnum = (typeof GamesScalarFieldEnum)[keyof typeof GamesScalarFieldEnum]
+
+
+  export const Users_games_claimsScalarFieldEnum: {
+    id: 'id',
+    game_id: 'game_id',
+    user_id: 'user_id',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type Users_games_claimsScalarFieldEnum = (typeof Users_games_claimsScalarFieldEnum)[keyof typeof Users_games_claimsScalarFieldEnum]
+
+
+  export const AdvantagesScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    cost: 'cost',
+    description: 'description',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type AdvantagesScalarFieldEnum = (typeof AdvantagesScalarFieldEnum)[keyof typeof AdvantagesScalarFieldEnum]
+
+
   export const SheetsScalarFieldEnum: {
     id: 'id',
+    user_id: 'user_id',
     data: 'data',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -8349,7 +12169,10 @@ export namespace Prisma {
     recoveryTokens?: StringNullableListFilter<"users">
     createdAt?: DateTimeFilter<"users"> | Date | string
     updatedAt?: DateTimeFilter<"users"> | Date | string
+    mygames?: GamesListRelationFilter
+    games?: Users_games_claimsListRelationFilter
     PasswordResetToken?: Password_reset_tokensListRelationFilter
+    sheets?: SheetsListRelationFilter
   }
 
   export type usersOrderByWithRelationInput = {
@@ -8360,7 +12183,10 @@ export namespace Prisma {
     recoveryTokens?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    mygames?: gamesOrderByRelationAggregateInput
+    games?: users_games_claimsOrderByRelationAggregateInput
     PasswordResetToken?: password_reset_tokensOrderByRelationAggregateInput
+    sheets?: sheetsOrderByRelationAggregateInput
   }
 
   export type usersWhereUniqueInput = Prisma.AtLeast<{
@@ -8374,7 +12200,10 @@ export namespace Prisma {
     recoveryTokens?: StringNullableListFilter<"users">
     createdAt?: DateTimeFilter<"users"> | Date | string
     updatedAt?: DateTimeFilter<"users"> | Date | string
+    mygames?: GamesListRelationFilter
+    games?: Users_games_claimsListRelationFilter
     PasswordResetToken?: Password_reset_tokensListRelationFilter
+    sheets?: SheetsListRelationFilter
   }, "id" | "email">
 
   export type usersOrderByWithAggregationInput = {
@@ -8696,21 +12525,209 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"locations"> | Date | string
   }
 
+  export type gamesWhereInput = {
+    AND?: gamesWhereInput | gamesWhereInput[]
+    OR?: gamesWhereInput[]
+    NOT?: gamesWhereInput | gamesWhereInput[]
+    id?: IntFilter<"games"> | number
+    name?: StringFilter<"games"> | string
+    description?: StringFilter<"games"> | string
+    owner_id?: IntFilter<"games"> | number
+    createdAt?: DateTimeFilter<"games"> | Date | string
+    updatedAt?: DateTimeFilter<"games"> | Date | string
+    owner?: XOR<UsersScalarRelationFilter, usersWhereInput>
+    players?: Users_games_claimsListRelationFilter
+  }
+
+  export type gamesOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    owner_id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    owner?: usersOrderByWithRelationInput
+    players?: users_games_claimsOrderByRelationAggregateInput
+  }
+
+  export type gamesWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: gamesWhereInput | gamesWhereInput[]
+    OR?: gamesWhereInput[]
+    NOT?: gamesWhereInput | gamesWhereInput[]
+    name?: StringFilter<"games"> | string
+    description?: StringFilter<"games"> | string
+    owner_id?: IntFilter<"games"> | number
+    createdAt?: DateTimeFilter<"games"> | Date | string
+    updatedAt?: DateTimeFilter<"games"> | Date | string
+    owner?: XOR<UsersScalarRelationFilter, usersWhereInput>
+    players?: Users_games_claimsListRelationFilter
+  }, "id">
+
+  export type gamesOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    owner_id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: gamesCountOrderByAggregateInput
+    _avg?: gamesAvgOrderByAggregateInput
+    _max?: gamesMaxOrderByAggregateInput
+    _min?: gamesMinOrderByAggregateInput
+    _sum?: gamesSumOrderByAggregateInput
+  }
+
+  export type gamesScalarWhereWithAggregatesInput = {
+    AND?: gamesScalarWhereWithAggregatesInput | gamesScalarWhereWithAggregatesInput[]
+    OR?: gamesScalarWhereWithAggregatesInput[]
+    NOT?: gamesScalarWhereWithAggregatesInput | gamesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"games"> | number
+    name?: StringWithAggregatesFilter<"games"> | string
+    description?: StringWithAggregatesFilter<"games"> | string
+    owner_id?: IntWithAggregatesFilter<"games"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"games"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"games"> | Date | string
+  }
+
+  export type users_games_claimsWhereInput = {
+    AND?: users_games_claimsWhereInput | users_games_claimsWhereInput[]
+    OR?: users_games_claimsWhereInput[]
+    NOT?: users_games_claimsWhereInput | users_games_claimsWhereInput[]
+    id?: IntFilter<"users_games_claims"> | number
+    game_id?: IntFilter<"users_games_claims"> | number
+    user_id?: IntFilter<"users_games_claims"> | number
+    createdAt?: DateTimeFilter<"users_games_claims"> | Date | string
+    updatedAt?: DateTimeFilter<"users_games_claims"> | Date | string
+    game?: XOR<GamesScalarRelationFilter, gamesWhereInput>
+    user?: XOR<UsersScalarRelationFilter, usersWhereInput>
+  }
+
+  export type users_games_claimsOrderByWithRelationInput = {
+    id?: SortOrder
+    game_id?: SortOrder
+    user_id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    game?: gamesOrderByWithRelationInput
+    user?: usersOrderByWithRelationInput
+  }
+
+  export type users_games_claimsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: users_games_claimsWhereInput | users_games_claimsWhereInput[]
+    OR?: users_games_claimsWhereInput[]
+    NOT?: users_games_claimsWhereInput | users_games_claimsWhereInput[]
+    game_id?: IntFilter<"users_games_claims"> | number
+    user_id?: IntFilter<"users_games_claims"> | number
+    createdAt?: DateTimeFilter<"users_games_claims"> | Date | string
+    updatedAt?: DateTimeFilter<"users_games_claims"> | Date | string
+    game?: XOR<GamesScalarRelationFilter, gamesWhereInput>
+    user?: XOR<UsersScalarRelationFilter, usersWhereInput>
+  }, "id">
+
+  export type users_games_claimsOrderByWithAggregationInput = {
+    id?: SortOrder
+    game_id?: SortOrder
+    user_id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: users_games_claimsCountOrderByAggregateInput
+    _avg?: users_games_claimsAvgOrderByAggregateInput
+    _max?: users_games_claimsMaxOrderByAggregateInput
+    _min?: users_games_claimsMinOrderByAggregateInput
+    _sum?: users_games_claimsSumOrderByAggregateInput
+  }
+
+  export type users_games_claimsScalarWhereWithAggregatesInput = {
+    AND?: users_games_claimsScalarWhereWithAggregatesInput | users_games_claimsScalarWhereWithAggregatesInput[]
+    OR?: users_games_claimsScalarWhereWithAggregatesInput[]
+    NOT?: users_games_claimsScalarWhereWithAggregatesInput | users_games_claimsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"users_games_claims"> | number
+    game_id?: IntWithAggregatesFilter<"users_games_claims"> | number
+    user_id?: IntWithAggregatesFilter<"users_games_claims"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"users_games_claims"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"users_games_claims"> | Date | string
+  }
+
+  export type advantagesWhereInput = {
+    AND?: advantagesWhereInput | advantagesWhereInput[]
+    OR?: advantagesWhereInput[]
+    NOT?: advantagesWhereInput | advantagesWhereInput[]
+    id?: IntFilter<"advantages"> | number
+    name?: StringFilter<"advantages"> | string
+    cost?: StringFilter<"advantages"> | string
+    description?: StringFilter<"advantages"> | string
+    createdAt?: DateTimeFilter<"advantages"> | Date | string
+    updatedAt?: DateTimeFilter<"advantages"> | Date | string
+  }
+
+  export type advantagesOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    cost?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type advantagesWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: advantagesWhereInput | advantagesWhereInput[]
+    OR?: advantagesWhereInput[]
+    NOT?: advantagesWhereInput | advantagesWhereInput[]
+    name?: StringFilter<"advantages"> | string
+    cost?: StringFilter<"advantages"> | string
+    description?: StringFilter<"advantages"> | string
+    createdAt?: DateTimeFilter<"advantages"> | Date | string
+    updatedAt?: DateTimeFilter<"advantages"> | Date | string
+  }, "id">
+
+  export type advantagesOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    cost?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: advantagesCountOrderByAggregateInput
+    _avg?: advantagesAvgOrderByAggregateInput
+    _max?: advantagesMaxOrderByAggregateInput
+    _min?: advantagesMinOrderByAggregateInput
+    _sum?: advantagesSumOrderByAggregateInput
+  }
+
+  export type advantagesScalarWhereWithAggregatesInput = {
+    AND?: advantagesScalarWhereWithAggregatesInput | advantagesScalarWhereWithAggregatesInput[]
+    OR?: advantagesScalarWhereWithAggregatesInput[]
+    NOT?: advantagesScalarWhereWithAggregatesInput | advantagesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"advantages"> | number
+    name?: StringWithAggregatesFilter<"advantages"> | string
+    cost?: StringWithAggregatesFilter<"advantages"> | string
+    description?: StringWithAggregatesFilter<"advantages"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"advantages"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"advantages"> | Date | string
+  }
+
   export type sheetsWhereInput = {
     AND?: sheetsWhereInput | sheetsWhereInput[]
     OR?: sheetsWhereInput[]
     NOT?: sheetsWhereInput | sheetsWhereInput[]
     id?: IntFilter<"sheets"> | number
+    user_id?: IntFilter<"sheets"> | number
     data?: JsonFilter<"sheets">
     createdAt?: DateTimeFilter<"sheets"> | Date | string
     updatedAt?: DateTimeFilter<"sheets"> | Date | string
+    user?: XOR<UsersScalarRelationFilter, usersWhereInput>
   }
 
   export type sheetsOrderByWithRelationInput = {
     id?: SortOrder
+    user_id?: SortOrder
     data?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    user?: usersOrderByWithRelationInput
   }
 
   export type sheetsWhereUniqueInput = Prisma.AtLeast<{
@@ -8718,13 +12735,16 @@ export namespace Prisma {
     AND?: sheetsWhereInput | sheetsWhereInput[]
     OR?: sheetsWhereInput[]
     NOT?: sheetsWhereInput | sheetsWhereInput[]
+    user_id?: IntFilter<"sheets"> | number
     data?: JsonFilter<"sheets">
     createdAt?: DateTimeFilter<"sheets"> | Date | string
     updatedAt?: DateTimeFilter<"sheets"> | Date | string
+    user?: XOR<UsersScalarRelationFilter, usersWhereInput>
   }, "id">
 
   export type sheetsOrderByWithAggregationInput = {
     id?: SortOrder
+    user_id?: SortOrder
     data?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -8740,6 +12760,7 @@ export namespace Prisma {
     OR?: sheetsScalarWhereWithAggregatesInput[]
     NOT?: sheetsScalarWhereWithAggregatesInput | sheetsScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"sheets"> | number
+    user_id?: IntWithAggregatesFilter<"sheets"> | number
     data?: JsonWithAggregatesFilter<"sheets">
     createdAt?: DateTimeWithAggregatesFilter<"sheets"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"sheets"> | Date | string
@@ -8752,7 +12773,10 @@ export namespace Prisma {
     recoveryTokens?: usersCreaterecoveryTokensInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    mygames?: gamesCreateNestedManyWithoutOwnerInput
+    games?: users_games_claimsCreateNestedManyWithoutUserInput
     PasswordResetToken?: password_reset_tokensCreateNestedManyWithoutUserInput
+    sheets?: sheetsCreateNestedManyWithoutUserInput
   }
 
   export type usersUncheckedCreateInput = {
@@ -8763,7 +12787,10 @@ export namespace Prisma {
     recoveryTokens?: usersCreaterecoveryTokensInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    mygames?: gamesUncheckedCreateNestedManyWithoutOwnerInput
+    games?: users_games_claimsUncheckedCreateNestedManyWithoutUserInput
     PasswordResetToken?: password_reset_tokensUncheckedCreateNestedManyWithoutUserInput
+    sheets?: sheetsUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type usersUpdateInput = {
@@ -8773,7 +12800,10 @@ export namespace Prisma {
     recoveryTokens?: usersUpdaterecoveryTokensInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mygames?: gamesUpdateManyWithoutOwnerNestedInput
+    games?: users_games_claimsUpdateManyWithoutUserNestedInput
     PasswordResetToken?: password_reset_tokensUpdateManyWithoutUserNestedInput
+    sheets?: sheetsUpdateManyWithoutUserNestedInput
   }
 
   export type usersUncheckedUpdateInput = {
@@ -8784,7 +12814,10 @@ export namespace Prisma {
     recoveryTokens?: usersUpdaterecoveryTokensInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mygames?: gamesUncheckedUpdateManyWithoutOwnerNestedInput
+    games?: users_games_claimsUncheckedUpdateManyWithoutUserNestedInput
     PasswordResetToken?: password_reset_tokensUncheckedUpdateManyWithoutUserNestedInput
+    sheets?: sheetsUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type usersCreateManyInput = {
@@ -9117,14 +13150,190 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type sheetsCreateInput = {
-    data: JsonNullValueInput | InputJsonValue
+  export type gamesCreateInput = {
+    name: string
+    description: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    owner: usersCreateNestedOneWithoutMygamesInput
+    players?: users_games_claimsCreateNestedManyWithoutGameInput
+  }
+
+  export type gamesUncheckedCreateInput = {
+    id?: number
+    name: string
+    description: string
+    owner_id: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    players?: users_games_claimsUncheckedCreateNestedManyWithoutGameInput
+  }
+
+  export type gamesUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    owner?: usersUpdateOneRequiredWithoutMygamesNestedInput
+    players?: users_games_claimsUpdateManyWithoutGameNestedInput
+  }
+
+  export type gamesUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    owner_id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    players?: users_games_claimsUncheckedUpdateManyWithoutGameNestedInput
+  }
+
+  export type gamesCreateManyInput = {
+    id?: number
+    name: string
+    description: string
+    owner_id: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
+  export type gamesUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type gamesUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    owner_id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type users_games_claimsCreateInput = {
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    game: gamesCreateNestedOneWithoutPlayersInput
+    user: usersCreateNestedOneWithoutGamesInput
+  }
+
+  export type users_games_claimsUncheckedCreateInput = {
+    id?: number
+    game_id: number
+    user_id: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type users_games_claimsUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    game?: gamesUpdateOneRequiredWithoutPlayersNestedInput
+    user?: usersUpdateOneRequiredWithoutGamesNestedInput
+  }
+
+  export type users_games_claimsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    game_id?: IntFieldUpdateOperationsInput | number
+    user_id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type users_games_claimsCreateManyInput = {
+    id?: number
+    game_id: number
+    user_id: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type users_games_claimsUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type users_games_claimsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    game_id?: IntFieldUpdateOperationsInput | number
+    user_id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type advantagesCreateInput = {
+    name: string
+    cost: string
+    description: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type advantagesUncheckedCreateInput = {
+    id?: number
+    name: string
+    cost: string
+    description: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type advantagesUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    cost?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type advantagesUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    cost?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type advantagesCreateManyInput = {
+    id?: number
+    name: string
+    cost: string
+    description: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type advantagesUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    cost?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type advantagesUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    cost?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sheetsCreateInput = {
+    data: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: usersCreateNestedOneWithoutSheetsInput
+  }
+
   export type sheetsUncheckedCreateInput = {
     id?: number
+    user_id: number
     data: JsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -9134,10 +13343,12 @@ export namespace Prisma {
     data?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: usersUpdateOneRequiredWithoutSheetsNestedInput
   }
 
   export type sheetsUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    user_id?: IntFieldUpdateOperationsInput | number
     data?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9145,6 +13356,7 @@ export namespace Prisma {
 
   export type sheetsCreateManyInput = {
     id?: number
+    user_id: number
     data: JsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -9158,6 +13370,7 @@ export namespace Prisma {
 
   export type sheetsUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    user_id?: IntFieldUpdateOperationsInput | number
     data?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9208,13 +13421,43 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
+  export type GamesListRelationFilter = {
+    every?: gamesWhereInput
+    some?: gamesWhereInput
+    none?: gamesWhereInput
+  }
+
+  export type Users_games_claimsListRelationFilter = {
+    every?: users_games_claimsWhereInput
+    some?: users_games_claimsWhereInput
+    none?: users_games_claimsWhereInput
+  }
+
   export type Password_reset_tokensListRelationFilter = {
     every?: password_reset_tokensWhereInput
     some?: password_reset_tokensWhereInput
     none?: password_reset_tokensWhereInput
   }
 
+  export type SheetsListRelationFilter = {
+    every?: sheetsWhereInput
+    some?: sheetsWhereInput
+    none?: sheetsWhereInput
+  }
+
+  export type gamesOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type users_games_claimsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type password_reset_tokensOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type sheetsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -9538,6 +13781,119 @@ export namespace Prisma {
     id?: SortOrder
     townId?: SortOrder
   }
+
+  export type gamesCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    owner_id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type gamesAvgOrderByAggregateInput = {
+    id?: SortOrder
+    owner_id?: SortOrder
+  }
+
+  export type gamesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    owner_id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type gamesMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    owner_id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type gamesSumOrderByAggregateInput = {
+    id?: SortOrder
+    owner_id?: SortOrder
+  }
+
+  export type GamesScalarRelationFilter = {
+    is?: gamesWhereInput
+    isNot?: gamesWhereInput
+  }
+
+  export type users_games_claimsCountOrderByAggregateInput = {
+    id?: SortOrder
+    game_id?: SortOrder
+    user_id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type users_games_claimsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    game_id?: SortOrder
+    user_id?: SortOrder
+  }
+
+  export type users_games_claimsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    game_id?: SortOrder
+    user_id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type users_games_claimsMinOrderByAggregateInput = {
+    id?: SortOrder
+    game_id?: SortOrder
+    user_id?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type users_games_claimsSumOrderByAggregateInput = {
+    id?: SortOrder
+    game_id?: SortOrder
+    user_id?: SortOrder
+  }
+
+  export type advantagesCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    cost?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type advantagesAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type advantagesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    cost?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type advantagesMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    cost?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type advantagesSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
   export type JsonFilter<$PrismaModel = never> =
     | PatchUndefined<
         Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
@@ -9564,6 +13920,7 @@ export namespace Prisma {
 
   export type sheetsCountOrderByAggregateInput = {
     id?: SortOrder
+    user_id?: SortOrder
     data?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -9571,22 +13928,26 @@ export namespace Prisma {
 
   export type sheetsAvgOrderByAggregateInput = {
     id?: SortOrder
+    user_id?: SortOrder
   }
 
   export type sheetsMaxOrderByAggregateInput = {
     id?: SortOrder
+    user_id?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type sheetsMinOrderByAggregateInput = {
     id?: SortOrder
+    user_id?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type sheetsSumOrderByAggregateInput = {
     id?: SortOrder
+    user_id?: SortOrder
   }
   export type JsonWithAggregatesFilter<$PrismaModel = never> =
     | PatchUndefined<
@@ -9619,6 +13980,20 @@ export namespace Prisma {
     set: string[]
   }
 
+  export type gamesCreateNestedManyWithoutOwnerInput = {
+    create?: XOR<gamesCreateWithoutOwnerInput, gamesUncheckedCreateWithoutOwnerInput> | gamesCreateWithoutOwnerInput[] | gamesUncheckedCreateWithoutOwnerInput[]
+    connectOrCreate?: gamesCreateOrConnectWithoutOwnerInput | gamesCreateOrConnectWithoutOwnerInput[]
+    createMany?: gamesCreateManyOwnerInputEnvelope
+    connect?: gamesWhereUniqueInput | gamesWhereUniqueInput[]
+  }
+
+  export type users_games_claimsCreateNestedManyWithoutUserInput = {
+    create?: XOR<users_games_claimsCreateWithoutUserInput, users_games_claimsUncheckedCreateWithoutUserInput> | users_games_claimsCreateWithoutUserInput[] | users_games_claimsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: users_games_claimsCreateOrConnectWithoutUserInput | users_games_claimsCreateOrConnectWithoutUserInput[]
+    createMany?: users_games_claimsCreateManyUserInputEnvelope
+    connect?: users_games_claimsWhereUniqueInput | users_games_claimsWhereUniqueInput[]
+  }
+
   export type password_reset_tokensCreateNestedManyWithoutUserInput = {
     create?: XOR<password_reset_tokensCreateWithoutUserInput, password_reset_tokensUncheckedCreateWithoutUserInput> | password_reset_tokensCreateWithoutUserInput[] | password_reset_tokensUncheckedCreateWithoutUserInput[]
     connectOrCreate?: password_reset_tokensCreateOrConnectWithoutUserInput | password_reset_tokensCreateOrConnectWithoutUserInput[]
@@ -9626,11 +14001,39 @@ export namespace Prisma {
     connect?: password_reset_tokensWhereUniqueInput | password_reset_tokensWhereUniqueInput[]
   }
 
+  export type sheetsCreateNestedManyWithoutUserInput = {
+    create?: XOR<sheetsCreateWithoutUserInput, sheetsUncheckedCreateWithoutUserInput> | sheetsCreateWithoutUserInput[] | sheetsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: sheetsCreateOrConnectWithoutUserInput | sheetsCreateOrConnectWithoutUserInput[]
+    createMany?: sheetsCreateManyUserInputEnvelope
+    connect?: sheetsWhereUniqueInput | sheetsWhereUniqueInput[]
+  }
+
+  export type gamesUncheckedCreateNestedManyWithoutOwnerInput = {
+    create?: XOR<gamesCreateWithoutOwnerInput, gamesUncheckedCreateWithoutOwnerInput> | gamesCreateWithoutOwnerInput[] | gamesUncheckedCreateWithoutOwnerInput[]
+    connectOrCreate?: gamesCreateOrConnectWithoutOwnerInput | gamesCreateOrConnectWithoutOwnerInput[]
+    createMany?: gamesCreateManyOwnerInputEnvelope
+    connect?: gamesWhereUniqueInput | gamesWhereUniqueInput[]
+  }
+
+  export type users_games_claimsUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<users_games_claimsCreateWithoutUserInput, users_games_claimsUncheckedCreateWithoutUserInput> | users_games_claimsCreateWithoutUserInput[] | users_games_claimsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: users_games_claimsCreateOrConnectWithoutUserInput | users_games_claimsCreateOrConnectWithoutUserInput[]
+    createMany?: users_games_claimsCreateManyUserInputEnvelope
+    connect?: users_games_claimsWhereUniqueInput | users_games_claimsWhereUniqueInput[]
+  }
+
   export type password_reset_tokensUncheckedCreateNestedManyWithoutUserInput = {
     create?: XOR<password_reset_tokensCreateWithoutUserInput, password_reset_tokensUncheckedCreateWithoutUserInput> | password_reset_tokensCreateWithoutUserInput[] | password_reset_tokensUncheckedCreateWithoutUserInput[]
     connectOrCreate?: password_reset_tokensCreateOrConnectWithoutUserInput | password_reset_tokensCreateOrConnectWithoutUserInput[]
     createMany?: password_reset_tokensCreateManyUserInputEnvelope
     connect?: password_reset_tokensWhereUniqueInput | password_reset_tokensWhereUniqueInput[]
+  }
+
+  export type sheetsUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<sheetsCreateWithoutUserInput, sheetsUncheckedCreateWithoutUserInput> | sheetsCreateWithoutUserInput[] | sheetsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: sheetsCreateOrConnectWithoutUserInput | sheetsCreateOrConnectWithoutUserInput[]
+    createMany?: sheetsCreateManyUserInputEnvelope
+    connect?: sheetsWhereUniqueInput | sheetsWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -9644,6 +14047,34 @@ export namespace Prisma {
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
+  }
+
+  export type gamesUpdateManyWithoutOwnerNestedInput = {
+    create?: XOR<gamesCreateWithoutOwnerInput, gamesUncheckedCreateWithoutOwnerInput> | gamesCreateWithoutOwnerInput[] | gamesUncheckedCreateWithoutOwnerInput[]
+    connectOrCreate?: gamesCreateOrConnectWithoutOwnerInput | gamesCreateOrConnectWithoutOwnerInput[]
+    upsert?: gamesUpsertWithWhereUniqueWithoutOwnerInput | gamesUpsertWithWhereUniqueWithoutOwnerInput[]
+    createMany?: gamesCreateManyOwnerInputEnvelope
+    set?: gamesWhereUniqueInput | gamesWhereUniqueInput[]
+    disconnect?: gamesWhereUniqueInput | gamesWhereUniqueInput[]
+    delete?: gamesWhereUniqueInput | gamesWhereUniqueInput[]
+    connect?: gamesWhereUniqueInput | gamesWhereUniqueInput[]
+    update?: gamesUpdateWithWhereUniqueWithoutOwnerInput | gamesUpdateWithWhereUniqueWithoutOwnerInput[]
+    updateMany?: gamesUpdateManyWithWhereWithoutOwnerInput | gamesUpdateManyWithWhereWithoutOwnerInput[]
+    deleteMany?: gamesScalarWhereInput | gamesScalarWhereInput[]
+  }
+
+  export type users_games_claimsUpdateManyWithoutUserNestedInput = {
+    create?: XOR<users_games_claimsCreateWithoutUserInput, users_games_claimsUncheckedCreateWithoutUserInput> | users_games_claimsCreateWithoutUserInput[] | users_games_claimsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: users_games_claimsCreateOrConnectWithoutUserInput | users_games_claimsCreateOrConnectWithoutUserInput[]
+    upsert?: users_games_claimsUpsertWithWhereUniqueWithoutUserInput | users_games_claimsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: users_games_claimsCreateManyUserInputEnvelope
+    set?: users_games_claimsWhereUniqueInput | users_games_claimsWhereUniqueInput[]
+    disconnect?: users_games_claimsWhereUniqueInput | users_games_claimsWhereUniqueInput[]
+    delete?: users_games_claimsWhereUniqueInput | users_games_claimsWhereUniqueInput[]
+    connect?: users_games_claimsWhereUniqueInput | users_games_claimsWhereUniqueInput[]
+    update?: users_games_claimsUpdateWithWhereUniqueWithoutUserInput | users_games_claimsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: users_games_claimsUpdateManyWithWhereWithoutUserInput | users_games_claimsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: users_games_claimsScalarWhereInput | users_games_claimsScalarWhereInput[]
   }
 
   export type password_reset_tokensUpdateManyWithoutUserNestedInput = {
@@ -9660,12 +14091,54 @@ export namespace Prisma {
     deleteMany?: password_reset_tokensScalarWhereInput | password_reset_tokensScalarWhereInput[]
   }
 
+  export type sheetsUpdateManyWithoutUserNestedInput = {
+    create?: XOR<sheetsCreateWithoutUserInput, sheetsUncheckedCreateWithoutUserInput> | sheetsCreateWithoutUserInput[] | sheetsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: sheetsCreateOrConnectWithoutUserInput | sheetsCreateOrConnectWithoutUserInput[]
+    upsert?: sheetsUpsertWithWhereUniqueWithoutUserInput | sheetsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: sheetsCreateManyUserInputEnvelope
+    set?: sheetsWhereUniqueInput | sheetsWhereUniqueInput[]
+    disconnect?: sheetsWhereUniqueInput | sheetsWhereUniqueInput[]
+    delete?: sheetsWhereUniqueInput | sheetsWhereUniqueInput[]
+    connect?: sheetsWhereUniqueInput | sheetsWhereUniqueInput[]
+    update?: sheetsUpdateWithWhereUniqueWithoutUserInput | sheetsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: sheetsUpdateManyWithWhereWithoutUserInput | sheetsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: sheetsScalarWhereInput | sheetsScalarWhereInput[]
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type gamesUncheckedUpdateManyWithoutOwnerNestedInput = {
+    create?: XOR<gamesCreateWithoutOwnerInput, gamesUncheckedCreateWithoutOwnerInput> | gamesCreateWithoutOwnerInput[] | gamesUncheckedCreateWithoutOwnerInput[]
+    connectOrCreate?: gamesCreateOrConnectWithoutOwnerInput | gamesCreateOrConnectWithoutOwnerInput[]
+    upsert?: gamesUpsertWithWhereUniqueWithoutOwnerInput | gamesUpsertWithWhereUniqueWithoutOwnerInput[]
+    createMany?: gamesCreateManyOwnerInputEnvelope
+    set?: gamesWhereUniqueInput | gamesWhereUniqueInput[]
+    disconnect?: gamesWhereUniqueInput | gamesWhereUniqueInput[]
+    delete?: gamesWhereUniqueInput | gamesWhereUniqueInput[]
+    connect?: gamesWhereUniqueInput | gamesWhereUniqueInput[]
+    update?: gamesUpdateWithWhereUniqueWithoutOwnerInput | gamesUpdateWithWhereUniqueWithoutOwnerInput[]
+    updateMany?: gamesUpdateManyWithWhereWithoutOwnerInput | gamesUpdateManyWithWhereWithoutOwnerInput[]
+    deleteMany?: gamesScalarWhereInput | gamesScalarWhereInput[]
+  }
+
+  export type users_games_claimsUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<users_games_claimsCreateWithoutUserInput, users_games_claimsUncheckedCreateWithoutUserInput> | users_games_claimsCreateWithoutUserInput[] | users_games_claimsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: users_games_claimsCreateOrConnectWithoutUserInput | users_games_claimsCreateOrConnectWithoutUserInput[]
+    upsert?: users_games_claimsUpsertWithWhereUniqueWithoutUserInput | users_games_claimsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: users_games_claimsCreateManyUserInputEnvelope
+    set?: users_games_claimsWhereUniqueInput | users_games_claimsWhereUniqueInput[]
+    disconnect?: users_games_claimsWhereUniqueInput | users_games_claimsWhereUniqueInput[]
+    delete?: users_games_claimsWhereUniqueInput | users_games_claimsWhereUniqueInput[]
+    connect?: users_games_claimsWhereUniqueInput | users_games_claimsWhereUniqueInput[]
+    update?: users_games_claimsUpdateWithWhereUniqueWithoutUserInput | users_games_claimsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: users_games_claimsUpdateManyWithWhereWithoutUserInput | users_games_claimsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: users_games_claimsScalarWhereInput | users_games_claimsScalarWhereInput[]
   }
 
   export type password_reset_tokensUncheckedUpdateManyWithoutUserNestedInput = {
@@ -9680,6 +14153,20 @@ export namespace Prisma {
     update?: password_reset_tokensUpdateWithWhereUniqueWithoutUserInput | password_reset_tokensUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: password_reset_tokensUpdateManyWithWhereWithoutUserInput | password_reset_tokensUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: password_reset_tokensScalarWhereInput | password_reset_tokensScalarWhereInput[]
+  }
+
+  export type sheetsUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<sheetsCreateWithoutUserInput, sheetsUncheckedCreateWithoutUserInput> | sheetsCreateWithoutUserInput[] | sheetsUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: sheetsCreateOrConnectWithoutUserInput | sheetsCreateOrConnectWithoutUserInput[]
+    upsert?: sheetsUpsertWithWhereUniqueWithoutUserInput | sheetsUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: sheetsCreateManyUserInputEnvelope
+    set?: sheetsWhereUniqueInput | sheetsWhereUniqueInput[]
+    disconnect?: sheetsWhereUniqueInput | sheetsWhereUniqueInput[]
+    delete?: sheetsWhereUniqueInput | sheetsWhereUniqueInput[]
+    connect?: sheetsWhereUniqueInput | sheetsWhereUniqueInput[]
+    update?: sheetsUpdateWithWhereUniqueWithoutUserInput | sheetsUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: sheetsUpdateManyWithWhereWithoutUserInput | sheetsUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: sheetsScalarWhereInput | sheetsScalarWhereInput[]
   }
 
   export type usersCreateNestedOneWithoutPasswordResetTokenInput = {
@@ -9816,6 +14303,104 @@ export namespace Prisma {
     upsert?: townsUpsertWithoutLocationsInput
     connect?: townsWhereUniqueInput
     update?: XOR<XOR<townsUpdateToOneWithWhereWithoutLocationsInput, townsUpdateWithoutLocationsInput>, townsUncheckedUpdateWithoutLocationsInput>
+  }
+
+  export type usersCreateNestedOneWithoutMygamesInput = {
+    create?: XOR<usersCreateWithoutMygamesInput, usersUncheckedCreateWithoutMygamesInput>
+    connectOrCreate?: usersCreateOrConnectWithoutMygamesInput
+    connect?: usersWhereUniqueInput
+  }
+
+  export type users_games_claimsCreateNestedManyWithoutGameInput = {
+    create?: XOR<users_games_claimsCreateWithoutGameInput, users_games_claimsUncheckedCreateWithoutGameInput> | users_games_claimsCreateWithoutGameInput[] | users_games_claimsUncheckedCreateWithoutGameInput[]
+    connectOrCreate?: users_games_claimsCreateOrConnectWithoutGameInput | users_games_claimsCreateOrConnectWithoutGameInput[]
+    createMany?: users_games_claimsCreateManyGameInputEnvelope
+    connect?: users_games_claimsWhereUniqueInput | users_games_claimsWhereUniqueInput[]
+  }
+
+  export type users_games_claimsUncheckedCreateNestedManyWithoutGameInput = {
+    create?: XOR<users_games_claimsCreateWithoutGameInput, users_games_claimsUncheckedCreateWithoutGameInput> | users_games_claimsCreateWithoutGameInput[] | users_games_claimsUncheckedCreateWithoutGameInput[]
+    connectOrCreate?: users_games_claimsCreateOrConnectWithoutGameInput | users_games_claimsCreateOrConnectWithoutGameInput[]
+    createMany?: users_games_claimsCreateManyGameInputEnvelope
+    connect?: users_games_claimsWhereUniqueInput | users_games_claimsWhereUniqueInput[]
+  }
+
+  export type usersUpdateOneRequiredWithoutMygamesNestedInput = {
+    create?: XOR<usersCreateWithoutMygamesInput, usersUncheckedCreateWithoutMygamesInput>
+    connectOrCreate?: usersCreateOrConnectWithoutMygamesInput
+    upsert?: usersUpsertWithoutMygamesInput
+    connect?: usersWhereUniqueInput
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutMygamesInput, usersUpdateWithoutMygamesInput>, usersUncheckedUpdateWithoutMygamesInput>
+  }
+
+  export type users_games_claimsUpdateManyWithoutGameNestedInput = {
+    create?: XOR<users_games_claimsCreateWithoutGameInput, users_games_claimsUncheckedCreateWithoutGameInput> | users_games_claimsCreateWithoutGameInput[] | users_games_claimsUncheckedCreateWithoutGameInput[]
+    connectOrCreate?: users_games_claimsCreateOrConnectWithoutGameInput | users_games_claimsCreateOrConnectWithoutGameInput[]
+    upsert?: users_games_claimsUpsertWithWhereUniqueWithoutGameInput | users_games_claimsUpsertWithWhereUniqueWithoutGameInput[]
+    createMany?: users_games_claimsCreateManyGameInputEnvelope
+    set?: users_games_claimsWhereUniqueInput | users_games_claimsWhereUniqueInput[]
+    disconnect?: users_games_claimsWhereUniqueInput | users_games_claimsWhereUniqueInput[]
+    delete?: users_games_claimsWhereUniqueInput | users_games_claimsWhereUniqueInput[]
+    connect?: users_games_claimsWhereUniqueInput | users_games_claimsWhereUniqueInput[]
+    update?: users_games_claimsUpdateWithWhereUniqueWithoutGameInput | users_games_claimsUpdateWithWhereUniqueWithoutGameInput[]
+    updateMany?: users_games_claimsUpdateManyWithWhereWithoutGameInput | users_games_claimsUpdateManyWithWhereWithoutGameInput[]
+    deleteMany?: users_games_claimsScalarWhereInput | users_games_claimsScalarWhereInput[]
+  }
+
+  export type users_games_claimsUncheckedUpdateManyWithoutGameNestedInput = {
+    create?: XOR<users_games_claimsCreateWithoutGameInput, users_games_claimsUncheckedCreateWithoutGameInput> | users_games_claimsCreateWithoutGameInput[] | users_games_claimsUncheckedCreateWithoutGameInput[]
+    connectOrCreate?: users_games_claimsCreateOrConnectWithoutGameInput | users_games_claimsCreateOrConnectWithoutGameInput[]
+    upsert?: users_games_claimsUpsertWithWhereUniqueWithoutGameInput | users_games_claimsUpsertWithWhereUniqueWithoutGameInput[]
+    createMany?: users_games_claimsCreateManyGameInputEnvelope
+    set?: users_games_claimsWhereUniqueInput | users_games_claimsWhereUniqueInput[]
+    disconnect?: users_games_claimsWhereUniqueInput | users_games_claimsWhereUniqueInput[]
+    delete?: users_games_claimsWhereUniqueInput | users_games_claimsWhereUniqueInput[]
+    connect?: users_games_claimsWhereUniqueInput | users_games_claimsWhereUniqueInput[]
+    update?: users_games_claimsUpdateWithWhereUniqueWithoutGameInput | users_games_claimsUpdateWithWhereUniqueWithoutGameInput[]
+    updateMany?: users_games_claimsUpdateManyWithWhereWithoutGameInput | users_games_claimsUpdateManyWithWhereWithoutGameInput[]
+    deleteMany?: users_games_claimsScalarWhereInput | users_games_claimsScalarWhereInput[]
+  }
+
+  export type gamesCreateNestedOneWithoutPlayersInput = {
+    create?: XOR<gamesCreateWithoutPlayersInput, gamesUncheckedCreateWithoutPlayersInput>
+    connectOrCreate?: gamesCreateOrConnectWithoutPlayersInput
+    connect?: gamesWhereUniqueInput
+  }
+
+  export type usersCreateNestedOneWithoutGamesInput = {
+    create?: XOR<usersCreateWithoutGamesInput, usersUncheckedCreateWithoutGamesInput>
+    connectOrCreate?: usersCreateOrConnectWithoutGamesInput
+    connect?: usersWhereUniqueInput
+  }
+
+  export type gamesUpdateOneRequiredWithoutPlayersNestedInput = {
+    create?: XOR<gamesCreateWithoutPlayersInput, gamesUncheckedCreateWithoutPlayersInput>
+    connectOrCreate?: gamesCreateOrConnectWithoutPlayersInput
+    upsert?: gamesUpsertWithoutPlayersInput
+    connect?: gamesWhereUniqueInput
+    update?: XOR<XOR<gamesUpdateToOneWithWhereWithoutPlayersInput, gamesUpdateWithoutPlayersInput>, gamesUncheckedUpdateWithoutPlayersInput>
+  }
+
+  export type usersUpdateOneRequiredWithoutGamesNestedInput = {
+    create?: XOR<usersCreateWithoutGamesInput, usersUncheckedCreateWithoutGamesInput>
+    connectOrCreate?: usersCreateOrConnectWithoutGamesInput
+    upsert?: usersUpsertWithoutGamesInput
+    connect?: usersWhereUniqueInput
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutGamesInput, usersUpdateWithoutGamesInput>, usersUncheckedUpdateWithoutGamesInput>
+  }
+
+  export type usersCreateNestedOneWithoutSheetsInput = {
+    create?: XOR<usersCreateWithoutSheetsInput, usersUncheckedCreateWithoutSheetsInput>
+    connectOrCreate?: usersCreateOrConnectWithoutSheetsInput
+    connect?: usersWhereUniqueInput
+  }
+
+  export type usersUpdateOneRequiredWithoutSheetsNestedInput = {
+    create?: XOR<usersCreateWithoutSheetsInput, usersUncheckedCreateWithoutSheetsInput>
+    connectOrCreate?: usersCreateOrConnectWithoutSheetsInput
+    upsert?: usersUpsertWithoutSheetsInput
+    connect?: usersWhereUniqueInput
+    update?: XOR<XOR<usersUpdateToOneWithWhereWithoutSheetsInput, usersUpdateWithoutSheetsInput>, usersUncheckedUpdateWithoutSheetsInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -9973,6 +14558,56 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type gamesCreateWithoutOwnerInput = {
+    name: string
+    description: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    players?: users_games_claimsCreateNestedManyWithoutGameInput
+  }
+
+  export type gamesUncheckedCreateWithoutOwnerInput = {
+    id?: number
+    name: string
+    description: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    players?: users_games_claimsUncheckedCreateNestedManyWithoutGameInput
+  }
+
+  export type gamesCreateOrConnectWithoutOwnerInput = {
+    where: gamesWhereUniqueInput
+    create: XOR<gamesCreateWithoutOwnerInput, gamesUncheckedCreateWithoutOwnerInput>
+  }
+
+  export type gamesCreateManyOwnerInputEnvelope = {
+    data: gamesCreateManyOwnerInput | gamesCreateManyOwnerInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type users_games_claimsCreateWithoutUserInput = {
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    game: gamesCreateNestedOneWithoutPlayersInput
+  }
+
+  export type users_games_claimsUncheckedCreateWithoutUserInput = {
+    id?: number
+    game_id: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type users_games_claimsCreateOrConnectWithoutUserInput = {
+    where: users_games_claimsWhereUniqueInput
+    create: XOR<users_games_claimsCreateWithoutUserInput, users_games_claimsUncheckedCreateWithoutUserInput>
+  }
+
+  export type users_games_claimsCreateManyUserInputEnvelope = {
+    data: users_games_claimsCreateManyUserInput | users_games_claimsCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
   export type password_reset_tokensCreateWithoutUserInput = {
     token: string
     expiresAt: Date | string
@@ -9994,6 +14629,84 @@ export namespace Prisma {
   export type password_reset_tokensCreateManyUserInputEnvelope = {
     data: password_reset_tokensCreateManyUserInput | password_reset_tokensCreateManyUserInput[]
     skipDuplicates?: boolean
+  }
+
+  export type sheetsCreateWithoutUserInput = {
+    data: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type sheetsUncheckedCreateWithoutUserInput = {
+    id?: number
+    data: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type sheetsCreateOrConnectWithoutUserInput = {
+    where: sheetsWhereUniqueInput
+    create: XOR<sheetsCreateWithoutUserInput, sheetsUncheckedCreateWithoutUserInput>
+  }
+
+  export type sheetsCreateManyUserInputEnvelope = {
+    data: sheetsCreateManyUserInput | sheetsCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type gamesUpsertWithWhereUniqueWithoutOwnerInput = {
+    where: gamesWhereUniqueInput
+    update: XOR<gamesUpdateWithoutOwnerInput, gamesUncheckedUpdateWithoutOwnerInput>
+    create: XOR<gamesCreateWithoutOwnerInput, gamesUncheckedCreateWithoutOwnerInput>
+  }
+
+  export type gamesUpdateWithWhereUniqueWithoutOwnerInput = {
+    where: gamesWhereUniqueInput
+    data: XOR<gamesUpdateWithoutOwnerInput, gamesUncheckedUpdateWithoutOwnerInput>
+  }
+
+  export type gamesUpdateManyWithWhereWithoutOwnerInput = {
+    where: gamesScalarWhereInput
+    data: XOR<gamesUpdateManyMutationInput, gamesUncheckedUpdateManyWithoutOwnerInput>
+  }
+
+  export type gamesScalarWhereInput = {
+    AND?: gamesScalarWhereInput | gamesScalarWhereInput[]
+    OR?: gamesScalarWhereInput[]
+    NOT?: gamesScalarWhereInput | gamesScalarWhereInput[]
+    id?: IntFilter<"games"> | number
+    name?: StringFilter<"games"> | string
+    description?: StringFilter<"games"> | string
+    owner_id?: IntFilter<"games"> | number
+    createdAt?: DateTimeFilter<"games"> | Date | string
+    updatedAt?: DateTimeFilter<"games"> | Date | string
+  }
+
+  export type users_games_claimsUpsertWithWhereUniqueWithoutUserInput = {
+    where: users_games_claimsWhereUniqueInput
+    update: XOR<users_games_claimsUpdateWithoutUserInput, users_games_claimsUncheckedUpdateWithoutUserInput>
+    create: XOR<users_games_claimsCreateWithoutUserInput, users_games_claimsUncheckedCreateWithoutUserInput>
+  }
+
+  export type users_games_claimsUpdateWithWhereUniqueWithoutUserInput = {
+    where: users_games_claimsWhereUniqueInput
+    data: XOR<users_games_claimsUpdateWithoutUserInput, users_games_claimsUncheckedUpdateWithoutUserInput>
+  }
+
+  export type users_games_claimsUpdateManyWithWhereWithoutUserInput = {
+    where: users_games_claimsScalarWhereInput
+    data: XOR<users_games_claimsUpdateManyMutationInput, users_games_claimsUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type users_games_claimsScalarWhereInput = {
+    AND?: users_games_claimsScalarWhereInput | users_games_claimsScalarWhereInput[]
+    OR?: users_games_claimsScalarWhereInput[]
+    NOT?: users_games_claimsScalarWhereInput | users_games_claimsScalarWhereInput[]
+    id?: IntFilter<"users_games_claims"> | number
+    game_id?: IntFilter<"users_games_claims"> | number
+    user_id?: IntFilter<"users_games_claims"> | number
+    createdAt?: DateTimeFilter<"users_games_claims"> | Date | string
+    updatedAt?: DateTimeFilter<"users_games_claims"> | Date | string
   }
 
   export type password_reset_tokensUpsertWithWhereUniqueWithoutUserInput = {
@@ -10023,6 +14736,33 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"password_reset_tokens"> | Date | string
   }
 
+  export type sheetsUpsertWithWhereUniqueWithoutUserInput = {
+    where: sheetsWhereUniqueInput
+    update: XOR<sheetsUpdateWithoutUserInput, sheetsUncheckedUpdateWithoutUserInput>
+    create: XOR<sheetsCreateWithoutUserInput, sheetsUncheckedCreateWithoutUserInput>
+  }
+
+  export type sheetsUpdateWithWhereUniqueWithoutUserInput = {
+    where: sheetsWhereUniqueInput
+    data: XOR<sheetsUpdateWithoutUserInput, sheetsUncheckedUpdateWithoutUserInput>
+  }
+
+  export type sheetsUpdateManyWithWhereWithoutUserInput = {
+    where: sheetsScalarWhereInput
+    data: XOR<sheetsUpdateManyMutationInput, sheetsUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type sheetsScalarWhereInput = {
+    AND?: sheetsScalarWhereInput | sheetsScalarWhereInput[]
+    OR?: sheetsScalarWhereInput[]
+    NOT?: sheetsScalarWhereInput | sheetsScalarWhereInput[]
+    id?: IntFilter<"sheets"> | number
+    user_id?: IntFilter<"sheets"> | number
+    data?: JsonFilter<"sheets">
+    createdAt?: DateTimeFilter<"sheets"> | Date | string
+    updatedAt?: DateTimeFilter<"sheets"> | Date | string
+  }
+
   export type usersCreateWithoutPasswordResetTokenInput = {
     email: string
     password: string
@@ -10030,6 +14770,9 @@ export namespace Prisma {
     recoveryTokens?: usersCreaterecoveryTokensInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    mygames?: gamesCreateNestedManyWithoutOwnerInput
+    games?: users_games_claimsCreateNestedManyWithoutUserInput
+    sheets?: sheetsCreateNestedManyWithoutUserInput
   }
 
   export type usersUncheckedCreateWithoutPasswordResetTokenInput = {
@@ -10040,6 +14783,9 @@ export namespace Prisma {
     recoveryTokens?: usersCreaterecoveryTokensInput | string[]
     createdAt?: Date | string
     updatedAt?: Date | string
+    mygames?: gamesUncheckedCreateNestedManyWithoutOwnerInput
+    games?: users_games_claimsUncheckedCreateNestedManyWithoutUserInput
+    sheets?: sheetsUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type usersCreateOrConnectWithoutPasswordResetTokenInput = {
@@ -10065,6 +14811,9 @@ export namespace Prisma {
     recoveryTokens?: usersUpdaterecoveryTokensInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mygames?: gamesUpdateManyWithoutOwnerNestedInput
+    games?: users_games_claimsUpdateManyWithoutUserNestedInput
+    sheets?: sheetsUpdateManyWithoutUserNestedInput
   }
 
   export type usersUncheckedUpdateWithoutPasswordResetTokenInput = {
@@ -10075,6 +14824,9 @@ export namespace Prisma {
     recoveryTokens?: usersUpdaterecoveryTokensInput | string[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mygames?: gamesUncheckedUpdateManyWithoutOwnerNestedInput
+    games?: users_games_claimsUncheckedUpdateManyWithoutUserNestedInput
+    sheets?: sheetsUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type locationsCreateWithoutTownInput = {
@@ -10338,11 +15090,365 @@ export namespace Prisma {
     npcs?: npcsUncheckedUpdateManyWithoutTownNestedInput
   }
 
+  export type usersCreateWithoutMygamesInput = {
+    email: string
+    password: string
+    name: string
+    recoveryTokens?: usersCreaterecoveryTokensInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    games?: users_games_claimsCreateNestedManyWithoutUserInput
+    PasswordResetToken?: password_reset_tokensCreateNestedManyWithoutUserInput
+    sheets?: sheetsCreateNestedManyWithoutUserInput
+  }
+
+  export type usersUncheckedCreateWithoutMygamesInput = {
+    id?: number
+    email: string
+    password: string
+    name: string
+    recoveryTokens?: usersCreaterecoveryTokensInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    games?: users_games_claimsUncheckedCreateNestedManyWithoutUserInput
+    PasswordResetToken?: password_reset_tokensUncheckedCreateNestedManyWithoutUserInput
+    sheets?: sheetsUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type usersCreateOrConnectWithoutMygamesInput = {
+    where: usersWhereUniqueInput
+    create: XOR<usersCreateWithoutMygamesInput, usersUncheckedCreateWithoutMygamesInput>
+  }
+
+  export type users_games_claimsCreateWithoutGameInput = {
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: usersCreateNestedOneWithoutGamesInput
+  }
+
+  export type users_games_claimsUncheckedCreateWithoutGameInput = {
+    id?: number
+    user_id: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type users_games_claimsCreateOrConnectWithoutGameInput = {
+    where: users_games_claimsWhereUniqueInput
+    create: XOR<users_games_claimsCreateWithoutGameInput, users_games_claimsUncheckedCreateWithoutGameInput>
+  }
+
+  export type users_games_claimsCreateManyGameInputEnvelope = {
+    data: users_games_claimsCreateManyGameInput | users_games_claimsCreateManyGameInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type usersUpsertWithoutMygamesInput = {
+    update: XOR<usersUpdateWithoutMygamesInput, usersUncheckedUpdateWithoutMygamesInput>
+    create: XOR<usersCreateWithoutMygamesInput, usersUncheckedCreateWithoutMygamesInput>
+    where?: usersWhereInput
+  }
+
+  export type usersUpdateToOneWithWhereWithoutMygamesInput = {
+    where?: usersWhereInput
+    data: XOR<usersUpdateWithoutMygamesInput, usersUncheckedUpdateWithoutMygamesInput>
+  }
+
+  export type usersUpdateWithoutMygamesInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    recoveryTokens?: usersUpdaterecoveryTokensInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    games?: users_games_claimsUpdateManyWithoutUserNestedInput
+    PasswordResetToken?: password_reset_tokensUpdateManyWithoutUserNestedInput
+    sheets?: sheetsUpdateManyWithoutUserNestedInput
+  }
+
+  export type usersUncheckedUpdateWithoutMygamesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    recoveryTokens?: usersUpdaterecoveryTokensInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    games?: users_games_claimsUncheckedUpdateManyWithoutUserNestedInput
+    PasswordResetToken?: password_reset_tokensUncheckedUpdateManyWithoutUserNestedInput
+    sheets?: sheetsUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type users_games_claimsUpsertWithWhereUniqueWithoutGameInput = {
+    where: users_games_claimsWhereUniqueInput
+    update: XOR<users_games_claimsUpdateWithoutGameInput, users_games_claimsUncheckedUpdateWithoutGameInput>
+    create: XOR<users_games_claimsCreateWithoutGameInput, users_games_claimsUncheckedCreateWithoutGameInput>
+  }
+
+  export type users_games_claimsUpdateWithWhereUniqueWithoutGameInput = {
+    where: users_games_claimsWhereUniqueInput
+    data: XOR<users_games_claimsUpdateWithoutGameInput, users_games_claimsUncheckedUpdateWithoutGameInput>
+  }
+
+  export type users_games_claimsUpdateManyWithWhereWithoutGameInput = {
+    where: users_games_claimsScalarWhereInput
+    data: XOR<users_games_claimsUpdateManyMutationInput, users_games_claimsUncheckedUpdateManyWithoutGameInput>
+  }
+
+  export type gamesCreateWithoutPlayersInput = {
+    name: string
+    description: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    owner: usersCreateNestedOneWithoutMygamesInput
+  }
+
+  export type gamesUncheckedCreateWithoutPlayersInput = {
+    id?: number
+    name: string
+    description: string
+    owner_id: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type gamesCreateOrConnectWithoutPlayersInput = {
+    where: gamesWhereUniqueInput
+    create: XOR<gamesCreateWithoutPlayersInput, gamesUncheckedCreateWithoutPlayersInput>
+  }
+
+  export type usersCreateWithoutGamesInput = {
+    email: string
+    password: string
+    name: string
+    recoveryTokens?: usersCreaterecoveryTokensInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mygames?: gamesCreateNestedManyWithoutOwnerInput
+    PasswordResetToken?: password_reset_tokensCreateNestedManyWithoutUserInput
+    sheets?: sheetsCreateNestedManyWithoutUserInput
+  }
+
+  export type usersUncheckedCreateWithoutGamesInput = {
+    id?: number
+    email: string
+    password: string
+    name: string
+    recoveryTokens?: usersCreaterecoveryTokensInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mygames?: gamesUncheckedCreateNestedManyWithoutOwnerInput
+    PasswordResetToken?: password_reset_tokensUncheckedCreateNestedManyWithoutUserInput
+    sheets?: sheetsUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type usersCreateOrConnectWithoutGamesInput = {
+    where: usersWhereUniqueInput
+    create: XOR<usersCreateWithoutGamesInput, usersUncheckedCreateWithoutGamesInput>
+  }
+
+  export type gamesUpsertWithoutPlayersInput = {
+    update: XOR<gamesUpdateWithoutPlayersInput, gamesUncheckedUpdateWithoutPlayersInput>
+    create: XOR<gamesCreateWithoutPlayersInput, gamesUncheckedCreateWithoutPlayersInput>
+    where?: gamesWhereInput
+  }
+
+  export type gamesUpdateToOneWithWhereWithoutPlayersInput = {
+    where?: gamesWhereInput
+    data: XOR<gamesUpdateWithoutPlayersInput, gamesUncheckedUpdateWithoutPlayersInput>
+  }
+
+  export type gamesUpdateWithoutPlayersInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    owner?: usersUpdateOneRequiredWithoutMygamesNestedInput
+  }
+
+  export type gamesUncheckedUpdateWithoutPlayersInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    owner_id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type usersUpsertWithoutGamesInput = {
+    update: XOR<usersUpdateWithoutGamesInput, usersUncheckedUpdateWithoutGamesInput>
+    create: XOR<usersCreateWithoutGamesInput, usersUncheckedCreateWithoutGamesInput>
+    where?: usersWhereInput
+  }
+
+  export type usersUpdateToOneWithWhereWithoutGamesInput = {
+    where?: usersWhereInput
+    data: XOR<usersUpdateWithoutGamesInput, usersUncheckedUpdateWithoutGamesInput>
+  }
+
+  export type usersUpdateWithoutGamesInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    recoveryTokens?: usersUpdaterecoveryTokensInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mygames?: gamesUpdateManyWithoutOwnerNestedInput
+    PasswordResetToken?: password_reset_tokensUpdateManyWithoutUserNestedInput
+    sheets?: sheetsUpdateManyWithoutUserNestedInput
+  }
+
+  export type usersUncheckedUpdateWithoutGamesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    recoveryTokens?: usersUpdaterecoveryTokensInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mygames?: gamesUncheckedUpdateManyWithoutOwnerNestedInput
+    PasswordResetToken?: password_reset_tokensUncheckedUpdateManyWithoutUserNestedInput
+    sheets?: sheetsUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type usersCreateWithoutSheetsInput = {
+    email: string
+    password: string
+    name: string
+    recoveryTokens?: usersCreaterecoveryTokensInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mygames?: gamesCreateNestedManyWithoutOwnerInput
+    games?: users_games_claimsCreateNestedManyWithoutUserInput
+    PasswordResetToken?: password_reset_tokensCreateNestedManyWithoutUserInput
+  }
+
+  export type usersUncheckedCreateWithoutSheetsInput = {
+    id?: number
+    email: string
+    password: string
+    name: string
+    recoveryTokens?: usersCreaterecoveryTokensInput | string[]
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    mygames?: gamesUncheckedCreateNestedManyWithoutOwnerInput
+    games?: users_games_claimsUncheckedCreateNestedManyWithoutUserInput
+    PasswordResetToken?: password_reset_tokensUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type usersCreateOrConnectWithoutSheetsInput = {
+    where: usersWhereUniqueInput
+    create: XOR<usersCreateWithoutSheetsInput, usersUncheckedCreateWithoutSheetsInput>
+  }
+
+  export type usersUpsertWithoutSheetsInput = {
+    update: XOR<usersUpdateWithoutSheetsInput, usersUncheckedUpdateWithoutSheetsInput>
+    create: XOR<usersCreateWithoutSheetsInput, usersUncheckedCreateWithoutSheetsInput>
+    where?: usersWhereInput
+  }
+
+  export type usersUpdateToOneWithWhereWithoutSheetsInput = {
+    where?: usersWhereInput
+    data: XOR<usersUpdateWithoutSheetsInput, usersUncheckedUpdateWithoutSheetsInput>
+  }
+
+  export type usersUpdateWithoutSheetsInput = {
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    recoveryTokens?: usersUpdaterecoveryTokensInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mygames?: gamesUpdateManyWithoutOwnerNestedInput
+    games?: users_games_claimsUpdateManyWithoutUserNestedInput
+    PasswordResetToken?: password_reset_tokensUpdateManyWithoutUserNestedInput
+  }
+
+  export type usersUncheckedUpdateWithoutSheetsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    recoveryTokens?: usersUpdaterecoveryTokensInput | string[]
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    mygames?: gamesUncheckedUpdateManyWithoutOwnerNestedInput
+    games?: users_games_claimsUncheckedUpdateManyWithoutUserNestedInput
+    PasswordResetToken?: password_reset_tokensUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type gamesCreateManyOwnerInput = {
+    id?: number
+    name: string
+    description: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type users_games_claimsCreateManyUserInput = {
+    id?: number
+    game_id: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
   export type password_reset_tokensCreateManyUserInput = {
     id?: number
     token: string
     expiresAt: Date | string
     createdAt?: Date | string
+  }
+
+  export type sheetsCreateManyUserInput = {
+    id?: number
+    data: JsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type gamesUpdateWithoutOwnerInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    players?: users_games_claimsUpdateManyWithoutGameNestedInput
+  }
+
+  export type gamesUncheckedUpdateWithoutOwnerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    players?: users_games_claimsUncheckedUpdateManyWithoutGameNestedInput
+  }
+
+  export type gamesUncheckedUpdateManyWithoutOwnerInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type users_games_claimsUpdateWithoutUserInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    game?: gamesUpdateOneRequiredWithoutPlayersNestedInput
+  }
+
+  export type users_games_claimsUncheckedUpdateWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    game_id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type users_games_claimsUncheckedUpdateManyWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    game_id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type password_reset_tokensUpdateWithoutUserInput = {
@@ -10363,6 +15469,26 @@ export namespace Prisma {
     token?: StringFieldUpdateOperationsInput | string
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sheetsUpdateWithoutUserInput = {
+    data?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sheetsUncheckedUpdateWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    data?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type sheetsUncheckedUpdateManyWithoutUserInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    data?: JsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type locationsCreateManyTownInput = {
@@ -10443,6 +15569,33 @@ export namespace Prisma {
     ocupation?: StringFieldUpdateOperationsInput | string
     history?: StringFieldUpdateOperationsInput | string
     interest?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type users_games_claimsCreateManyGameInput = {
+    id?: number
+    user_id: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type users_games_claimsUpdateWithoutGameInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: usersUpdateOneRequiredWithoutGamesNestedInput
+  }
+
+  export type users_games_claimsUncheckedUpdateWithoutGameInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type users_games_claimsUncheckedUpdateManyWithoutGameInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    user_id?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
