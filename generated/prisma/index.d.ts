@@ -54,6 +54,16 @@ export type users_games_claims = $Result.DefaultSelection<Prisma.$users_games_cl
  */
 export type advantages = $Result.DefaultSelection<Prisma.$advantagesPayload>
 /**
+ * Model bugs
+ * 
+ */
+export type bugs = $Result.DefaultSelection<Prisma.$bugsPayload>
+/**
+ * Model improves
+ * 
+ */
+export type improves = $Result.DefaultSelection<Prisma.$improvesPayload>
+/**
  * Model sheets
  * 
  */
@@ -263,6 +273,26 @@ export class PrismaClient<
     * ```
     */
   get advantages(): Prisma.advantagesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.bugs`: Exposes CRUD operations for the **bugs** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Bugs
+    * const bugs = await prisma.bugs.findMany()
+    * ```
+    */
+  get bugs(): Prisma.bugsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.improves`: Exposes CRUD operations for the **improves** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Improves
+    * const improves = await prisma.improves.findMany()
+    * ```
+    */
+  get improves(): Prisma.improvesDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.sheets`: Exposes CRUD operations for the **sheets** model.
@@ -721,6 +751,8 @@ export namespace Prisma {
     games: 'games',
     users_games_claims: 'users_games_claims',
     advantages: 'advantages',
+    bugs: 'bugs',
+    improves: 'improves',
     sheets: 'sheets'
   };
 
@@ -740,7 +772,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "users" | "password_reset_tokens" | "towns" | "npcs" | "locations" | "games" | "users_games_claims" | "advantages" | "sheets"
+      modelProps: "users" | "password_reset_tokens" | "towns" | "npcs" | "locations" | "games" | "users_games_claims" | "advantages" | "bugs" | "improves" | "sheets"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1336,6 +1368,154 @@ export namespace Prisma {
           }
         }
       }
+      bugs: {
+        payload: Prisma.$bugsPayload<ExtArgs>
+        fields: Prisma.bugsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.bugsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bugsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.bugsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bugsPayload>
+          }
+          findFirst: {
+            args: Prisma.bugsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bugsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.bugsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bugsPayload>
+          }
+          findMany: {
+            args: Prisma.bugsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bugsPayload>[]
+          }
+          create: {
+            args: Prisma.bugsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bugsPayload>
+          }
+          createMany: {
+            args: Prisma.bugsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.bugsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bugsPayload>[]
+          }
+          delete: {
+            args: Prisma.bugsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bugsPayload>
+          }
+          update: {
+            args: Prisma.bugsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bugsPayload>
+          }
+          deleteMany: {
+            args: Prisma.bugsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.bugsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.bugsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bugsPayload>[]
+          }
+          upsert: {
+            args: Prisma.bugsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$bugsPayload>
+          }
+          aggregate: {
+            args: Prisma.BugsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBugs>
+          }
+          groupBy: {
+            args: Prisma.bugsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BugsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.bugsCountArgs<ExtArgs>
+            result: $Utils.Optional<BugsCountAggregateOutputType> | number
+          }
+        }
+      }
+      improves: {
+        payload: Prisma.$improvesPayload<ExtArgs>
+        fields: Prisma.improvesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.improvesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$improvesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.improvesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$improvesPayload>
+          }
+          findFirst: {
+            args: Prisma.improvesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$improvesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.improvesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$improvesPayload>
+          }
+          findMany: {
+            args: Prisma.improvesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$improvesPayload>[]
+          }
+          create: {
+            args: Prisma.improvesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$improvesPayload>
+          }
+          createMany: {
+            args: Prisma.improvesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.improvesCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$improvesPayload>[]
+          }
+          delete: {
+            args: Prisma.improvesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$improvesPayload>
+          }
+          update: {
+            args: Prisma.improvesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$improvesPayload>
+          }
+          deleteMany: {
+            args: Prisma.improvesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.improvesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.improvesUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$improvesPayload>[]
+          }
+          upsert: {
+            args: Prisma.improvesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$improvesPayload>
+          }
+          aggregate: {
+            args: Prisma.ImprovesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateImproves>
+          }
+          groupBy: {
+            args: Prisma.improvesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ImprovesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.improvesCountArgs<ExtArgs>
+            result: $Utils.Optional<ImprovesCountAggregateOutputType> | number
+          }
+        }
+      }
       sheets: {
         payload: Prisma.$sheetsPayload<ExtArgs>
         fields: Prisma.sheetsFieldRefs
@@ -1502,6 +1682,8 @@ export namespace Prisma {
     games?: gamesOmit
     users_games_claims?: users_games_claimsOmit
     advantages?: advantagesOmit
+    bugs?: bugsOmit
+    improves?: improvesOmit
     sheets?: sheetsOmit
   }
 
@@ -10820,6 +11002,2064 @@ export namespace Prisma {
 
 
   /**
+   * Model bugs
+   */
+
+  export type AggregateBugs = {
+    _count: BugsCountAggregateOutputType | null
+    _avg: BugsAvgAggregateOutputType | null
+    _sum: BugsSumAggregateOutputType | null
+    _min: BugsMinAggregateOutputType | null
+    _max: BugsMaxAggregateOutputType | null
+  }
+
+  export type BugsAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type BugsSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type BugsMinAggregateOutputType = {
+    id: number | null
+    description: string | null
+    title: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BugsMaxAggregateOutputType = {
+    id: number | null
+    description: string | null
+    title: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type BugsCountAggregateOutputType = {
+    id: number
+    description: number
+    title: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type BugsAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type BugsSumAggregateInputType = {
+    id?: true
+  }
+
+  export type BugsMinAggregateInputType = {
+    id?: true
+    description?: true
+    title?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BugsMaxAggregateInputType = {
+    id?: true
+    description?: true
+    title?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type BugsCountAggregateInputType = {
+    id?: true
+    description?: true
+    title?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type BugsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which bugs to aggregate.
+     */
+    where?: bugsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of bugs to fetch.
+     */
+    orderBy?: bugsOrderByWithRelationInput | bugsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: bugsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` bugs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` bugs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned bugs
+    **/
+    _count?: true | BugsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BugsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BugsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BugsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BugsMaxAggregateInputType
+  }
+
+  export type GetBugsAggregateType<T extends BugsAggregateArgs> = {
+        [P in keyof T & keyof AggregateBugs]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBugs[P]>
+      : GetScalarType<T[P], AggregateBugs[P]>
+  }
+
+
+
+
+  export type bugsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: bugsWhereInput
+    orderBy?: bugsOrderByWithAggregationInput | bugsOrderByWithAggregationInput[]
+    by: BugsScalarFieldEnum[] | BugsScalarFieldEnum
+    having?: bugsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BugsCountAggregateInputType | true
+    _avg?: BugsAvgAggregateInputType
+    _sum?: BugsSumAggregateInputType
+    _min?: BugsMinAggregateInputType
+    _max?: BugsMaxAggregateInputType
+  }
+
+  export type BugsGroupByOutputType = {
+    id: number
+    description: string
+    title: string
+    createdAt: Date
+    updatedAt: Date
+    _count: BugsCountAggregateOutputType | null
+    _avg: BugsAvgAggregateOutputType | null
+    _sum: BugsSumAggregateOutputType | null
+    _min: BugsMinAggregateOutputType | null
+    _max: BugsMaxAggregateOutputType | null
+  }
+
+  type GetBugsGroupByPayload<T extends bugsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BugsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BugsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BugsGroupByOutputType[P]>
+            : GetScalarType<T[P], BugsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type bugsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    description?: boolean
+    title?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["bugs"]>
+
+  export type bugsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    description?: boolean
+    title?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["bugs"]>
+
+  export type bugsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    description?: boolean
+    title?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["bugs"]>
+
+  export type bugsSelectScalar = {
+    id?: boolean
+    description?: boolean
+    title?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type bugsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "description" | "title" | "createdAt" | "updatedAt", ExtArgs["result"]["bugs"]>
+
+  export type $bugsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "bugs"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      description: string
+      title: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["bugs"]>
+    composites: {}
+  }
+
+  type bugsGetPayload<S extends boolean | null | undefined | bugsDefaultArgs> = $Result.GetResult<Prisma.$bugsPayload, S>
+
+  type bugsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<bugsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BugsCountAggregateInputType | true
+    }
+
+  export interface bugsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['bugs'], meta: { name: 'bugs' } }
+    /**
+     * Find zero or one Bugs that matches the filter.
+     * @param {bugsFindUniqueArgs} args - Arguments to find a Bugs
+     * @example
+     * // Get one Bugs
+     * const bugs = await prisma.bugs.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends bugsFindUniqueArgs>(args: SelectSubset<T, bugsFindUniqueArgs<ExtArgs>>): Prisma__bugsClient<$Result.GetResult<Prisma.$bugsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Bugs that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {bugsFindUniqueOrThrowArgs} args - Arguments to find a Bugs
+     * @example
+     * // Get one Bugs
+     * const bugs = await prisma.bugs.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends bugsFindUniqueOrThrowArgs>(args: SelectSubset<T, bugsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__bugsClient<$Result.GetResult<Prisma.$bugsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Bugs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bugsFindFirstArgs} args - Arguments to find a Bugs
+     * @example
+     * // Get one Bugs
+     * const bugs = await prisma.bugs.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends bugsFindFirstArgs>(args?: SelectSubset<T, bugsFindFirstArgs<ExtArgs>>): Prisma__bugsClient<$Result.GetResult<Prisma.$bugsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Bugs that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bugsFindFirstOrThrowArgs} args - Arguments to find a Bugs
+     * @example
+     * // Get one Bugs
+     * const bugs = await prisma.bugs.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends bugsFindFirstOrThrowArgs>(args?: SelectSubset<T, bugsFindFirstOrThrowArgs<ExtArgs>>): Prisma__bugsClient<$Result.GetResult<Prisma.$bugsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Bugs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bugsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Bugs
+     * const bugs = await prisma.bugs.findMany()
+     * 
+     * // Get first 10 Bugs
+     * const bugs = await prisma.bugs.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const bugsWithIdOnly = await prisma.bugs.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends bugsFindManyArgs>(args?: SelectSubset<T, bugsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$bugsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Bugs.
+     * @param {bugsCreateArgs} args - Arguments to create a Bugs.
+     * @example
+     * // Create one Bugs
+     * const Bugs = await prisma.bugs.create({
+     *   data: {
+     *     // ... data to create a Bugs
+     *   }
+     * })
+     * 
+     */
+    create<T extends bugsCreateArgs>(args: SelectSubset<T, bugsCreateArgs<ExtArgs>>): Prisma__bugsClient<$Result.GetResult<Prisma.$bugsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Bugs.
+     * @param {bugsCreateManyArgs} args - Arguments to create many Bugs.
+     * @example
+     * // Create many Bugs
+     * const bugs = await prisma.bugs.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends bugsCreateManyArgs>(args?: SelectSubset<T, bugsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Bugs and returns the data saved in the database.
+     * @param {bugsCreateManyAndReturnArgs} args - Arguments to create many Bugs.
+     * @example
+     * // Create many Bugs
+     * const bugs = await prisma.bugs.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Bugs and only return the `id`
+     * const bugsWithIdOnly = await prisma.bugs.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends bugsCreateManyAndReturnArgs>(args?: SelectSubset<T, bugsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$bugsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Bugs.
+     * @param {bugsDeleteArgs} args - Arguments to delete one Bugs.
+     * @example
+     * // Delete one Bugs
+     * const Bugs = await prisma.bugs.delete({
+     *   where: {
+     *     // ... filter to delete one Bugs
+     *   }
+     * })
+     * 
+     */
+    delete<T extends bugsDeleteArgs>(args: SelectSubset<T, bugsDeleteArgs<ExtArgs>>): Prisma__bugsClient<$Result.GetResult<Prisma.$bugsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Bugs.
+     * @param {bugsUpdateArgs} args - Arguments to update one Bugs.
+     * @example
+     * // Update one Bugs
+     * const bugs = await prisma.bugs.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends bugsUpdateArgs>(args: SelectSubset<T, bugsUpdateArgs<ExtArgs>>): Prisma__bugsClient<$Result.GetResult<Prisma.$bugsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Bugs.
+     * @param {bugsDeleteManyArgs} args - Arguments to filter Bugs to delete.
+     * @example
+     * // Delete a few Bugs
+     * const { count } = await prisma.bugs.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends bugsDeleteManyArgs>(args?: SelectSubset<T, bugsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Bugs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bugsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Bugs
+     * const bugs = await prisma.bugs.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends bugsUpdateManyArgs>(args: SelectSubset<T, bugsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Bugs and returns the data updated in the database.
+     * @param {bugsUpdateManyAndReturnArgs} args - Arguments to update many Bugs.
+     * @example
+     * // Update many Bugs
+     * const bugs = await prisma.bugs.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Bugs and only return the `id`
+     * const bugsWithIdOnly = await prisma.bugs.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends bugsUpdateManyAndReturnArgs>(args: SelectSubset<T, bugsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$bugsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Bugs.
+     * @param {bugsUpsertArgs} args - Arguments to update or create a Bugs.
+     * @example
+     * // Update or create a Bugs
+     * const bugs = await prisma.bugs.upsert({
+     *   create: {
+     *     // ... data to create a Bugs
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Bugs we want to update
+     *   }
+     * })
+     */
+    upsert<T extends bugsUpsertArgs>(args: SelectSubset<T, bugsUpsertArgs<ExtArgs>>): Prisma__bugsClient<$Result.GetResult<Prisma.$bugsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Bugs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bugsCountArgs} args - Arguments to filter Bugs to count.
+     * @example
+     * // Count the number of Bugs
+     * const count = await prisma.bugs.count({
+     *   where: {
+     *     // ... the filter for the Bugs we want to count
+     *   }
+     * })
+    **/
+    count<T extends bugsCountArgs>(
+      args?: Subset<T, bugsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BugsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Bugs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BugsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BugsAggregateArgs>(args: Subset<T, BugsAggregateArgs>): Prisma.PrismaPromise<GetBugsAggregateType<T>>
+
+    /**
+     * Group by Bugs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {bugsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends bugsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: bugsGroupByArgs['orderBy'] }
+        : { orderBy?: bugsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, bugsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBugsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the bugs model
+   */
+  readonly fields: bugsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for bugs.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__bugsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the bugs model
+   */
+  interface bugsFieldRefs {
+    readonly id: FieldRef<"bugs", 'Int'>
+    readonly description: FieldRef<"bugs", 'String'>
+    readonly title: FieldRef<"bugs", 'String'>
+    readonly createdAt: FieldRef<"bugs", 'DateTime'>
+    readonly updatedAt: FieldRef<"bugs", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * bugs findUnique
+   */
+  export type bugsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bugs
+     */
+    select?: bugsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bugs
+     */
+    omit?: bugsOmit<ExtArgs> | null
+    /**
+     * Filter, which bugs to fetch.
+     */
+    where: bugsWhereUniqueInput
+  }
+
+  /**
+   * bugs findUniqueOrThrow
+   */
+  export type bugsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bugs
+     */
+    select?: bugsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bugs
+     */
+    omit?: bugsOmit<ExtArgs> | null
+    /**
+     * Filter, which bugs to fetch.
+     */
+    where: bugsWhereUniqueInput
+  }
+
+  /**
+   * bugs findFirst
+   */
+  export type bugsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bugs
+     */
+    select?: bugsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bugs
+     */
+    omit?: bugsOmit<ExtArgs> | null
+    /**
+     * Filter, which bugs to fetch.
+     */
+    where?: bugsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of bugs to fetch.
+     */
+    orderBy?: bugsOrderByWithRelationInput | bugsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for bugs.
+     */
+    cursor?: bugsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` bugs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` bugs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of bugs.
+     */
+    distinct?: BugsScalarFieldEnum | BugsScalarFieldEnum[]
+  }
+
+  /**
+   * bugs findFirstOrThrow
+   */
+  export type bugsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bugs
+     */
+    select?: bugsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bugs
+     */
+    omit?: bugsOmit<ExtArgs> | null
+    /**
+     * Filter, which bugs to fetch.
+     */
+    where?: bugsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of bugs to fetch.
+     */
+    orderBy?: bugsOrderByWithRelationInput | bugsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for bugs.
+     */
+    cursor?: bugsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` bugs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` bugs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of bugs.
+     */
+    distinct?: BugsScalarFieldEnum | BugsScalarFieldEnum[]
+  }
+
+  /**
+   * bugs findMany
+   */
+  export type bugsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bugs
+     */
+    select?: bugsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bugs
+     */
+    omit?: bugsOmit<ExtArgs> | null
+    /**
+     * Filter, which bugs to fetch.
+     */
+    where?: bugsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of bugs to fetch.
+     */
+    orderBy?: bugsOrderByWithRelationInput | bugsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing bugs.
+     */
+    cursor?: bugsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` bugs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` bugs.
+     */
+    skip?: number
+    distinct?: BugsScalarFieldEnum | BugsScalarFieldEnum[]
+  }
+
+  /**
+   * bugs create
+   */
+  export type bugsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bugs
+     */
+    select?: bugsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bugs
+     */
+    omit?: bugsOmit<ExtArgs> | null
+    /**
+     * The data needed to create a bugs.
+     */
+    data: XOR<bugsCreateInput, bugsUncheckedCreateInput>
+  }
+
+  /**
+   * bugs createMany
+   */
+  export type bugsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many bugs.
+     */
+    data: bugsCreateManyInput | bugsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * bugs createManyAndReturn
+   */
+  export type bugsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bugs
+     */
+    select?: bugsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the bugs
+     */
+    omit?: bugsOmit<ExtArgs> | null
+    /**
+     * The data used to create many bugs.
+     */
+    data: bugsCreateManyInput | bugsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * bugs update
+   */
+  export type bugsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bugs
+     */
+    select?: bugsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bugs
+     */
+    omit?: bugsOmit<ExtArgs> | null
+    /**
+     * The data needed to update a bugs.
+     */
+    data: XOR<bugsUpdateInput, bugsUncheckedUpdateInput>
+    /**
+     * Choose, which bugs to update.
+     */
+    where: bugsWhereUniqueInput
+  }
+
+  /**
+   * bugs updateMany
+   */
+  export type bugsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update bugs.
+     */
+    data: XOR<bugsUpdateManyMutationInput, bugsUncheckedUpdateManyInput>
+    /**
+     * Filter which bugs to update
+     */
+    where?: bugsWhereInput
+    /**
+     * Limit how many bugs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * bugs updateManyAndReturn
+   */
+  export type bugsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bugs
+     */
+    select?: bugsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the bugs
+     */
+    omit?: bugsOmit<ExtArgs> | null
+    /**
+     * The data used to update bugs.
+     */
+    data: XOR<bugsUpdateManyMutationInput, bugsUncheckedUpdateManyInput>
+    /**
+     * Filter which bugs to update
+     */
+    where?: bugsWhereInput
+    /**
+     * Limit how many bugs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * bugs upsert
+   */
+  export type bugsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bugs
+     */
+    select?: bugsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bugs
+     */
+    omit?: bugsOmit<ExtArgs> | null
+    /**
+     * The filter to search for the bugs to update in case it exists.
+     */
+    where: bugsWhereUniqueInput
+    /**
+     * In case the bugs found by the `where` argument doesn't exist, create a new bugs with this data.
+     */
+    create: XOR<bugsCreateInput, bugsUncheckedCreateInput>
+    /**
+     * In case the bugs was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<bugsUpdateInput, bugsUncheckedUpdateInput>
+  }
+
+  /**
+   * bugs delete
+   */
+  export type bugsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bugs
+     */
+    select?: bugsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bugs
+     */
+    omit?: bugsOmit<ExtArgs> | null
+    /**
+     * Filter which bugs to delete.
+     */
+    where: bugsWhereUniqueInput
+  }
+
+  /**
+   * bugs deleteMany
+   */
+  export type bugsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which bugs to delete
+     */
+    where?: bugsWhereInput
+    /**
+     * Limit how many bugs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * bugs without action
+   */
+  export type bugsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the bugs
+     */
+    select?: bugsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the bugs
+     */
+    omit?: bugsOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model improves
+   */
+
+  export type AggregateImproves = {
+    _count: ImprovesCountAggregateOutputType | null
+    _avg: ImprovesAvgAggregateOutputType | null
+    _sum: ImprovesSumAggregateOutputType | null
+    _min: ImprovesMinAggregateOutputType | null
+    _max: ImprovesMaxAggregateOutputType | null
+  }
+
+  export type ImprovesAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type ImprovesSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type ImprovesMinAggregateOutputType = {
+    id: number | null
+    description: string | null
+    title: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ImprovesMaxAggregateOutputType = {
+    id: number | null
+    description: string | null
+    title: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ImprovesCountAggregateOutputType = {
+    id: number
+    description: number
+    title: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ImprovesAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type ImprovesSumAggregateInputType = {
+    id?: true
+  }
+
+  export type ImprovesMinAggregateInputType = {
+    id?: true
+    description?: true
+    title?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ImprovesMaxAggregateInputType = {
+    id?: true
+    description?: true
+    title?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ImprovesCountAggregateInputType = {
+    id?: true
+    description?: true
+    title?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ImprovesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which improves to aggregate.
+     */
+    where?: improvesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of improves to fetch.
+     */
+    orderBy?: improvesOrderByWithRelationInput | improvesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: improvesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` improves from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` improves.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned improves
+    **/
+    _count?: true | ImprovesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ImprovesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ImprovesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ImprovesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ImprovesMaxAggregateInputType
+  }
+
+  export type GetImprovesAggregateType<T extends ImprovesAggregateArgs> = {
+        [P in keyof T & keyof AggregateImproves]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateImproves[P]>
+      : GetScalarType<T[P], AggregateImproves[P]>
+  }
+
+
+
+
+  export type improvesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: improvesWhereInput
+    orderBy?: improvesOrderByWithAggregationInput | improvesOrderByWithAggregationInput[]
+    by: ImprovesScalarFieldEnum[] | ImprovesScalarFieldEnum
+    having?: improvesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ImprovesCountAggregateInputType | true
+    _avg?: ImprovesAvgAggregateInputType
+    _sum?: ImprovesSumAggregateInputType
+    _min?: ImprovesMinAggregateInputType
+    _max?: ImprovesMaxAggregateInputType
+  }
+
+  export type ImprovesGroupByOutputType = {
+    id: number
+    description: string
+    title: string
+    createdAt: Date
+    updatedAt: Date
+    _count: ImprovesCountAggregateOutputType | null
+    _avg: ImprovesAvgAggregateOutputType | null
+    _sum: ImprovesSumAggregateOutputType | null
+    _min: ImprovesMinAggregateOutputType | null
+    _max: ImprovesMaxAggregateOutputType | null
+  }
+
+  type GetImprovesGroupByPayload<T extends improvesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ImprovesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ImprovesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ImprovesGroupByOutputType[P]>
+            : GetScalarType<T[P], ImprovesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type improvesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    description?: boolean
+    title?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["improves"]>
+
+  export type improvesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    description?: boolean
+    title?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["improves"]>
+
+  export type improvesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    description?: boolean
+    title?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["improves"]>
+
+  export type improvesSelectScalar = {
+    id?: boolean
+    description?: boolean
+    title?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type improvesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "description" | "title" | "createdAt" | "updatedAt", ExtArgs["result"]["improves"]>
+
+  export type $improvesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "improves"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      description: string
+      title: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["improves"]>
+    composites: {}
+  }
+
+  type improvesGetPayload<S extends boolean | null | undefined | improvesDefaultArgs> = $Result.GetResult<Prisma.$improvesPayload, S>
+
+  type improvesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<improvesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ImprovesCountAggregateInputType | true
+    }
+
+  export interface improvesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['improves'], meta: { name: 'improves' } }
+    /**
+     * Find zero or one Improves that matches the filter.
+     * @param {improvesFindUniqueArgs} args - Arguments to find a Improves
+     * @example
+     * // Get one Improves
+     * const improves = await prisma.improves.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends improvesFindUniqueArgs>(args: SelectSubset<T, improvesFindUniqueArgs<ExtArgs>>): Prisma__improvesClient<$Result.GetResult<Prisma.$improvesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Improves that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {improvesFindUniqueOrThrowArgs} args - Arguments to find a Improves
+     * @example
+     * // Get one Improves
+     * const improves = await prisma.improves.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends improvesFindUniqueOrThrowArgs>(args: SelectSubset<T, improvesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__improvesClient<$Result.GetResult<Prisma.$improvesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Improves that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {improvesFindFirstArgs} args - Arguments to find a Improves
+     * @example
+     * // Get one Improves
+     * const improves = await prisma.improves.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends improvesFindFirstArgs>(args?: SelectSubset<T, improvesFindFirstArgs<ExtArgs>>): Prisma__improvesClient<$Result.GetResult<Prisma.$improvesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Improves that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {improvesFindFirstOrThrowArgs} args - Arguments to find a Improves
+     * @example
+     * // Get one Improves
+     * const improves = await prisma.improves.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends improvesFindFirstOrThrowArgs>(args?: SelectSubset<T, improvesFindFirstOrThrowArgs<ExtArgs>>): Prisma__improvesClient<$Result.GetResult<Prisma.$improvesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Improves that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {improvesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Improves
+     * const improves = await prisma.improves.findMany()
+     * 
+     * // Get first 10 Improves
+     * const improves = await prisma.improves.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const improvesWithIdOnly = await prisma.improves.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends improvesFindManyArgs>(args?: SelectSubset<T, improvesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$improvesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Improves.
+     * @param {improvesCreateArgs} args - Arguments to create a Improves.
+     * @example
+     * // Create one Improves
+     * const Improves = await prisma.improves.create({
+     *   data: {
+     *     // ... data to create a Improves
+     *   }
+     * })
+     * 
+     */
+    create<T extends improvesCreateArgs>(args: SelectSubset<T, improvesCreateArgs<ExtArgs>>): Prisma__improvesClient<$Result.GetResult<Prisma.$improvesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Improves.
+     * @param {improvesCreateManyArgs} args - Arguments to create many Improves.
+     * @example
+     * // Create many Improves
+     * const improves = await prisma.improves.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends improvesCreateManyArgs>(args?: SelectSubset<T, improvesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Improves and returns the data saved in the database.
+     * @param {improvesCreateManyAndReturnArgs} args - Arguments to create many Improves.
+     * @example
+     * // Create many Improves
+     * const improves = await prisma.improves.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Improves and only return the `id`
+     * const improvesWithIdOnly = await prisma.improves.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends improvesCreateManyAndReturnArgs>(args?: SelectSubset<T, improvesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$improvesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Improves.
+     * @param {improvesDeleteArgs} args - Arguments to delete one Improves.
+     * @example
+     * // Delete one Improves
+     * const Improves = await prisma.improves.delete({
+     *   where: {
+     *     // ... filter to delete one Improves
+     *   }
+     * })
+     * 
+     */
+    delete<T extends improvesDeleteArgs>(args: SelectSubset<T, improvesDeleteArgs<ExtArgs>>): Prisma__improvesClient<$Result.GetResult<Prisma.$improvesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Improves.
+     * @param {improvesUpdateArgs} args - Arguments to update one Improves.
+     * @example
+     * // Update one Improves
+     * const improves = await prisma.improves.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends improvesUpdateArgs>(args: SelectSubset<T, improvesUpdateArgs<ExtArgs>>): Prisma__improvesClient<$Result.GetResult<Prisma.$improvesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Improves.
+     * @param {improvesDeleteManyArgs} args - Arguments to filter Improves to delete.
+     * @example
+     * // Delete a few Improves
+     * const { count } = await prisma.improves.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends improvesDeleteManyArgs>(args?: SelectSubset<T, improvesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Improves.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {improvesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Improves
+     * const improves = await prisma.improves.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends improvesUpdateManyArgs>(args: SelectSubset<T, improvesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Improves and returns the data updated in the database.
+     * @param {improvesUpdateManyAndReturnArgs} args - Arguments to update many Improves.
+     * @example
+     * // Update many Improves
+     * const improves = await prisma.improves.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Improves and only return the `id`
+     * const improvesWithIdOnly = await prisma.improves.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends improvesUpdateManyAndReturnArgs>(args: SelectSubset<T, improvesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$improvesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Improves.
+     * @param {improvesUpsertArgs} args - Arguments to update or create a Improves.
+     * @example
+     * // Update or create a Improves
+     * const improves = await prisma.improves.upsert({
+     *   create: {
+     *     // ... data to create a Improves
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Improves we want to update
+     *   }
+     * })
+     */
+    upsert<T extends improvesUpsertArgs>(args: SelectSubset<T, improvesUpsertArgs<ExtArgs>>): Prisma__improvesClient<$Result.GetResult<Prisma.$improvesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Improves.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {improvesCountArgs} args - Arguments to filter Improves to count.
+     * @example
+     * // Count the number of Improves
+     * const count = await prisma.improves.count({
+     *   where: {
+     *     // ... the filter for the Improves we want to count
+     *   }
+     * })
+    **/
+    count<T extends improvesCountArgs>(
+      args?: Subset<T, improvesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ImprovesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Improves.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ImprovesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ImprovesAggregateArgs>(args: Subset<T, ImprovesAggregateArgs>): Prisma.PrismaPromise<GetImprovesAggregateType<T>>
+
+    /**
+     * Group by Improves.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {improvesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends improvesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: improvesGroupByArgs['orderBy'] }
+        : { orderBy?: improvesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, improvesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetImprovesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the improves model
+   */
+  readonly fields: improvesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for improves.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__improvesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the improves model
+   */
+  interface improvesFieldRefs {
+    readonly id: FieldRef<"improves", 'Int'>
+    readonly description: FieldRef<"improves", 'String'>
+    readonly title: FieldRef<"improves", 'String'>
+    readonly createdAt: FieldRef<"improves", 'DateTime'>
+    readonly updatedAt: FieldRef<"improves", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * improves findUnique
+   */
+  export type improvesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the improves
+     */
+    select?: improvesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the improves
+     */
+    omit?: improvesOmit<ExtArgs> | null
+    /**
+     * Filter, which improves to fetch.
+     */
+    where: improvesWhereUniqueInput
+  }
+
+  /**
+   * improves findUniqueOrThrow
+   */
+  export type improvesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the improves
+     */
+    select?: improvesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the improves
+     */
+    omit?: improvesOmit<ExtArgs> | null
+    /**
+     * Filter, which improves to fetch.
+     */
+    where: improvesWhereUniqueInput
+  }
+
+  /**
+   * improves findFirst
+   */
+  export type improvesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the improves
+     */
+    select?: improvesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the improves
+     */
+    omit?: improvesOmit<ExtArgs> | null
+    /**
+     * Filter, which improves to fetch.
+     */
+    where?: improvesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of improves to fetch.
+     */
+    orderBy?: improvesOrderByWithRelationInput | improvesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for improves.
+     */
+    cursor?: improvesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` improves from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` improves.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of improves.
+     */
+    distinct?: ImprovesScalarFieldEnum | ImprovesScalarFieldEnum[]
+  }
+
+  /**
+   * improves findFirstOrThrow
+   */
+  export type improvesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the improves
+     */
+    select?: improvesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the improves
+     */
+    omit?: improvesOmit<ExtArgs> | null
+    /**
+     * Filter, which improves to fetch.
+     */
+    where?: improvesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of improves to fetch.
+     */
+    orderBy?: improvesOrderByWithRelationInput | improvesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for improves.
+     */
+    cursor?: improvesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` improves from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` improves.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of improves.
+     */
+    distinct?: ImprovesScalarFieldEnum | ImprovesScalarFieldEnum[]
+  }
+
+  /**
+   * improves findMany
+   */
+  export type improvesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the improves
+     */
+    select?: improvesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the improves
+     */
+    omit?: improvesOmit<ExtArgs> | null
+    /**
+     * Filter, which improves to fetch.
+     */
+    where?: improvesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of improves to fetch.
+     */
+    orderBy?: improvesOrderByWithRelationInput | improvesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing improves.
+     */
+    cursor?: improvesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` improves from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` improves.
+     */
+    skip?: number
+    distinct?: ImprovesScalarFieldEnum | ImprovesScalarFieldEnum[]
+  }
+
+  /**
+   * improves create
+   */
+  export type improvesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the improves
+     */
+    select?: improvesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the improves
+     */
+    omit?: improvesOmit<ExtArgs> | null
+    /**
+     * The data needed to create a improves.
+     */
+    data: XOR<improvesCreateInput, improvesUncheckedCreateInput>
+  }
+
+  /**
+   * improves createMany
+   */
+  export type improvesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many improves.
+     */
+    data: improvesCreateManyInput | improvesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * improves createManyAndReturn
+   */
+  export type improvesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the improves
+     */
+    select?: improvesSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the improves
+     */
+    omit?: improvesOmit<ExtArgs> | null
+    /**
+     * The data used to create many improves.
+     */
+    data: improvesCreateManyInput | improvesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * improves update
+   */
+  export type improvesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the improves
+     */
+    select?: improvesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the improves
+     */
+    omit?: improvesOmit<ExtArgs> | null
+    /**
+     * The data needed to update a improves.
+     */
+    data: XOR<improvesUpdateInput, improvesUncheckedUpdateInput>
+    /**
+     * Choose, which improves to update.
+     */
+    where: improvesWhereUniqueInput
+  }
+
+  /**
+   * improves updateMany
+   */
+  export type improvesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update improves.
+     */
+    data: XOR<improvesUpdateManyMutationInput, improvesUncheckedUpdateManyInput>
+    /**
+     * Filter which improves to update
+     */
+    where?: improvesWhereInput
+    /**
+     * Limit how many improves to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * improves updateManyAndReturn
+   */
+  export type improvesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the improves
+     */
+    select?: improvesSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the improves
+     */
+    omit?: improvesOmit<ExtArgs> | null
+    /**
+     * The data used to update improves.
+     */
+    data: XOR<improvesUpdateManyMutationInput, improvesUncheckedUpdateManyInput>
+    /**
+     * Filter which improves to update
+     */
+    where?: improvesWhereInput
+    /**
+     * Limit how many improves to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * improves upsert
+   */
+  export type improvesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the improves
+     */
+    select?: improvesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the improves
+     */
+    omit?: improvesOmit<ExtArgs> | null
+    /**
+     * The filter to search for the improves to update in case it exists.
+     */
+    where: improvesWhereUniqueInput
+    /**
+     * In case the improves found by the `where` argument doesn't exist, create a new improves with this data.
+     */
+    create: XOR<improvesCreateInput, improvesUncheckedCreateInput>
+    /**
+     * In case the improves was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<improvesUpdateInput, improvesUncheckedUpdateInput>
+  }
+
+  /**
+   * improves delete
+   */
+  export type improvesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the improves
+     */
+    select?: improvesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the improves
+     */
+    omit?: improvesOmit<ExtArgs> | null
+    /**
+     * Filter which improves to delete.
+     */
+    where: improvesWhereUniqueInput
+  }
+
+  /**
+   * improves deleteMany
+   */
+  export type improvesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which improves to delete
+     */
+    where?: improvesWhereInput
+    /**
+     * Limit how many improves to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * improves without action
+   */
+  export type improvesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the improves
+     */
+    select?: improvesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the improves
+     */
+    omit?: improvesOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Model sheets
    */
 
@@ -12029,6 +14269,28 @@ export namespace Prisma {
   export type AdvantagesScalarFieldEnum = (typeof AdvantagesScalarFieldEnum)[keyof typeof AdvantagesScalarFieldEnum]
 
 
+  export const BugsScalarFieldEnum: {
+    id: 'id',
+    description: 'description',
+    title: 'title',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type BugsScalarFieldEnum = (typeof BugsScalarFieldEnum)[keyof typeof BugsScalarFieldEnum]
+
+
+  export const ImprovesScalarFieldEnum: {
+    id: 'id',
+    description: 'description',
+    title: 'title',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ImprovesScalarFieldEnum = (typeof ImprovesScalarFieldEnum)[keyof typeof ImprovesScalarFieldEnum]
+
+
   export const SheetsScalarFieldEnum: {
     id: 'id',
     user_id: 'user_id',
@@ -12709,6 +14971,114 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"advantages"> | Date | string
   }
 
+  export type bugsWhereInput = {
+    AND?: bugsWhereInput | bugsWhereInput[]
+    OR?: bugsWhereInput[]
+    NOT?: bugsWhereInput | bugsWhereInput[]
+    id?: IntFilter<"bugs"> | number
+    description?: StringFilter<"bugs"> | string
+    title?: StringFilter<"bugs"> | string
+    createdAt?: DateTimeFilter<"bugs"> | Date | string
+    updatedAt?: DateTimeFilter<"bugs"> | Date | string
+  }
+
+  export type bugsOrderByWithRelationInput = {
+    id?: SortOrder
+    description?: SortOrder
+    title?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type bugsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: bugsWhereInput | bugsWhereInput[]
+    OR?: bugsWhereInput[]
+    NOT?: bugsWhereInput | bugsWhereInput[]
+    description?: StringFilter<"bugs"> | string
+    title?: StringFilter<"bugs"> | string
+    createdAt?: DateTimeFilter<"bugs"> | Date | string
+    updatedAt?: DateTimeFilter<"bugs"> | Date | string
+  }, "id">
+
+  export type bugsOrderByWithAggregationInput = {
+    id?: SortOrder
+    description?: SortOrder
+    title?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: bugsCountOrderByAggregateInput
+    _avg?: bugsAvgOrderByAggregateInput
+    _max?: bugsMaxOrderByAggregateInput
+    _min?: bugsMinOrderByAggregateInput
+    _sum?: bugsSumOrderByAggregateInput
+  }
+
+  export type bugsScalarWhereWithAggregatesInput = {
+    AND?: bugsScalarWhereWithAggregatesInput | bugsScalarWhereWithAggregatesInput[]
+    OR?: bugsScalarWhereWithAggregatesInput[]
+    NOT?: bugsScalarWhereWithAggregatesInput | bugsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"bugs"> | number
+    description?: StringWithAggregatesFilter<"bugs"> | string
+    title?: StringWithAggregatesFilter<"bugs"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"bugs"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"bugs"> | Date | string
+  }
+
+  export type improvesWhereInput = {
+    AND?: improvesWhereInput | improvesWhereInput[]
+    OR?: improvesWhereInput[]
+    NOT?: improvesWhereInput | improvesWhereInput[]
+    id?: IntFilter<"improves"> | number
+    description?: StringFilter<"improves"> | string
+    title?: StringFilter<"improves"> | string
+    createdAt?: DateTimeFilter<"improves"> | Date | string
+    updatedAt?: DateTimeFilter<"improves"> | Date | string
+  }
+
+  export type improvesOrderByWithRelationInput = {
+    id?: SortOrder
+    description?: SortOrder
+    title?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type improvesWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: improvesWhereInput | improvesWhereInput[]
+    OR?: improvesWhereInput[]
+    NOT?: improvesWhereInput | improvesWhereInput[]
+    description?: StringFilter<"improves"> | string
+    title?: StringFilter<"improves"> | string
+    createdAt?: DateTimeFilter<"improves"> | Date | string
+    updatedAt?: DateTimeFilter<"improves"> | Date | string
+  }, "id">
+
+  export type improvesOrderByWithAggregationInput = {
+    id?: SortOrder
+    description?: SortOrder
+    title?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: improvesCountOrderByAggregateInput
+    _avg?: improvesAvgOrderByAggregateInput
+    _max?: improvesMaxOrderByAggregateInput
+    _min?: improvesMinOrderByAggregateInput
+    _sum?: improvesSumOrderByAggregateInput
+  }
+
+  export type improvesScalarWhereWithAggregatesInput = {
+    AND?: improvesScalarWhereWithAggregatesInput | improvesScalarWhereWithAggregatesInput[]
+    OR?: improvesScalarWhereWithAggregatesInput[]
+    NOT?: improvesScalarWhereWithAggregatesInput | improvesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"improves"> | number
+    description?: StringWithAggregatesFilter<"improves"> | string
+    title?: StringWithAggregatesFilter<"improves"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"improves"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"improves"> | Date | string
+  }
+
   export type sheetsWhereInput = {
     AND?: sheetsWhereInput | sheetsWhereInput[]
     OR?: sheetsWhereInput[]
@@ -13324,6 +15694,112 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type bugsCreateInput = {
+    description: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type bugsUncheckedCreateInput = {
+    id?: number
+    description: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type bugsUpdateInput = {
+    description?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type bugsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type bugsCreateManyInput = {
+    id?: number
+    description: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type bugsUpdateManyMutationInput = {
+    description?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type bugsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type improvesCreateInput = {
+    description: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type improvesUncheckedCreateInput = {
+    id?: number
+    description: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type improvesUpdateInput = {
+    description?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type improvesUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type improvesCreateManyInput = {
+    id?: number
+    description: string
+    title: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type improvesUpdateManyMutationInput = {
+    description?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type improvesUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type sheetsCreateInput = {
     data: JsonNullValueInput | InputJsonValue
     createdAt?: Date | string
@@ -13892,6 +16368,70 @@ export namespace Prisma {
   }
 
   export type advantagesSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type bugsCountOrderByAggregateInput = {
+    id?: SortOrder
+    description?: SortOrder
+    title?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type bugsAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type bugsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    description?: SortOrder
+    title?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type bugsMinOrderByAggregateInput = {
+    id?: SortOrder
+    description?: SortOrder
+    title?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type bugsSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type improvesCountOrderByAggregateInput = {
+    id?: SortOrder
+    description?: SortOrder
+    title?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type improvesAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type improvesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    description?: SortOrder
+    title?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type improvesMinOrderByAggregateInput = {
+    id?: SortOrder
+    description?: SortOrder
+    title?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type improvesSumOrderByAggregateInput = {
     id?: SortOrder
   }
   export type JsonFilter<$PrismaModel = never> =

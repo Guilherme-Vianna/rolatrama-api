@@ -197,6 +197,22 @@ exports.Prisma.AdvantagesScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.BugsScalarFieldEnum = {
+  id: 'id',
+  description: 'description',
+  title: 'title',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ImprovesScalarFieldEnum = {
+  id: 'id',
+  description: 'description',
+  title: 'title',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SheetsScalarFieldEnum = {
   id: 'id',
   user_id: 'user_id',
@@ -240,6 +256,8 @@ exports.Prisma.ModelName = {
   games: 'games',
   users_games_claims: 'users_games_claims',
   advantages: 'advantages',
+  bugs: 'bugs',
+  improves: 'improves',
   sheets: 'sheets'
 };
 

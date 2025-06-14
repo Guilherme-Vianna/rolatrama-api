@@ -8,6 +8,8 @@ import { NpcsService } from './npcs/npcs.service';
 import { QueueModule } from './queue/queue.module';
 import { SheetModule } from './sheet/sheet.module';
 import { GamesModule } from './games/games.module';
+import { BugModule } from './bugs/bug.module';
+import { ImproveModule } from './improves/improves.module';
 
 @Module({
   imports: [
@@ -16,6 +18,8 @@ import { GamesModule } from './games/games.module';
     QueueModule,
     AuthModule,
     AiModule,
+    BugModule,
+    ImproveModule,
     SheetModule,
     GamesModule
   ],
